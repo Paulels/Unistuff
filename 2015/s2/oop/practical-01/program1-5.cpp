@@ -12,7 +12,8 @@ int count_even(int number){
 				if((i%2)==0){
 					total=total+1;
 				}
-			}	
+			}
+			return total;
 		}
 	else {
 			for(i=1;i<=number;i++){
@@ -20,15 +21,15 @@ int count_even(int number){
 					total=total+1;
 				}
 			}
-	}
 		return total;
+	}
+
 
 }
 
 #ifndef WEBSUBMIT
 int main(){
-	//count_even(12);
-	std::cout << count_even(9) << std::endl;
+	count_even(12);
 
 }
 #endif //WEBSUBMIT
