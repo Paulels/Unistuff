@@ -18,7 +18,9 @@ int count_even(int number){
 			for(i=1;i<=number;i++){
 				if((i%2)==0){
 					total=total+1;
-		}
+				}
+			}
+	}
 		return total;
 
 }
