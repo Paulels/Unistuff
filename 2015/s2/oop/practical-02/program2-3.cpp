@@ -38,7 +38,7 @@ sum=sum+array[z];
 return sum;
 }
 
-int sum_if_palindrome(int array[],int n){
+int sum_if_a_palindrome(int array[],int n){
 int g=is_a_palindrome(array,n);
 if(n<=0){
 return -1;
@@ -54,7 +54,7 @@ return -2;
 #ifndef WEBSUBMIT
 int main(){
 	int array[5]={1,2,3,2,1};
-std::cout << sum_if_palindrome(array,5) << std::endl;
+std::cout << sum_if_a_palindrome(array,5) << std::endl;
 
 }
 #endif //WEBSUBMIT
