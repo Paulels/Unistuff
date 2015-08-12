@@ -11,6 +11,7 @@ int printer(int array[10][10]){
 		}
 	cout << "\n";
 	}
+	cout << "\n";
 return 0;
 }
 
