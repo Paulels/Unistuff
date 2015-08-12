@@ -11,7 +11,7 @@ void printer(int array[10][10]){
 			cout << array[j][i];
 			}
 			else{
-			cout << array[j][i];
+			cout << array[j][i] << " ";
 			}
 		}
 	cout << "\n";
