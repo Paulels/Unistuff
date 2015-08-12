@@ -2,7 +2,7 @@
 #include <math.h>
 using namespace std;
 
-int printer(int array[10][10]){
+void printer(int array[10][10]){
 	int i=0;
 	int j=0;
 	for(j=0;j<10;j++){
@@ -12,12 +12,12 @@ int printer(int array[10][10]){
 	cout << "\n";
 	}
 	cout << "\n";
-return 0;
+return;
 }
 
 #ifndef WEBSUBMIT
 int main(){
 	int A[10][10]={{1,2,0,0,0,0,0,0,0,0},{0,1,0,0,0,0,0,0,0,0},{0,0,1,0,0,0,0,0,0,0},{0,0,0,1,0,0,0,0,0,0},{0,0,0,0,1,0,0,0,0,0},{0,5,0,0,0,1,0,0,0,0},{0,0,0,0,0,0,1,2,0,0},{0,0,0,0,0,0,0,1,0,0},{0,2,0,0,0,0,0,0,1,0},{0,0,0,0,0,0,0,0,0,1}};
-	std::cout << printer(A) <<std::endl;
+	printer(A);
 }
 #endif //WEBSUBMIT
