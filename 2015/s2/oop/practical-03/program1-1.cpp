@@ -7,11 +7,15 @@ void printer(int array[10][10]){
 	int j=0;
 	for(j=0;j<10;j++){
 		for(i=0;i<10;i++){
-			cout << array[j][i] << " ";
+			if(i==9){
+			cout << array[j][i];
+			}
+			else{
+			cout << array[j][i];
+			}
 		}
 	cout << "\n";
 	}
-	cout << "\n";
 return;
 }
 
