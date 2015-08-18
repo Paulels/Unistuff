@@ -12,7 +12,7 @@ void cpyia(int old_array[], int new_array[], int length){
 		p++; //incrementing the porition in memeory the pointers are pointing to
 		ptr++;
 	}
-	int *ap=new_array;  //initialising ap to the first element of the new array
+	/*int *ap=new_array;  //initialising ap to the first element of the new array
 	for(j=0;j<length;j++){  //printing the array nicely
 		if(j!=length){
 			cout << *ap << " ";  //derefrencing ap to print the value at that memory location
@@ -20,10 +20,9 @@ void cpyia(int old_array[], int new_array[], int length){
 		else{
 			cout << *ap;
 		}
-cout << new_array[j];
 	ap++;  //incrementing the porition in memeory ap is pointing to
 	}
-	cout << "\n";
+	cout << "\n";*/
 	return;
 }
 
