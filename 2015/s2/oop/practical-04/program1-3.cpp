@@ -15,11 +15,12 @@ void cpyia(int old_array[], int new_array[], int length){
 	int *ap=new_array;  //initialising ap to the first element of the new array
 	for(j=0;j<length;j++){  //printing the array nicely
 		if(j!=length){
-			std::cout << *ap;  //derefrencing ap to print the value at that memory location
+			cout << *ap << " ";  //derefrencing ap to print the value at that memory location
 		}
 		else{
-			std::cout << *ap;
+			cout << *ap;
 		}
+cout << new_array[j];
 	ap++;  //incrementing the porition in memeory ap is pointing to
 	}
 	cout << "\n";
@@ -28,8 +29,8 @@ void cpyia(int old_array[], int new_array[], int length){
 
 #ifndef WEBSUBMIT
 int main(){
-	int A[4]={1,3,5,9}; //initialised a 2 dimensional array
-	int B[4]; //defining the array to copy A into
-	cpyia(A,B,4);
+	int A[5]={1,4,9,-714,12}; //initialised a 2 dimensional array
+	int B[5]; //defining the array to copy A into
+	cpyia(A,B,5);
 }
 #endif //WEBSUBMIT
