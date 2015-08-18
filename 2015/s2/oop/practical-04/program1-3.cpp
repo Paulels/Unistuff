@@ -15,7 +15,7 @@ void cpyia(int old_array[], int new_array[], int length){
 	int *ap=new_array;  //initialising ap to the first element of the new array
 	for(j=0;j<length;j++){  //printing the array nicely
 		if(j!=length){
-			std::cout << *ap << " ";  //derefrencing ap to print the value at that memory location
+			std::cout << *ap;  //derefrencing ap to print the value at that memory location
 		}
 		else{
 			std::cout << *ap;
