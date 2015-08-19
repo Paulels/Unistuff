@@ -1,11 +1,12 @@
 #include <iostream>
 #include <math.h>
+#include <string>
 using namespace std;
 
 #ifndef WEBSUBMIT
 int main(){
-	int A[2][2]={{1,3},{5,9}}; //initialised a 2 dimensional array
-	int B[2][2]; //defining the array to copy A into
+	string A[2][2]={{"1","3"},{"5","9"}}; //initialised a 2 dimensional array
+	string B[2][2]; //defining the array to copy A into
 	int i=0;
 	int j=0;
 	for(i=0;i<2;i++){ //running a for loop to copy the elements
@@ -26,6 +27,6 @@ int main(){
 		}
 		cout << "\n";
 	}
-	return 0;
+return 0;
 }
 #endif //WEBSUBMIT
