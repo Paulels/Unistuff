@@ -29,7 +29,7 @@ int maximum_sum(int *nums, int length){
 #ifndef WEBSUBMIT
 int main(){
 
-	int A[10]={31,-41,59,26,-53,58,97,-93,-23,84}; //initialised an array
+	int A[10]={31,-41,59,26,-53,58,97,-330,780,-700}; //initialised an array
 	int *a=A; //initialised a pointer to the array A
 	cout << maximum_sum(a,10) << endl;
 }
