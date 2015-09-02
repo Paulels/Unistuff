@@ -17,7 +17,7 @@ void cpyia(int old_array[], int new_array[], int length){
 		ptr++;
 	}
 
-	/* The following code can be used to print out the array to check if the answer is correct
+	// The following code can be used to print out the array to check if the answer is correct
 
 	int *ap=new_array;  initialising ap to the first element of the new array
 	for(j=0;j<length;j++){  printing the array nicely
@@ -29,7 +29,7 @@ void cpyia(int old_array[], int new_array[], int length){
 		}
 	ap++;  incrementing the porition in memeory ap is pointing to
 	}
-	cout << "\n";*/
+	cout << "\n";
 
 	return;
 }
