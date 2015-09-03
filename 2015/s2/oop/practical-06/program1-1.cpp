@@ -16,20 +16,20 @@ public:
 	~meerkat();
 };
 
-string meerkat::getName(){
-return mname;
-}
-
-int meerkat::getAge(){
-return mage;
-}
-
 void meerkat::setName(string meerName){
 mname=meerName;
 }
 
 void meerkat::setAge(int meerAge){
 mage=meerAge;
+}
+
+string meerkat::getName(){
+return mname;
+}
+
+int meerkat::getAge(){
+return mage;
 }
 
 meerkat::meerkat(string meerName, int meerAge){
@@ -47,10 +47,10 @@ meerkat *Bill=new meerkat("Bill", 12);
 meerkat *Bob=new meerkat("Bob", 1);
 meerkat *Jill=new meerkat("Jill", 5);
 meerkat *Jane=new meerkat("Jane", 8);
-cout << Bill->mname << Bill->mage << endl;
-cout << Bob->mname << Bob->mage << endl;
-cout << Jill->mname << Jill->mage << endl;
-cout << Jane->mname << Jane->mage << endl;
+cout << Bill->mname << " " << Bill->mage << endl;
+cout << Bob->mname << " " << Bob->mage << endl;
+cout << Jill->mname << " " << Jill->mage << endl;
+cout << Jane->mname << " " << Jane->mage << endl;
 
 return 0;
 }
