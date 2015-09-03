@@ -4,75 +4,80 @@
 #include <cstdlib>
 using namespace std;
 
-int count=0;
+class meerkat{  //copied meerkat class from program1-1 but removed the age part as it was not necessary for this
 
-class meerkat{
 public:
+
 	meerkat(string meerName);
+
 	string mname;
+
 	string getName();
 	void setName(string meerName);
-	~meerkat();
 };
 
 void meerkat::setName(string meerName){
-mname=meerName;
+
+	mname=meerName;
 }
 
 string meerkat::getName(){
-return mname;
+
+	return mname;
 }
 
 meerkat::meerkat(string meerName){
-setName(meerName);
-getName();
+
+	setName(meerName);
+	getName();
 
 }
 
-class cart{
+class cart{ //created my cart to hold my meerkats
+
 public:
-	cart(meerkat vec[4]);
-
-	meerkat vector[4];
-
-	void add(meerkat a);
-
-~cart();
+   
+    cart(meerkat* v1[],int length);  //constructors
+   
+    meerkat* v2[];  //states
+   
+    void add(int num,meerkat* vec[]);  //behaviours
 };
 
-void cart::add(meerkat a){
-if(count<4){
-	vector[count]=a;
-cout << vector[count].mname << " has been added to the cart." << endl;
-}
-else if(count>3){
-cout << a.mname << " will be walking since the cart is full." << endl;
-}
-count ++;
-}
-
-cart::cart(meerkat vec[4]){
-int count=0;
-int i=0;
-for(i=0;i<4;i++){
-add(vec[i]);
-}
+void cart::add(int n,meerkat* vec[]){
+       
+	v2[n]=vec[n];  //adding the meerkat to the cart
+    if (n<4){
+        cout << vec[n]->mname << " has been placed in the cart!" << endl;
+    }
+    else if (n>=4){  //checking if the cart if full
+        cout << vec[n]->mname << " will need to walk since the cart is full!" << endl;
+    }
 }
 
+cart::cart(meerkat* v1[],int length){
+
+    int l=length;  //knowing how many meerkats to take
+   
+    for (int i=0;i<l;i++){
+        add(i,v1); //running the add function
+    }
+}
 
 #ifndef WEBSUBMIT
-int main(){   
+int main(){
 
-//meerkat *Bill=new meerkat("Bill");
-//meerkat *Bob=new meerkat("Bob");
-//meerkat *Jill=new meerkat("Jill");
-//meerkat *Jane=new meerkat("Jane");
-meerkat Bill("Bill");
-meerkat Bob("Bob");
-meerkat Jill("Jill");
-meerkat Jane("Jane");
-meerkat vec[4]={Bill,Bob,Jill,Jane};
-cart Cart1(vec[4]);
+	meerkat Bill("Bill");  //initialising the meerkats
+	meerkat Jane("Jane");
+	meerkat Bob("Bob");
+	meerkat Jill("Jill");
+	meerkat Rob("Rob");
+
+    meerkat* vec1[5]={&Bill,&Jane,&Bob,&Jill,&Rob};  //creating a vector of pointers to meerkats
+
+    cart Cart1(vec1,5); //creating our cart
+
+   
 return 0;
 }
 #endif //WEBSUBMIT
