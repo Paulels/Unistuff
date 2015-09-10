@@ -1,15 +1,16 @@
 #include <iostream>
 #include <string>
-#include "wolf.cpp"
-#include "dragon.cpp"
+#include "Animal.h"
+#include "Wolf.h
+#include "Dragon.h"
 using namespace std;
 
 #ifndef WEBSUBMIT
 int main(){
 
-	wolf Xav();  
+	Wolf Xav();  
 
-	dragon poor();
+	Dragon poor();
 
 Xav.name="Bill";
 Xav.meal_time="7am-10am";

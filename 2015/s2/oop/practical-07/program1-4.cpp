@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "animal.h"
-#include "wolf.h"
-#include "dragon.h"
-#include "zoo.h"
+#include "Animal.h"
+#include "Wolf.h"
+#include "Dragon.h"
+#include "Zoo.h"
 using namespace std;
 
 int main()

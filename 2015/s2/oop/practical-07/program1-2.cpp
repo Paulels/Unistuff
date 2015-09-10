@@ -1,22 +1,22 @@
 #include <iostream>
 #include <string>
-#include "wolf.h"
-#include "dragon.h"
-#include "zoo.h"
+#include "Wolf.h"
+#include "Dragon.h"
+#include "Zoo.h"
 using namespace std;
 
 #ifndef WEBSUBMIT
 int main(){
 
-	wolf Bill();  
-	wolf Jane();
-	dragon Bob();
-	dragon Jill();
+	Wolf Bill();  
+	Wolf Jane();
+	Dragon Bob();
+	Dragon Jill();
 
-   wolf* vec1[2]={&Bill,&Jane};  
-	dragon* vec2[2]=[&Bob,&Jill};
+   Wolf* vec1[2]={&Bill,&Jane};  
+	Dragon* vec2[2]=[&Bob,&Jill};
 
-    zoo Your_Zoo(vec2,vec1,"Greg",2,2);
+    Zoo Your_Zoo(vec2,vec1,"Greg",2,2);
 
 Bill.name="Bill";
 Bill.meal_time="7am-10am";
