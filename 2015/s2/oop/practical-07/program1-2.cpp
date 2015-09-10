@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-#include "Wolf.h"
-#include "Dragon.h"
 #include "Zoo.h"
 using namespace std;
 
