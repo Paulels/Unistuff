@@ -215,6 +215,9 @@ int main(){
 	fixedWing A1(100000,100); //initialising my two aircraft
 	rotaryWing H1(10,"bad");
 
+A1.heading="south";
+ cout << A1.heading << endl;
+
 	cout << H1.heading << H1.health << A1.callSign << A1.cargo << H1.callSign << endl;  //checking to see variables were as they should be
 
 return 0;
