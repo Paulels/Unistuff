@@ -3,7 +3,7 @@
 #include "Wolf.h"
 #include "Dragon.h"
 
-class Zo{ 
+class Zo0{ 
 
 public:
    

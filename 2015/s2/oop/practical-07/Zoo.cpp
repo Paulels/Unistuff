@@ -5,7 +5,7 @@ using namespace std;
 
 
 
-void Zoo:add(Dragon* vect1[],Wolf* vect2[],int dnum, int wnum){
+void Zoo::add(Dragon* vect1[],Wolf* vect2[],int dnum, int wnum){
 int i=0;
 int j=0;
        
@@ -18,7 +18,6 @@ for(j=0;j<wnum;j++){
 }
 }
 
-void zoo::print
 
 Zoo::Zoo(Dragon* v1[],Wolf* v2[],string zookeeper, int ldrag,int lwolf){
    
