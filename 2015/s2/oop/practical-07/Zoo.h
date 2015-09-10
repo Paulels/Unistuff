@@ -7,7 +7,7 @@ class Zo{
 
 public:
    
-    Zoo(Dragon* v1[],Wolf* v2[],std:string zookeeper,int ldrag,int lwolf);  //constructors
+    Zoo(Dragon* v1[],Wolf* v2[],std::string zookeeper,int ldrag,int lwolf);  //constructors
    
     Dragon* vec1[];  //states
 	Wolf* vec2[];
