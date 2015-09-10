@@ -5,7 +5,7 @@ using namespace std;
 
 #ifndef WEBSUBMIT
 int main(){
-
+/*
 	Wolf Bill("Bill","7am-10am","12pm","1am","human",3);   
 	Wolf Jane("Jane","10am-1pm"."11pm","4am","rock",3);
 	Dragon Bob("Bob","1pm-4pm","4pm","1pm","mouse",3);
@@ -16,7 +16,7 @@ int main(){
 
     Zoo Your_Zoo(vec2,vec1,"Greg",2,2);
 
-/*Bill.name="Bill";
+Bill.name="Bill";
 Bill.meal_time="7am-10am";
 Bill.eat_length="3"
 Bill.start_sleep="12pm";
@@ -40,7 +40,7 @@ Jill.eat_length="3"
 Jill.start_sleep="8pm";
 Jill.end_sleep="7am";
 Jill.toy="donkey";
-*/
+
 	cout << Bill.name << " eats from " << Bill.meal_time << " which is " << Bill.eat_length << " hours long. He sleeps from " << Bill.start_sleep << " til " << Bill.end_sleep << ". His favourite toy is " << Bill.toy << endl;
 
 	cout << Jane.name << " eats from " << Jane.meal_time << " which is " << Jane.eat_length << " hours long. He sleeps from " << Jane.start_sleep << " til " << Jane.end_sleep << ". His favourite toy is " << Jane.toy << endl;
@@ -48,7 +48,7 @@ Jill.toy="donkey";
 	cout << Bob.name << " eats from " << Bob.meal_time << " which is " << Bob.eat_length << " hours long. He sleeps from " << Bob.start_sleep << " til " << Bob.end_sleep << ". His favourite toy is " << Bob.toy << endl;
 
 	cout << Jill.name << " eats from " << Jill.meal_time << " which is " << Jill.eat_length << " hours long. He sleeps from " << Jill.start_sleep << " til " << Jill.end_sleep << ". His favourite toy is " << Jill.toy << endl;
-
+*/
    
 return 0;
 }

@@ -6,7 +6,6 @@ using namespace std;
 
 
 Dragon::Dragon(std::string name, std::string meal_time,std::string start_sleep,std::string end_sleep,std::string toy,int eat_length){
-
 	std::string getname();  
 	std::string getmeal_time();
 	std::string getstart_sleep();
