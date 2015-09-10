@@ -8,17 +8,17 @@ using namespace std;
 #ifndef WEBSUBMIT
 int main(){
 
-	Wolf Bill();  
-	Wolf Jane();
-	Dragon Bob();
-	Dragon Jill();
+	Wolf Bill("Bill","7am-10am","12pm","1am","human",3);   
+	Wolf Jane("Jane","10am-1pm"."11pm","4am","rock",3);
+	Dragon Bob("Bob","1pm-4pm","4pm","1pm","mouse",3);
+	Dragon Jill("Jill","4pm-7pm","8pm","7am","donkey",3);
 
    Wolf* vec1[2]={&Bill,&Jane};  
 	Dragon* vec2[2]=[&Bob,&Jill};
 
     Zoo Your_Zoo(vec2,vec1,"Greg",2,2);
 
-Bill.name="Bill";
+/*Bill.name="Bill";
 Bill.meal_time="7am-10am";
 Bill.eat_length="3"
 Bill.start_sleep="12pm";
@@ -42,7 +42,7 @@ Jill.eat_length="3"
 Jill.start_sleep="8pm";
 Jill.end_sleep="7am";
 Jill.toy="donkey";
-
+*/
 	cout << Bill.name << " eats from " << Bill.meal_time << " which is " << Bill.eat_length << " hours long. He sleeps from " << Bill.start_sleep << " til " << Bill.end_sleep << ". His favourite toy is " << Bill.toy << endl;
 
 	cout << Jane.name << " eats from " << Jane.meal_time << " which is " << Jane.eat_length << " hours long. He sleeps from " << Jane.start_sleep << " til " << Jane.end_sleep << ". His favourite toy is " << Jane.toy << endl;
