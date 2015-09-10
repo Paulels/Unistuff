@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Animal.h"
-#include "Wolf.h
+#include "Wolf.h"
 #include "Dragon.h"
 using namespace std;
 
