@@ -8,7 +8,7 @@ using namespace std;
 #ifndef WEBSUBMIT
 int main(){
 
-	Wolf Xav("Bill","7am-10am",3,"12pm","1am","human");  
+	Wolf Xav("Bill","7am-10am","12pm","1am","human",3);  
 
 	/*Dragon poor();
 
