@@ -212,7 +212,7 @@ fixedWing::fixedWing(int carg, int run):aircraft("Normal", "West", 100, 50){
 #ifndef WEBSUBMIT
 int main(){
 
-	fixedWing A1(100000,100); //initialising my two aircraft
+	fixedWing A1(140000,100); //initialising my two aircraft
 	rotaryWing H1(10,"bad");
 
 A1.heading="south";
