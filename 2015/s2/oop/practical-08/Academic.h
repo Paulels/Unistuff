@@ -1,5 +1,5 @@
 #include <string>
-#include <Admin.h>
+//#include <Admin.h>
 
 class Academic:public Staff
 {
