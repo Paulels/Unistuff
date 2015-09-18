@@ -1,7 +1,7 @@
 #include <string>
 //#include <Admin.h>
 
-class Academic:public Staff
+class Academic
 {
 	private:
 		
