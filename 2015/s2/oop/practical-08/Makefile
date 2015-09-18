@@ -1,13 +1,13 @@
 all: compiled1-1 compiled1-2 compiled1-3
 
 compiled1-1: Staff.o Admin.o Academic.o program1-1.o
-	g++ -o compiled1-1 Animal.o Wolf.o Dragon.o program1-1.o 
+	g++ -o compiled1-1 Staff.o Admin.o Academic.o program1-1.o
 
 compiled1-2: Staff.o Admin.o Academic.o program1-2.o
-	g++ -o compiled1-2 Zoo.o Animal.o Wolf.o Dragon.o program1-2.o 
+	g++ -o compiled1-2 Staff.o Admin.o Academic.o program1-2.o
 
 compiled1-3: Staff.o Admin.o Academic.o program1-3.o
-	g++ -o compiled1-3 Zoo.o Animal.o Wolf.o Dragon.o program1-3.o 
+	g++ -o compiled1-3 Staff.o Admin.o Academic.o program1-3.o
 
 Zoo.o: Zoo.cpp Zoo.h
 	g++ -c Zoo.cpp
