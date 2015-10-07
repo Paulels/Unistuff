@@ -1,35 +1,44 @@
-all: compiled1-1 compiled1-2 compiled1-3
+all: Compiled
 
-compiled1-1: Staff.o Admin.o Academic.o program1-1.o
-	g++ -o compiled1-1 Staff.o Admin.o Academic.o program1-1.o
+Compiled: BigBand.o Intstrument.o Vocals.o Brass.o Drums.o Piano.o Percussion.o Guitar.o Trombone.o Trumpet.o Saxophone.o MainProgram.o
+	g++ -o Compiled BigBand.o Intstrument.o Vocals.o Brass.o Drums.o Piano.o Percussion.o Guitar.o Trombone.o Trumpet.o Saxophone.o MainProgram.o
 
-compiled1-2: Staff.o Admin.o Academic.o program1-2.o
-	g++ -o compiled1-2 Staff.o Admin.o Academic.o program1-2.o
+BigBand.o: BigBand.cpp BigBand.h Saxophone.h Brass.h Instrument.h Trumpet.h Trombone.h Guitar.h Percussion.h Piano.h Drums.h Vocals.h
+	g++ -c BigBand.cpp
 
-compiled1-3: Staff.o Admin.o Academic.o program1-3.o
-	g++ -o compiled1-3 Staff.o Admin.o Academic.o program1-3.o
+Intstrument.o: Instrument.cpp Instrument.h
+	g++ -c Instrument.cpp
 
-Zoo.o: Zoo.cpp Zoo.h
-	g++ -c Zoo.cpp
+Vocals.o: Vocals.cpp Vocals.h Instrument.h
+	g++ -c Vocals.cpp
 
-Staff.o: Staff.cpp Staff.h
-	g++ -c Staff.cpp
+Brass.o: Brass.cpp Brass.h Instrument.h
+	g++ -c Brass.cpp
 
-Admin.o: Admin.cpp Admin.h
-	g++ -c Admin.cpp
+Drums.o: Drums.cpp Drums.h Instrument.h
+	g++ -c Drums.cpp
 
-Academic.o: Academic.cpp Academic.h
-	g++ -c Academic.cpp
+Piano.o: Piano.cpp Piano.h Instrument.h
+	g++ -c Piano.cpp
 
-program1-1.o: program1-1.cpp Staff.h Admin.h Academic.h
+Percussion.o: Percussion.cpp Percussion.h Instrument.h
+	g++ -c Percusion.cpp
+
+Guitar.o: Guitar.cpp Guitar.h Instrument.h
+	g++ -c Guitar.cpp
+
+Trombone.o: Trombone.cpp Trombone.h Brass.h
+	g++ -c Trombone.cpp
+
+Trumpet.o: Trumpet.cpp Trumpet.h Brass.h
+	g++ -c Trumpet.cpp
+
+Saxophone.o: Saxophone.cpp Saxophone.h Brass.h
+	g++ -c Saxophone.cpp
+
+MainProgram.o: MainProgram.cpp Saxophone.h Brass.h Instrument.h Trumpet.h Trombone.h Guitar.h Percussion.h Piano.h Drums.h Vocals.h BigBand.h
 	g++ -c program1-1.cpp
 
-program1-2.o: program1-2.cpp Staff.h Admin.h Academic.h
-	g++ -c program1-2.cpp
-
-program1-3.o: program1-3.cpp Staff.h Admin.h Academic.h
-	g++ -c program1-3.cpp
-
 clean:
-	rm -f compiled1-1 compiled1-2 compiled1-3 *.o
+	rm -f Compiled *.o
 
