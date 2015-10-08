@@ -10,7 +10,7 @@
 #include "Percussion.h"
 #include "Piano.h"
 #include "Drums.h"
-#include "Vocals.h"
+#include "Voice.h"
 using namespace std;
 
 #ifndef WEBSUBMIT

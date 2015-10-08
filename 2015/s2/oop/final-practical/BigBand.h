@@ -1,4 +1,6 @@
 #include <string>
+#ifndef BIGBAND_H
+#define BIGBAND_H
 #include "Saxophone.h"
 #include "Brass.h"
 #include "Instrument.h"
@@ -8,12 +10,11 @@
 #include "Percussion.h"
 #include "Piano.h"
 #include "Drums.h"
-#include "Vocals.h"
+#include "Voice.h"
 
 class BigBand
 {
 	protected:
-
-	virtual
 	
 };
+#endif
