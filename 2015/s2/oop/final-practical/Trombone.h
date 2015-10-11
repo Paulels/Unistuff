@@ -6,6 +6,20 @@
 class Trombone:public Brass
 {
 	protected:
+		bool useTrigger;
+		bool useMute;
+
+	public:
+		Trombone(bool useTrigger, bool useMute);
+		Trombone();
+		~Trombone();
+
+		bool setUseTrigger();
+		void getUseTrigger(bool usetrigger);
+		bool setUseMute();
+		void getUseMute(bool usemute);
+		void pAct(); //polymorphism from playAction in brass
+		void playTrom(blah); //unsure
 
 };
 #endif

@@ -6,6 +6,16 @@
 class Drums:public Instrument
 {
 	protected:
+		std::string style;
+
+	public:
+		Drums(std::string style);
+		Drums();
+		~Drums();
+
+		std::string getStyle();
+		void setStyle(std::string s);
+		void dStyle(blah); //state what style is being played
 	
 };
 #endif

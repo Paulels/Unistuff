@@ -6,6 +6,16 @@
 class Piano:public Instrument
 {
 	protected:
+		std::string pChord;
+
+	public:
+		Piano(std::string pChord);
+		Piano();
+		~Piano();
+
+		std::sting getPChord();
+		void setPChord(std::string pc);
+		void statePChord(blah); //unsure again
 	
 };
 #endif
