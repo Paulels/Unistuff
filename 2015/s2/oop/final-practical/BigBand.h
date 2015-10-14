@@ -17,7 +17,7 @@ class BigBand
 	private:
 		Trombone* tromSec[];
 		Trumpet* trumSec[];
-		Drum* drum;
+		Drums* drum;
 		Percussion* percussion;
 		Piano* piano;
 		Guitar* guitar;
@@ -27,13 +27,13 @@ class BigBand
 		std::string songName;
 
 	public:
-		BigBand(Trombone* tromSec[],Trumpet* trumSec[],Drum* drum,Percussion* percussion,Piano* piano,Guitar* guitar,Saxophone* saxSec[],Voice* voiceSec[],std::string name,std::string songName);
+		BigBand(Trombone* tromSec[],Trumpet* trumSec[],Drums* drum,Percussion* percussion,Piano* piano,Guitar* guitar,Saxophone* saxSec[],Voice* voiceSec[],std::string name,std::string songName);
 		BigBand();
 		~BigBand();
 		
 		std::string getName();
 		void setName(std::string n);
-		std::stringgetSName();
+		std::string getSName();
 		void setSName(std::string sn);
 		//void stateNames(BigBand*);????????????
 		//do I need behaviours for my various sections or not??

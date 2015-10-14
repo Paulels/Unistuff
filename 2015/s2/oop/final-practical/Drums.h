@@ -15,7 +15,7 @@ class Drums:public Instrument
 
 		std::string getStyle();
 		void setStyle(std::string s);
-		void dStyle(blah); //state what style is being played
+		void dStyle(); //state what style is being played
 	
 };
 #endif

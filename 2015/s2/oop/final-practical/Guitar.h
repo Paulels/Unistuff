@@ -15,7 +15,7 @@ class Guitar:public Instrument
 
 		std::string getGChord();
 		void setGChord(std::string gc);
-		void stateGChord(blah); //confused
+		void stateGChord();
 	
 };
 #endif

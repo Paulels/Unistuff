@@ -11,6 +11,9 @@ class Brass:public Instrument
 		std::string playAction;
 
 	public:
+
+		Brass::Brass(){};
+
 		std::string getBNote();
 		void setBNote(std::string bn);
 		std::string getBType();

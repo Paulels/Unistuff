@@ -13,7 +13,7 @@ class Piano:public Instrument
 		Piano();
 		~Piano();
 
-		std::sting getPChord();
+		std::string getPChord();
 		void setPChord(std::string pc);
 		void statePChord(blah); //unsure again
 	

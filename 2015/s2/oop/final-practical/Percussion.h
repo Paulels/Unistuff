@@ -15,7 +15,7 @@ class Percussion:public Instrument
 
 		std::string getInstrument();
 		void setInstrument(std::string i);
-		void stateInstrument(blah); //unsure again
+		void stateInstrument(); //unsure again
 
 };
 #endif
