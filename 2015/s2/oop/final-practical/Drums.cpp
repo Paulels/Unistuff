@@ -3,7 +3,8 @@
 #include "Drums.h"
 using namespace std;
 
-	Drums::Drums(string style):Instrument(true, false){
+	Drums::Drums(string style)//:Instrument(true, false)
+{
 
 		setStyle(style);
 		getStyle();
@@ -12,22 +13,14 @@ using namespace std;
 
 	Drums::Drums(){}
 
-	Drums::~Drums(){}
-
-	void setStyle(string s){
+	void Drums::setStyle(string s){
 
 		style=s;
 
 	}
 
-	string getStyle(){
+	string Drums::getStyle(){
 
 		return style;
-
-	}
-	
-	void dStyle(){
-
-		cout << "
 
 	}

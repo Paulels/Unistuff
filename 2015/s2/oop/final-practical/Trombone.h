@@ -12,14 +12,11 @@ class Trombone:public Brass
 	public:
 		Trombone(bool useTrigger, bool useMute);
 		Trombone();
-		~Trombone();
 
 		bool setUseTrigger();
 		void getUseTrigger(bool usetrigger);
 		bool setUseMute();
 		void getUseMute(bool usemute);
 		void pAct(); //polymorphism from playAction in brass
-		void playTrom(blah); //unsure
-
 };
 #endif

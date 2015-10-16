@@ -3,7 +3,8 @@
 #include "Percussion.h"
 using namespace std;
 
-	Percussion::Percussion(string instrument):Instrument("true", "false"){
+	Percussion::Percussion(string instrument)//:Instrument(true, false)
+{
 
 		setInstrument(instrument);
 		getInstrument();
@@ -12,22 +13,14 @@ using namespace std;
 
 	Percussion::Percussion(){}
 
-	Percussion::~Percussion(){}
-
-	void setInstrument(string i){
+	void Percussion::setInstrument(string i){
 
 		instrument=i;
 
 	}
 
-	string getInstrument(){
+	string Percussion::getInstrument(){
 
 		return instrument;
-
-	}
-	
-	void stateInstrument(){
-
-		cout << "
 
 	}

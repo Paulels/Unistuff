@@ -11,6 +11,8 @@
 #include "Piano.h"
 #include "Drums.h"
 #include "Voice.h"
+#include "Conductor.h"
+
 using namespace std;
 
 #ifndef WEBSUBMIT

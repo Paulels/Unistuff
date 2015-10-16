@@ -1,9 +1,9 @@
 all: Compiled
 
-Compiled: BigBand.o Instrument.o Voice.o Brass.o Drums.o Piano.o Percussion.o Guitar.o Trombone.o Trumpet.o Saxophone.o MainProgram.o
-	g++ -o Compiled BigBand.o Instrument.o Voice.o Brass.o Drums.o Piano.o Percussion.o Guitar.o Trombone.o Trumpet.o Saxophone.o MainProgram.o
+Compiled: BigBand.o Instrument.o Voice.o Brass.o Drums.o Piano.o Percussion.o Guitar.o Trombone.o Trumpet.o Saxophone.o MainProgram.o Conductor.o
+	g++ -o Compiled BigBand.o Instrument.o Voice.o Brass.o Drums.o Piano.o Percussion.o Guitar.o Trombone.o Trumpet.o Saxophone.o MainProgram.o Conductor.o
 
-BigBand.o: BigBand.cpp BigBand.h Saxophone.h Brass.h Instrument.h Trumpet.h Trombone.h Guitar.h Percussion.h Piano.h Drums.h Voice.h
+BigBand.o: BigBand.cpp BigBand.h Saxophone.h Brass.h Instrument.h Trumpet.h Trombone.h Guitar.h Percussion.h Piano.h Drums.h Voice.h Conductor.h
 	g++ -c BigBand.cpp
 
 Instrument.o: Instrument.cpp Instrument.h
@@ -14,6 +14,9 @@ Voice.o: Voice.cpp Voice.h Instrument.h
 
 Brass.o: Brass.cpp Brass.h Instrument.h
 	g++ -c Brass.cpp
+
+Conductor.o: Conductor.cpp Conductor.h
+	g++ -c Conductor.cpp
 
 Drums.o: Drums.cpp Drums.h Instrument.h
 	g++ -c Drums.cpp
@@ -36,7 +39,7 @@ Trumpet.o: Trumpet.cpp Trumpet.h Brass.h
 Saxophone.o: Saxophone.cpp Saxophone.h Brass.h
 	g++ -c Saxophone.cpp
 
-MainProgram.o: MainProgram.cpp Saxophone.h Brass.h Instrument.h Trumpet.h Trombone.h Guitar.h Percussion.h Piano.h Drums.h Voice.h BigBand.h
+MainProgram.o: MainProgram.cpp Saxophone.h Brass.h Instrument.h Trumpet.h Trombone.h Guitar.h Percussion.h Piano.h Drums.h Voice.h BigBand.h Conductor.h
 	g++ -c MainProgram.cpp
 
 clean:

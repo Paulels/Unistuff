@@ -11,11 +11,9 @@ class Drums:public Instrument
 	public:
 		Drums(std::string style);
 		Drums();
-		~Drums();
 
 		std::string getStyle();
 		void setStyle(std::string s);
-		void dStyle(); //state what style is being played
 	
 };
 #endif

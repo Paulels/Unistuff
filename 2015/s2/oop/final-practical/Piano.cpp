@@ -3,7 +3,8 @@
 #include "Piano.h"
 using namespace std;
 
-	Piano::Piano(string pChord):Instrument("true", "false"){
+	Piano::Piano(string pChord)//:Instrument(true, false)
+{
 
 		setPChord(pChord);
 		getPChord();
@@ -12,15 +13,13 @@ using namespace std;
 
 	Piano::Piano(){}
 
-	Piano::~Piano(){}
-
-	void setPChord(string pc){
+	void Piano::setPChord(string pc){
 
 		pChord=pc;
 
 	}
 
-	string getPChord(){
+	string Piano::getPChord(){
 
 		return pChord;
 

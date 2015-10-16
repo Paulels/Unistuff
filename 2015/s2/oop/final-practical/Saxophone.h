@@ -11,12 +11,10 @@ class Saxophone:public Brass
 	public:
 		Saxophone(bool vibrato);
 		Saxophone();
-		~Saxophone();
 
 		bool setVibrato();
 		void getVibrato(bool vibrat);
 		void pAct(); //polymorphism from playAction in brass
-		void playSax(blah); //unsure
 	
 };
 #endif

@@ -11,6 +11,7 @@
 #include "Piano.h"
 #include "Drums.h"
 #include "Voice.h"
+#include "Conductor.h"
 
 class BigBand
 {
@@ -35,7 +36,5 @@ class BigBand
 		void setName(std::string n);
 		std::string getSName();
 		void setSName(std::string sn);
-		//void stateNames(BigBand*);????????????
-		//do I need behaviours for my various sections or not??
 };
 #endif

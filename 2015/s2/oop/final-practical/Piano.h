@@ -15,7 +15,6 @@ class Piano:public Instrument
 
 		std::string getPChord();
 		void setPChord(std::string pc);
-		void statePChord(blah); //unsure again
 	
 };
 #endif
