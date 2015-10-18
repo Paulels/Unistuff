@@ -8,15 +8,16 @@ class Brass:public Instrument
 	protected:
 		std::string bNote;
 		std::string bType;
-		std::string playAction;
 
 	public:
+
+		Brass();
 
 		std::string getBNote();
 		void setBNote(std::string bn);
 		std::string getBType();
-		std::string getPlayAction();
-		//virtual 
+		void setBType(std::string bt);
+		virtual void playAction() =0;
 	
 };
 #endif

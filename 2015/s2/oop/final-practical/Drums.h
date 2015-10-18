@@ -5,10 +5,9 @@
 
 class Drums:public Instrument
 {
-	protected:
+	public:
 		std::string style;
 
-	public:
 		Drums(std::string style);
 		Drums();
 

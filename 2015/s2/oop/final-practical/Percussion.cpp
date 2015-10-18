@@ -3,7 +3,7 @@
 #include "Percussion.h"
 using namespace std;
 
-	Percussion::Percussion(string instrument)//:Instrument(true, false)
+	Percussion::Percussion(string instrument):Instrument(true, false)
 {
 
 		setInstrument(instrument);

@@ -12,9 +12,9 @@ class Trumpet:public Brass
 		Trumpet(bool useMute);
 		Trumpet();
 
-		bool setUseMute();
-		void getUseMute(bool usemute);
-		void pAct(); //polymorphism from playAction in brass
+		void setUseMute(bool usemute);
+		bool getUseMute();
+		void playAction();
 
 };
 #endif

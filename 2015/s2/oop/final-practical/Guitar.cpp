@@ -3,7 +3,7 @@
 #include "Guitar.h"
 using namespace std;
 
-	Guitar::Guitar(string gChord)//:Instrument("true", "false")
+	Guitar::Guitar(string gChord):Instrument(true, false)
 {
 
 		setGChord(gChord);

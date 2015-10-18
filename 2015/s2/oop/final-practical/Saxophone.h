@@ -12,9 +12,9 @@ class Saxophone:public Brass
 		Saxophone(bool vibrato);
 		Saxophone();
 
-		bool setVibrato();
-		void getVibrato(bool vibrat);
-		void pAct(); //polymorphism from playAction in brass
+		void setVibrato(bool vibrat);
+		bool getVibrato();
+		void playAction();
 	
 };
 #endif

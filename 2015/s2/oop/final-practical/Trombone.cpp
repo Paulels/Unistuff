@@ -4,3 +4,44 @@
 using namespace std;
 
 
+	Trombone::Trombone(bool useTrigger,bool useMute)
+{
+
+		setUseTrigger(useTrigger);
+		getUseTrigger();
+		setUseMute(useMute);
+		getUseMute();
+	
+	}
+
+	Trombone::Trombone(){}
+
+	void Trombone::setUseTrigger(bool usetrigger){
+
+		useTrigger=usetrigger;
+
+	}
+
+	bool Trombone::getUseTrigger(){
+
+		return useTrigger;
+
+	}
+
+	void Trombone::setUseMute(bool usemute){
+
+		useMute=usemute;
+
+	}
+
+	bool Trombone::getUseMute(){
+
+		return useMute;
+
+	}
+
+	void Trombone::playAction(){
+
+		cout << "The trombone player plays the trombone by sliding their slide to corresponding positions." << endl;
+
+	}

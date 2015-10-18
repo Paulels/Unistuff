@@ -3,7 +3,7 @@
 #include "Piano.h"
 using namespace std;
 
-	Piano::Piano(string pChord)//:Instrument(true, false)
+	Piano::Piano(string pChord):Instrument(true, false)
 {
 
 		setPChord(pChord);

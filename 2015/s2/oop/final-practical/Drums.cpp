@@ -3,7 +3,7 @@
 #include "Drums.h"
 using namespace std;
 
-	Drums::Drums(string style)//:Instrument(true, false)
+	Drums::Drums(string style):Instrument(true, false)
 {
 
 		setStyle(style);

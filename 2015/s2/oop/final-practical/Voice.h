@@ -14,6 +14,7 @@ class Voice:public Instrument
 		Voice();
 
 		std::string getVType();
+		void setVType(std::string vt);
 		std::string getVnote();
 		void setVnote(std::string vn);
 

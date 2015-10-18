@@ -10,6 +10,9 @@ class Instrument
 
 	public:
 
+		Instrument(bool play, bool solo);
+		Instrument();
+
 		bool getPlay();
 		void setPlay(bool a);
 		bool getSolo();
