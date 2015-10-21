@@ -54,7 +54,7 @@ class BigBand
 		Voice getvoice();
 		void setvoice(Voice* voicesec[]);
 
-		void playstyle(std::string sty, Drums x); //changes the styledrums are playing in
+		void playstyle(std::string sty, Drums x); //changes the style drums are playing in
 
 };
 #endif

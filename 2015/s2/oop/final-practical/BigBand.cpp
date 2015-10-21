@@ -16,7 +16,7 @@ using namespace std;
 		getName();
 		setSName(songName);
 		getSName();
-}
+
 
 		BigBand::BigBand(){}
 
@@ -80,6 +80,7 @@ using namespace std;
 				cout << "The band is already playing in this style" << endl;
 }
 			else{
-				cout << "The drumming style was changed to" << sty << "adn therefore so was the bands" << endl;
+				a.style=sty;
+				cout << "The drumming style was changed to" << sty << "and therefore so was the bands" << endl;
 }
 }

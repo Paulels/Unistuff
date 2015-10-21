@@ -16,6 +16,7 @@ class Conductor
 		std::string getCName();		
 		void setCAge(int cage);
 		int getCAge();
+		void beatsInBar(int beats);
 	
 };
 #endif
