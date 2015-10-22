@@ -38,3 +38,9 @@ using namespace std;
 		return vNote;
 
 	}
+
+	void Voice::drink(string liquid, int length){
+
+		cout << "The signer takes a drink of " << liquid << " for " << length << " seconds to freshen up their vocal chords." << endl;
+
+	}

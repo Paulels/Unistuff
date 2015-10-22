@@ -3,7 +3,7 @@
 #include "BigBand.h"
 using namespace std;
 
-		BigBand::BigBand(Trombone* tromSec[],Trumpet* trumSec[],Drums* drum,Percussion* percussion,Piano* piano,Guitar* guitar,Saxophone* saxSec[],Voice* voiceSec[],string name,string songName){
+		BigBand::BigBand(Trombone* tromSec[],Trumpet* trumSec[],Drums* drum,Percussion* percussion,Piano* piano,Guitar* guitar,Saxophone* saxSec[],Voice* voiceSec[],Conductor* cond,string name,string songName){
 		settrom(tromSec);
 		settrum(trumSec);
 		setdrum(drum);
@@ -12,10 +12,12 @@ using namespace std;
 		setguitar(guitar);
 		setsaxophone(saxSec);
 		setvoice(voiceSec);
+		setconductor(cond);
 		setName(name);
 		getName();
 		setSName(songName);
 		getSName();
+}
 
 
 		BigBand::BigBand(){}
@@ -74,6 +76,11 @@ using namespace std;
 				voiceSec[i]=voicesec[i];
 }
 }
+		void BigBand::setconductor(Conductor* con){
+			cond=con;
+}
+
+
 
 		void BigBand::playstyle(string sty, Drums a){
 			if (sty==a.style){
@@ -81,6 +88,6 @@ using namespace std;
 }
 			else{
 				a.style=sty;
-				cout << "The drumming style was changed to" << sty << "and therefore so was the bands" << endl;
+				cout << "The drumming style was changed to " << sty << " and therefore so was the bands" << endl;
 }
 }

@@ -42,6 +42,6 @@ using namespace std;
 
 	void Conductor::beatsInBar(int beats){
 
-		cout << "The band will follow the conductor and be playing at" << beats << "beats per bar" << endl;
+		cout << "The band will follow the conductor and be playing at " << beats << " beats per bar" << endl;
 
 	}

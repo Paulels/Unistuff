@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
+#include <math.h>
 #include "Drums.h"
 using namespace std;
 
@@ -24,3 +26,10 @@ using namespace std;
 		return style;
 
 	}
+
+	void Drums::fill(){
+
+		int l=rand() % 6 + 2;
+		cout << "The drummmer is playing a fill for " << l << " beats." << endl;
+
+}
