@@ -32,3 +32,13 @@ using namespace std;
 
 	}
 
+	void Saxophone::favStyle(string styl){
+
+		if (styl=="jazz"){
+			cout << "Jazz is a saxophones favourite style." << endl;
+		}
+		else{
+			cout << "This is not this instruments favourite style." << endl;
+		}
+	}
+

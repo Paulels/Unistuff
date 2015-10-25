@@ -20,7 +20,7 @@ class Brass:public Instrument
 		void setNoteType(std::string nt);
 		std::string getBType();
 		void setBType(std::string bt);
-		virtual void playAction() =0;
+		virtual void favStyle(std::string styl) =0;
 		void noteFrequency(std::string note, std::string accidental);
 	
 };

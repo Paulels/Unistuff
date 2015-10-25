@@ -18,6 +18,7 @@ class Voice:public Instrument
 		std::string getVnote();
 		void setVnote(std::string vn);
 		void drink(std::string liquid, int length);
+		void playAction();
 
 };
 #endif

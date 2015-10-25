@@ -32,4 +32,10 @@ using namespace std;
 		int l=rand() % 6 + 2;
 		cout << "The drummmer is playing a fill for " << l << " beats." << endl;
 
-}
+	}
+
+	void Drums::playAction(){
+
+		cout << "The ddum player plays by hitting the various drums in time with the beat." << endl;
+
+	}

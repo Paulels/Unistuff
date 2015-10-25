@@ -31,3 +31,13 @@ using namespace std;
 		cout << "The trumpet player plays the trumpet by pressing down valves." << endl;
 
 	}
+
+	void Trumpet::favStyle(string styl){
+
+		if (styl=="latin"){
+			cout << "Latin is a tumpets favourite style." << endl;
+		}
+		else{
+			cout << "This is not this instruments favourite style." << endl;
+		}
+	}

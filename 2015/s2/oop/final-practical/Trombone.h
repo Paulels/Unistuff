@@ -18,5 +18,6 @@ class Trombone:public Brass
 		void setUseMute(bool usemute);
 		bool getUseMute();
 		void playAction();
+		void favStyle(std::string styl);
 };
 #endif

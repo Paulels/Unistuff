@@ -24,3 +24,9 @@ using namespace std;
 		return gChord;
 
 	}
+
+	void Guitar::playAction(){
+
+		cout << "The guitar player plays by strumming the strings." << endl;
+
+	}

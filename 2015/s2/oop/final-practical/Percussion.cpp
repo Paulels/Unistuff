@@ -24,3 +24,9 @@ using namespace std;
 		return instrument;
 
 	}
+
+	void Percussion::playAction(){
+
+		cout << "The pecussion players playing action depends on what percudiion instrument they are playing." << endl;
+
+	}

@@ -15,6 +15,7 @@ class Saxophone:public Brass
 		void setVibrato(bool vibrat);
 		bool getVibrato();
 		void playAction();
+		void favStyle(std::string styl);
 	
 };
 #endif

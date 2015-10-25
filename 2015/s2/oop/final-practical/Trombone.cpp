@@ -45,3 +45,13 @@ using namespace std;
 		cout << "The trombone player plays the trombone by sliding their slide to corresponding positions." << endl;
 
 	}
+
+	void Trombone::favStyle(string styl){
+
+		if (styl=="swing"){
+			cout << "Swing is a trombones favourite style." << endl;
+		}
+		else{
+			cout << "This is not this instruments favourite style." << endl;
+		}
+	}

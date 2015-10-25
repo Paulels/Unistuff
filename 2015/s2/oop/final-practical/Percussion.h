@@ -14,6 +14,7 @@ class Percussion:public Instrument
 
 		std::string getInstrument();
 		void setInstrument(std::string i);
+		void playAction();
 
 };
 #endif

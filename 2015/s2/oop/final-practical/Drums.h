@@ -14,6 +14,7 @@ class Drums:public Instrument
 		std::string getStyle();
 		void setStyle(std::string s);
 		void fill();
+		void playAction();
 	
 };
 #endif

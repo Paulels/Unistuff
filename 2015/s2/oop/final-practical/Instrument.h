@@ -17,7 +17,7 @@ class Instrument
 		void setPlay(bool a);
 		bool getSolo();
 		void setSolo(bool b);
-		virtual;
-	
+		virtual void playAction() =0;
+
 };
 #endif

@@ -44,3 +44,9 @@ using namespace std;
 		cout << "The signer takes a drink of " << liquid << " for " << length << " seconds to freshen up their vocal chords." << endl;
 
 	}
+
+	void Voice::playAction(){
+
+		cout << "The voice player sings by using their vocal chords." << endl;
+
+	}

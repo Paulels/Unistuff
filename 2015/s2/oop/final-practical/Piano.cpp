@@ -25,3 +25,9 @@ using namespace std;
 
 	}
 
+	void Piano::playAction(){
+
+		cout << "The piano player plays by hitting keys with their fingers." << endl;
+
+	}
+
