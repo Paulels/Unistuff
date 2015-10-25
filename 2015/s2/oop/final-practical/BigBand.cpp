@@ -35,13 +35,13 @@ using namespace std;
 			songName=sn;
 }
 
-		void BigBand::settrom(Trombone* tromsec[]){
+		void BigBand::settrom(Trombone* tromsec[4]){
 			for(int i=0;i<4;i++){
 				tromSec[i]=tromsec[i];
 }
 }
 
-		void BigBand::settrum(Trumpet* trumsec[]){
+		void BigBand::settrum(Trumpet* trumsec[4]){
 			for(int i=0;i<4;i++){
 				trumSec[i]=trumsec[i];
 }
@@ -63,13 +63,13 @@ using namespace std;
 			guitar=gui;
 }
 
-		void BigBand::setsaxophone(Saxophone* saxsec[]){
+		void BigBand::setsaxophone(Saxophone* saxsec[5]){
 			for(int i=0;i<5;i++){
 				saxSec[i]=saxsec[i];
 }
 }
 
-		void BigBand::setvoice(Voice* voicesec[]){
+		void BigBand::setvoice(Voice* voicesec[4]){
 			for(int i=0;i<4;i++){
 				voiceSec[i]=voicesec[i];
 }

@@ -95,8 +95,9 @@ int main(){
 
 	cout << "Brass note before: " << trom1.getBNote() << endl;
 	cout << "Brass accidental before: " << trom1.getNoteType() << endl;
-	cout << "What note should be played?" << endl;
-	cin >> note;
+	cout << "What note should be played and what accidental should it have?" << endl;
+	cin >> note >> accidental;
+
 	if(note=="a"||note=="A"||note=="b"||note=="B"||note=="c"||note=="C"||note=="d"||note=="D"||note=="e"||note=="E"||note=="f"||note=="F"||note=="g"||note=="G"){
 }
 	else{
@@ -104,14 +105,13 @@ int main(){
 	note="c";
 	}
 
-	cout << "What accidental does this note have?" << endl;
-	cin >> accidental;
 if(accidental=="Sharp"||accidental=="sharp"||accidental=="Flat"||accidental=="flat"||accidental=="Natural"||accidental=="natural"){
 }
 	else{
 		cout << "accidental is invalid so accidental will be natural" << endl;
 		accidental="natural";
 	}
+
 	cout << "The instruments are playing " << note << " " << accidental;
 	trom1.noteFrequency(note,accidental);
 	sax1.setBNote(note);
@@ -142,6 +142,8 @@ if(accidental=="Sharp"||accidental=="sharp"||accidental=="Flat"||accidental=="fl
 	trum4.setNoteType(accidental);
 	cout << "Brass note after: " << trom1.getBNote() << endl;
 	cout << "Brass accidental after: " << trom1.getNoteType() << endl;
+
+	bass.drink("water",5);
 
 	cout << "Should the drummer perform a fill?" << endl;
 	cin >> answer;

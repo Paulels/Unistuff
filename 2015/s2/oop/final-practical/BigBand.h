@@ -16,14 +16,14 @@
 class BigBand
 {
 	private:
-		Trombone* tromSec[];
-		Trumpet* trumSec[];
+		Trombone* tromSec[4];
+		Trumpet* trumSec[4];
 		Drums* drum;
 		Percussion* percussion;
 		Piano* piano;
 		Guitar* guitar;
-		Saxophone* saxSec[];
-		Voice* voiceSec[];
+		Saxophone* saxSec[5];
+		Voice* voiceSec[4];
 		Conductor* cond;
 		std::string name;
 		std::string songName;
@@ -38,14 +38,14 @@ class BigBand
 		std::string getSName();
 		void setSName(std::string sn);
 
-		void settrom(Trombone* tromsec[]);
-		void settrum(Trumpet* trumsec[]);
+		void settrom(Trombone* tromsec[4]);
+		void settrum(Trumpet* trumsec[4]);
 		void setdrum(Drums* drums);
 		void setpercussion(Percussion* perc);
 		void setpiano(Piano* pia);
 		void setguitar(Guitar* gui);
-		void setsaxophone(Saxophone* saxsec[]);
-		void setvoice(Voice* voicesec[]);
+		void setsaxophone(Saxophone* saxsec[5]);
+		void setvoice(Voice* voicesec[4]);
 		void setconductor(Conductor* con);
 
 		void playstyle(std::string sty, Drums* x); //changes the style drums are playing in
