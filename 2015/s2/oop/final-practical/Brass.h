@@ -12,6 +12,7 @@ class Brass:public Instrument
 
 	public:
 
+		Brass(std::string bNote,std::string nType,std::string bType);
 		Brass();
 
 		std::string getBNote();

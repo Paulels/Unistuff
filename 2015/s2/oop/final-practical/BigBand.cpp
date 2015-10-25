@@ -21,8 +21,6 @@ using namespace std;
 
 
 		BigBand::BigBand(){}
-
-		BigBand::~BigBand(){}
 		
 		string BigBand::getName(){
 			return name;
@@ -66,7 +64,7 @@ using namespace std;
 }
 
 		void BigBand::setsaxophone(Saxophone* saxsec[]){
-			for(int i=0;i<4;i++){
+			for(int i=0;i<5;i++){
 				saxSec[i]=saxsec[i];
 }
 }
@@ -83,6 +81,10 @@ using namespace std;
 
 
 		void BigBand::playstyle(string sty, Drums a){
+			if (sty==" "){
+				cout << "Invalid style so the style was set to jazz." << endl;
+				sty="jazz";
+			}
 			if (sty==a.style){
 				cout << "The band is already playing in this style" << endl;
 }

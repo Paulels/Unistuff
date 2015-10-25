@@ -4,7 +4,7 @@
 using namespace std;
 
 
-	Trombone::Trombone(bool useTrigger,bool useMute)
+	Trombone::Trombone(bool useTrigger,bool useMute):Brass("C","Natural"," ")
 {
 
 		setUseTrigger(useTrigger);

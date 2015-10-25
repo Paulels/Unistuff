@@ -11,7 +11,6 @@ class Piano:public Instrument
 	public:
 		Piano(std::string pChord);
 		Piano();
-		~Piano();
 
 		std::string getPChord();
 		void setPChord(std::string pc);

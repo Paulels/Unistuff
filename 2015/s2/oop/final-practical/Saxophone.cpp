@@ -4,7 +4,7 @@
 using namespace std;
 
 
-	Saxophone::Saxophone(bool vibrato)
+	Saxophone::Saxophone(bool vibrato):Brass("C","Natural"," ")
 {
 
 		setVibrato(vibrato);

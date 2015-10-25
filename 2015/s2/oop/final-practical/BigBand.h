@@ -29,9 +29,9 @@ class BigBand
 		std::string songName;
 
 	public:
-		BigBand(Trombone* tromSec[],Trumpet* trumSec[],Drums* drum,Percussion* percussion,Piano* piano,Guitar* guitar,Saxophone* saxSec[],Voice* voiceSec[],Conductor* cond, std::string name,std::string songName);
+		
+		BigBand(Trombone* tromSec[4],Trumpet* trumSec[4],Drums* drum,Percussion* percussion,Piano* piano,Guitar* guitar,Saxophone* saxSec[5],Voice* voiceSec[4],Conductor* cond, std::string name,std::string songName);
 		BigBand();
-		~BigBand();
 		
 		std::string getName();
 		void setName(std::string n);

@@ -3,7 +3,15 @@
 #include "Brass.h"
 using namespace std;
 
-		Brass::Brass():Instrument(true,false){}		
+		Brass::Brass(string bNote,string nType,string bType):Instrument(true,false){
+			setBNote(bNote);
+			getBNote();
+			setNoteType(nType);
+			getNoteType();
+			setBType(bType);
+			getBType();
+}
+		Brass::Brass(){}	
 
 		void Brass::setBNote(string bn){
 			bNote=bn;
@@ -11,8 +19,8 @@ using namespace std;
 		string Brass::getBNote(){
 			return bNote;
 }
-		void setNoteType(string nt){
-			string nType=nt;
+		void Brass::setNoteType(string nt){
+			nType=nt;
 }
 		string Brass::getNoteType(){
 			return nType;

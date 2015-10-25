@@ -4,7 +4,7 @@
 using namespace std;
 
 
-	Trumpet::Trumpet(bool useMute)
+	Trumpet::Trumpet(bool useMute):Brass("C","Natural"," ")
 {
 
 		setUseMute(useMute);
