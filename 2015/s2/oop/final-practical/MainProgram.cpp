@@ -51,11 +51,13 @@ int main(){
 	Trombone trom1(false,false);
 	trom1.setBType("First");
 	Trombone trom2(false,false);
-	trom1.setBType("Second");
+	trom2.setBType("Second");
 	Trombone trom3(true,false);
-	trom1.setBType("Third");
+	trom3.setBType("Third");
 	Trombone trom4(true,false);
-	trom1.setBType("Bass");
+	cout << "Checking brass type before: " << trom4.getBType() << endl;
+	trom4.setBType("Bass");
+	cout << "checking to see if brass type changed: " << trom4.getBType() << endl;
 	Voice bass("Bass","B");
 	Voice tenor("Tenor","D");
 	Voice alto("Alto","F");
