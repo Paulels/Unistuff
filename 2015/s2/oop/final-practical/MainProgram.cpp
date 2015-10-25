@@ -81,11 +81,12 @@ int main(){
 
 	cout << "How many beats should be conducted per bar?" << endl;
 	cin >> beats;
-	if(beats>0 && <=16){
+	if(beats>0 && beats<=16){
 	conductor1.beatsInBar(beats);
 	}
 	else{
 	cout << "That is too hard for the conductor to conduct so he will conduct 4 beats per bar." << endl;
+	}
 
 	cout << "What note should be played?" << endl;
 	cin >> note;
