@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <sstream>
 #include <cstring>
+#include <cctype>
 #include "BigBand.h"
 #include "Saxophone.h"
 #include "Brass.h"
@@ -26,7 +27,7 @@ int main(){
 
 	Conductor conductor1("Michael",51);
 	Drums drum1("Jazz");
-	Guitar guitar1("C");
+	Guitar* guitar1=new Guitar("C");
 	Percussion percussion1("Cowbell");
 	Piano piano1("C");
 	Saxophone sax1(true);
@@ -65,9 +66,11 @@ int main(){
 	Trombone* v3[4]={&trom1,&trom2,&trom3,&trom4};
 	Voice* v4[4]={&bass,&tenor,&alto,&suprano};
 
-	BigBand Bigband1(v3,v2,&drum1,&percussion1,&piano1,&guitar1,v1,v4,&conductor1,"Big Band 1","Jazzin");
+	BigBand Bigband1(v3,v2,&drum1,&percussion1,&piano1,guitar1,v1,v4,&conductor1,"Big Band 1","Jazzin");
 
-	//BigBand* Bigband1 = new BigBand(v3,v2,&drum1,&percussion1,&piano1,&guitar1,v1,v4,&conductor1,"Big Band 1","Jazzin");
+	cout << "To check all classes were creatable i just printed one state from each."<< endl;
+
+	cout << conductor1.getCName() << " " << drum1.getStyle() << " " << guitar1->getGChord() << " " << percussion1.getInstrument() << " " << piano1.getPChord() << " " << sax1.getSolo() << " " << trom2.getBType() << " " << trum3.getUseMute() << " " << suprano.getPlay() << " " << Bigband1.getName() << endl;
 
 	string sty;
 	int beats;
@@ -75,9 +78,11 @@ int main(){
 	string accidental="nothing";
 	string answer="yes";
 
+	cout << "Drum style before: " << drum1.getStyle() << endl;
 	cout << "What style should the band play in?" << endl;
 	cin >> sty;
-	Bigband1.playstyle(sty,drum1);
+	Bigband1.playstyle(sty,&drum1);
+	cout << "Drum style after: " << drum1.getStyle() << endl;
 
 	cout << "How many beats should be conducted per bar?" << endl;
 	cin >> beats;
@@ -88,22 +93,55 @@ int main(){
 	cout << "That is too hard for the conductor to conduct so he will conduct 4 beats per bar." << endl;
 	}
 
+	cout << "Brass note before: " << trom1.getBNote() << endl;
+	cout << "Brass accidental before: " << trom1.getNoteType() << endl;
 	cout << "What note should be played?" << endl;
 	cin >> note;
-if(note!="a"||note!="A"||note!="b"||note!="B"||note!="c"||note!="C"||note!="d"||note!="D"||note!="e"||note!="E"||note!="f"||note!="F"||note!="g"||note!="G"){
+	if(note=="a"||note=="A"||note=="b"||note=="B"||note=="c"||note=="C"||note=="d"||note=="D"||note=="e"||note=="E"||note=="f"||note=="F"||note=="g"||note=="G"){
+}
+	else{
 	cout << "invalid note, the note will be set to c." << endl;
 	note="c";
-}
-	cout << "Whay accidental does this not have?" << endl;
+	}
+
+	cout << "What accidental does this note have?" << endl;
 	cin >> accidental;
-if(accidental!="Sharp"||accidental!="sharp"||accidental!="Flat"||accidental!="flat"||accidental!="Natural"||accidental!="natural"){
-	cout << "accidental is invalid so accidental will be natural" << endl;
-	accidental="natural";
+if(accidental=="Sharp"||accidental=="sharp"||accidental=="Flat"||accidental=="flat"||accidental=="Natural"||accidental=="natural"){
 }
-	cout << "The instruments are playing " << note << accidental << endl;
-	//string lnote=tolower(note);
-	//string laccidental=tolower(accidental);
-	//set all saxs, trumpets and trombones bnote and ntype
+	else{
+		cout << "accidental is invalid so accidental will be natural" << endl;
+		accidental="natural";
+	}
+	cout << "The instruments are playing " << note << " " << accidental;
+	trom1.noteFrequency(note,accidental);
+	sax1.setBNote(note);
+	sax1.setNoteType(accidental);
+	sax2.setBNote(note);
+	sax2.setNoteType(accidental);
+	sax3.setBNote(note);
+	sax3.setNoteType(accidental);
+	sax4.setBNote(note);
+	sax4.setNoteType(accidental);
+	sax5.setBNote(note);
+	sax5.setNoteType(accidental);
+	trom1.setBNote(note);
+	trom1.setNoteType(accidental);
+	trom2.setBNote(note);
+	trom2.setNoteType(accidental);
+	trom3.setBNote(note);
+	trom3.setNoteType(accidental);
+	trom4.setBNote(note);
+	trom4.setNoteType(accidental);
+	trum1.setBNote(note);
+	trum1.setNoteType(accidental);
+	trum2.setBNote(note);
+	trum2.setNoteType(accidental);
+	trum3.setBNote(note);
+	trum3.setNoteType(accidental);
+	trum4.setBNote(note);
+	trum4.setNoteType(accidental);
+	cout << "Brass note after: " << trom1.getBNote() << endl;
+	cout << "Brass accidental after: " << trom1.getNoteType() << endl;
 
 	cout << "Should the drummer perform a fill?" << endl;
 	cin >> answer;
@@ -117,7 +155,10 @@ if(accidental!="Sharp"||accidental!="sharp"||accidental!="Flat"||accidental!="fl
 		cout << "The answer was not yes or no so i will take it as you don't want the drummer to do a fill." << endl;
 	}
 
-	//delete Bigband1;
+	delete guitar1;
+
+	cout << "The guitar was deleted" << endl;
+
 
 return 0;
 }

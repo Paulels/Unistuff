@@ -80,16 +80,16 @@ using namespace std;
 
 
 
-		void BigBand::playstyle(string sty, Drums a){
+		void BigBand::playstyle(string sty, Drums* a){
 			if (sty==" "){
 				cout << "Invalid style so the style was set to jazz." << endl;
 				sty="jazz";
 			}
-			if (sty==a.style){
+			if (sty==a->getStyle()){
 				cout << "The band is already playing in this style" << endl;
 }
 			else{
-				a.style=sty;
+				a->setStyle(sty);
 				cout << "The drumming style was changed to " << sty << " and therefore so was the bands" << endl;
 }
 }

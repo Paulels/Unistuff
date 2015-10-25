@@ -31,79 +31,79 @@ using namespace std;
 		string Brass::getBType(){
 			return bType;
 }
-		void noteFrequency(string note, string accidental){
+		void Brass::noteFrequency(string note, string accidental){
 			float F;
-			if (note=="c"){
-				if (accidental=="sharp"){
+			if (note=="c"||note=="C"){
+				if (accidental=="sharp"||accidental=="Sharp"){
 					F=277.2;
 				}
-				else if(accidental=="flat"){
+				else if(accidental=="flat"||accidental=="Flat"){
 					F=246.9;
 				}
 				else{
 					F=261.6;
 				}
 			}
-			else if (note=="d"){
-				if (accidental=="sharp"){
+			else if (note=="d"||note=="D"){
+				if (accidental=="sharp"||accidental=="Sharp"){
 					F=311.1;
 				}
-				else if(accidental=="flat"){
+				else if(accidental=="flat"||accidental=="Flat"){
 					F=277.2;
 				}
 				else{
 					F=293.7;
 				}
 			}
-			else if (note=="e"){
-				if (accidental=="sharp"){
+			else if (note=="e"||note=="E"){
+				if (accidental=="sharp"||accidental=="Sharp"){
 					F=349.2;
 				}
-				else if(accidental=="flat"){
+				else if(accidental=="flat"||accidental=="Flat"){
 					F=311.1;
 				}
 				else{
 					F=329.6;
 				}
 			}
-			else if (note=="f"){
-				if (accidental=="sharp"){
+			else if (note=="f"||note=="F"){
+				if (accidental=="sharp"||accidental=="Sharp"){
 					F=370.0;
 				}
-				else if(accidental=="flat"){
+				else if(accidental=="flat"||accidental=="Flat"){
 					F=329.6;
 				}
 				else{
 					F=349.2;
 				}
 			}
-			else if (note=="g"){
-				if (accidental=="sharp"){
+			else if (note=="g"||note=="G"){
+				if (accidental=="sharp"||accidental=="Sharp"){
 					F=415.3;
 				}
-				else if(accidental=="flat"){
+				else if(accidental=="flat"||accidental=="Flat"){
 					F=370.0;
 				}
 				else{
 					F=392.0;
 				}
 			}
-			else if (note=="a"){
-				if (accidental=="sharp"){
+			else if (note=="a"||note=="A"){
+				if (accidental=="sharp"||accidental=="Sharp"){
 					F=466.2;
 				}
-				else if(accidental=="flat"){
+				else if(accidental=="flat"||accidental=="Flat"){
 					F=415.3;
 				}
 				else{
 					F=440.0;
 				}
 			}
-			else if (note=="b"){
-				if (accidental=="sharp"){
+			else if (note=="b"||note=="B"){
+				if (accidental=="sharp"||accidental=="Sharp"){
 					F=523.3;
 				}
-				else if(accidental=="flat"){
+				else if(accidental=="flat"||accidental=="Flat"){
 					F=466.2;
 				}
 				else{

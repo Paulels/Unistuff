@@ -48,7 +48,7 @@ class BigBand
 		void setvoice(Voice* voicesec[]);
 		void setconductor(Conductor* con);
 
-		void playstyle(std::string sty, Drums x); //changes the style drums are playing in
+		void playstyle(std::string sty, Drums* x); //changes the style drums are playing in
 
 };
 #endif

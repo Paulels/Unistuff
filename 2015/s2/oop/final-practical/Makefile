@@ -1,7 +1,9 @@
-all: Compiled
+all: Compiled 
 
 Compiled: BigBand.o Instrument.o Voice.o Brass.o Drums.o Piano.o Percussion.o Guitar.o Trombone.o Trumpet.o Saxophone.o MainProgram.o Conductor.o
 	g++ -o Compiled BigBand.o Instrument.o Voice.o Brass.o Drums.o Piano.o Percussion.o Guitar.o Trombone.o Trumpet.o Saxophone.o MainProgram.o Conductor.o
+
+
 
 BigBand.o: BigBand.cpp BigBand.h Saxophone.h Brass.h Instrument.h Trumpet.h Trombone.h Guitar.h Percussion.h Piano.h Drums.h Voice.h Conductor.h
 	g++ -c BigBand.cpp
@@ -41,6 +43,8 @@ Saxophone.o: Saxophone.cpp Saxophone.h Brass.h
 
 MainProgram.o: MainProgram.cpp Saxophone.h Brass.h Instrument.h Trumpet.h Trombone.h Guitar.h Percussion.h Piano.h Drums.h Voice.h BigBand.h Conductor.h
 	g++ -c MainProgram.cpp
+
+
 
 clean:
 	rm -f Compiled *.o
