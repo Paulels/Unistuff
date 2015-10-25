@@ -4,7 +4,7 @@
 using namespace std;
 
 
-	Trombone::Trombone(bool useTrigger,bool useMute):Brass("C","Natural"," ")
+	Trombone::Trombone(bool useTrigger,bool useMute):Brass("C","Natural"," ") //inheritance with setting the states in brass to generic things
 {
 
 		setUseTrigger(useTrigger);
@@ -40,7 +40,7 @@ using namespace std;
 
 	}
 
-	void Trombone::playAction(){
+	void Trombone::playAction(){ //polymorphism
 
 		cout << "The trombone player plays the trombone by sliding their slide to corresponding positions." << endl;
 

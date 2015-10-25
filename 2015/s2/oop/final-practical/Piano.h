@@ -12,8 +12,8 @@ class Piano:public Instrument
 		Piano(std::string pChord);
 		Piano();
 
-		std::string getPChord();
-		void setPChord(std::string pc);
+		std::string getPChord(); //used to return the states value
+		void setPChord(std::string pc); //used to change the state
 		void playAction();
 	
 };

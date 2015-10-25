@@ -6,10 +6,10 @@
 class Percussion:public Instrument
 {
 	protected:
-		std::string instrument;
+		std::string instrument; //states
 
 	public:
-		Percussion(std::string instrument);
+		Percussion(std::string instrument); //constructors
 		Percussion();
 
 		std::string getInstrument();

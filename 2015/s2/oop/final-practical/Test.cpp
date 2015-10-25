@@ -24,7 +24,7 @@ using namespace std;
 #ifndef WEBSUBMIT
 int main(){
 
-	Conductor conductor1("Michael",51);
+	Conductor conductor1("Michael",51); //creating all my classes
 	Drums drum1("Jazz");
 	Guitar guitar1("C");
 	Percussion percussion1("Cowbell");
@@ -67,7 +67,7 @@ int main(){
 
 	BigBand Bigband1(v3,v2,&drum1,&percussion1,&piano1,&guitar1,v1,v4,&conductor1,"Big Band 1","Jazzin");
 
-	Brass brass();
+	Brass brass(); //seeing if i can create a brass class and the program shouldnt compile
 
 return 0;
 }

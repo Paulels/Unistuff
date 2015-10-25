@@ -21,7 +21,7 @@ class Brass:public Instrument
 		void setNoteType(std::string nt);
 		std::string getBType();
 		void setBType(std::string bt);
-		virtual void favStyle(std::string styl) =0;
+		virtual void favStyle(std::string styl) =0; //Making the brass class abstact so that it cant be created also allow polymorphism
 		void noteFrequency(std::string note, std::string accidental);
 	
 };

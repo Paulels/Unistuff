@@ -3,10 +3,10 @@
 #define TROMBONE_H
 #include "Brass.h"
 
-class Trombone:public Brass
+class Trombone:public Brass 
 {
 	protected:
-		bool useTrigger;
+		bool useTrigger;  //states which can only be accessed directly by thing within the same inheritance tree
 		bool useMute;
 
 	public:

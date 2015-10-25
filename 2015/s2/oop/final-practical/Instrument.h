@@ -2,7 +2,7 @@
 #ifndef INSTRUMENT_H
 #define INSTRUMENT_H
 
-class Instrument
+class Instrument //top of the inheritance tree
 {
 	protected:
 		bool play;
@@ -17,7 +17,7 @@ class Instrument
 		void setPlay(bool a);
 		bool getSolo();
 		void setSolo(bool b);
-		virtual void playAction() =0;
+		virtual void playAction() =0; //makes instrument an abstract class
 
 };
 #endif

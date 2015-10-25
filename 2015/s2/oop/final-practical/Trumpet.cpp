@@ -14,13 +14,13 @@ using namespace std;
 
 	Trumpet::Trumpet(){}
 
-	void Trumpet::setUseMute(bool usemute){
+	void Trumpet::setUseMute(bool usemute){ //used to change the state 
 
 		useMute=usemute;
 
 	}
 
-	bool Trumpet::getUseMute(){
+	bool Trumpet::getUseMute(){  //used to return the states value at the time
 
 		return useMute;
 

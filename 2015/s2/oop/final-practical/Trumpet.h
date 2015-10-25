@@ -14,7 +14,7 @@ class Trumpet:public Brass
 
 		void setUseMute(bool usemute);
 		bool getUseMute();
-		void playAction();
+		void playAction();  //polymorphic behaviours
 		void favStyle(std::string styl);
 
 };

@@ -3,7 +3,7 @@
 #define SAXOPHONE_H
 #include "Brass.h"
 
-class Saxophone:public Brass
+class Saxophone:public Brass //inherits from brass which inherits from instrument
 {
 	protected:
 		bool vibrato;

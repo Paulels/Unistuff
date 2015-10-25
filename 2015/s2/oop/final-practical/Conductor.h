@@ -2,7 +2,7 @@
 #ifndef CONDUCTOR_H
 #define CONDUCTOR_H
 
-class Conductor
+class Conductor //not part of the instrument inheritance tree
 {
 	public:
 

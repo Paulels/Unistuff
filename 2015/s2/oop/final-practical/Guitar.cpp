@@ -3,7 +3,7 @@
 #include "Guitar.h"
 using namespace std;
 
-	Guitar::Guitar(string gChord):Instrument(true, false)
+	Guitar::Guitar(string gChord):Instrument(true, false) //inheritance
 {
 
 		setGChord(gChord);
@@ -25,7 +25,7 @@ using namespace std;
 
 	}
 
-	void Guitar::playAction(){
+	void Guitar::playAction(){ //polymorphism
 
 		cout << "The guitar player plays by strumming the strings." << endl;
 

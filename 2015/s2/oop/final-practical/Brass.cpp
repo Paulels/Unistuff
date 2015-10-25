@@ -3,7 +3,7 @@
 #include "Brass.h"
 using namespace std;
 
-		Brass::Brass(string bNote,string nType,string bType):Instrument(true,false){
+		Brass::Brass(string bNote,string nType,string bType):Instrument(true,false){ //Brass is also an instrument
 			setBNote(bNote);
 			getBNote();
 			setNoteType(nType);
@@ -31,7 +31,7 @@ using namespace std;
 		string Brass::getBType(){
 			return bType;
 }
-		void Brass::noteFrequency(string note, string accidental){
+		void Brass::noteFrequency(string note, string accidental){ //To show use of different formats for numbers other than int
 			float F;
 			if (note=="c"||note=="C"){
 				if (accidental=="sharp"||accidental=="Sharp"){

@@ -15,7 +15,7 @@
 
 class BigBand
 {
-	private:
+	private: //all the states of a big band with all the instruments
 		Trombone* tromSec[4];
 		Trumpet* trumSec[4];
 		Drums* drum;
@@ -30,10 +30,10 @@ class BigBand
 
 	public:
 		
-		BigBand(Trombone* tromSec[4],Trumpet* trumSec[4],Drums* drum,Percussion* percussion,Piano* piano,Guitar* guitar,Saxophone* saxSec[5],Voice* voiceSec[4],Conductor* cond, std::string name,std::string songName);
-		BigBand();
+		BigBand(Trombone* tromSec[4],Trumpet* trumSec[4],Drums* drum,Percussion* percussion,Piano* piano,Guitar* guitar,Saxophone* saxSec[5],Voice* voiceSec[4],Conductor* cond, std::string name,std::string songName); 
+		BigBand(); //constructos
 		
-		std::string getName();
+		std::string getName();  //behaviours
 		void setName(std::string n);
 		std::string getSName();
 		void setSName(std::string sn);

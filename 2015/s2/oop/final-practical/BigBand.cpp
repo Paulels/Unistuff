@@ -18,7 +18,7 @@ using namespace std;
 		setSName(songName);
 		getSName();
 }
-
+//Constructor with only set functions fo all of the instruments because get functions were not necessary in this instance because I was creating them in the main
 
 		BigBand::BigBand(){}
 		
@@ -35,8 +35,8 @@ using namespace std;
 			songName=sn;
 }
 
-		void BigBand::settrom(Trombone* tromsec[4]){
-			for(int i=0;i<4;i++){
+		void BigBand::settrom(Trombone* tromsec[4]){  //takes in an array and sets the section by copying the array
+			for(int i=0;i<4;i++){ 
 				tromSec[i]=tromsec[i];
 }
 }
@@ -81,15 +81,15 @@ using namespace std;
 
 
 		void BigBand::playstyle(string sty, Drums* a){
-			if (sty==" "){
+			if (sty==" "){  //Checks for blank case
 				cout << "Invalid style so the style was set to jazz." << endl;
 				sty="jazz";
 			}
-			if (sty==a->getStyle()){
+			if (sty==a->getStyle()){  //Checks if styles are the same
 				cout << "The band is already playing in this style" << endl;
 }
 			else{
-				a->setStyle(sty);
+				a->setStyle(sty);  //changes style in drums if the styles are different
 				cout << "The drumming style was changed to " << sty << " and therefore so was the bands" << endl;
 }
 }

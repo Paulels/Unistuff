@@ -3,7 +3,7 @@
 #include "Instrument.h"
 using namespace std;
 
-		Instrument::Instrument(bool t,bool f){
+		Instrument::Instrument(bool t,bool f){ //constructor
 			setPlay(t);
 			getPlay();
 			setSolo(f);

@@ -4,7 +4,7 @@
 using namespace std;
 
 
-	Saxophone::Saxophone(bool vibrato):Brass("C","Natural"," ")
+	Saxophone::Saxophone(bool vibrato):Brass("C","Natural"," ") //inherits from both brass and instrument
 {
 
 		setVibrato(vibrato);
@@ -26,13 +26,13 @@ using namespace std;
 
 	}
 
-	void Saxophone::playAction(){
+	void Saxophone::playAction(){ //polymorphism from instrument
 
 		cout << "The saxophone player plays the saxophone by pressing down keys." << endl;
 
 	}
 
-	void Saxophone::favStyle(string styl){
+	void Saxophone::favStyle(string styl){  //polymorphism from brass
 
 		if (styl=="jazz"){
 			cout << "Jazz is a saxophones favourite style." << endl;

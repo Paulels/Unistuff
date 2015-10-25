@@ -5,11 +5,11 @@
 
 class Drums:public Instrument
 {
-	protected:
+	protected: //proctected so only things in the inheritance tree can access it directly
 		std::string style;
 
 	public:
-		Drums(std::string style);
+		Drums(std::string style); //constructors
 		Drums();
 
 		std::string getStyle();

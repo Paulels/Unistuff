@@ -3,7 +3,7 @@
 #define GUITAR_H
 #include "Instrument.h"
 
-class Guitar:public Instrument
+class Guitar:public Instrument //inheritance
 {
 	protected:
 		std::string gChord;
@@ -12,7 +12,7 @@ class Guitar:public Instrument
 		Guitar(std::string gChord);
 		Guitar();
 
-		std::string getGChord();
+		std::string getGChord(); //behaviours
 		void setGChord(std::string gc);
 		void playAction();
 	

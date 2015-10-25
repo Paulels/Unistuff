@@ -3,7 +3,7 @@
 #include "Voice.h"
 using namespace std;
 
-	Voice::Voice(string vType,string vNote):Instrument(true, false)
+	Voice::Voice(string vType,string vNote):Instrument(true, false) //inherits from instrument setting the instrument states to generic values
 {
 
 		setVType(vType);
@@ -39,7 +39,7 @@ using namespace std;
 
 	}
 
-	void Voice::drink(string liquid, int length){
+	void Voice::drink(string liquid, int length){  //unique behaviour for voice
 
 		cout << "The signer takes a drink of " << liquid << " for " << length << " seconds to freshen up their vocal chords." << endl;
 
