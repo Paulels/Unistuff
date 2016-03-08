@@ -5,6 +5,8 @@
 #ifndef PALINDROME_H
 #define PALINDROME_H
 
+// A class that implements a to check if a phrase is a palindrome
+
 class Palindrome{
 
 	private:
@@ -14,7 +16,8 @@ class Palindrome{
 		std::string lowerCasePhrase;
 
 	public:
-
+		
+		// Constructs a palindrome
 		Palindrome();
 
 		void setEnteredPhrase(std::string es);
@@ -24,9 +27,10 @@ class Palindrome{
 		std::string getAllLettersPhrase();
 		std::string getLowerCasePhrase();
 		
+		//Behaviours that check a given string to see if it is a palindrome
 		std::string removeNonLetters(std::string s1);
 		std::string lowerCase(std::string s2);
 		int isPalindrome(std::string s3);
 
 };
-#endif
+#endif  //PALINDROME_H
