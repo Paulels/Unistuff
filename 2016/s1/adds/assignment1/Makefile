@@ -1,6 +1,6 @@
 all: Compiled 
 
-Compiled: Main.o Palindrome.o
+Compiled: main.o Palindrome.o
 	g++ -o Compiled Main.o Palindrome.o
 
 
@@ -8,8 +8,8 @@ Compiled: Main.o Palindrome.o
 Palindrome.o: Palindrome.cpp Palindrome.h
 	g++ -c Palindrome.cpp
 
-Main.o: Main.cpp Palindrome.h
-	g++ -c Main.cpp
+main.o: main.cpp Palindrome.h
+	g++ -c main.cpp
 
 
 
