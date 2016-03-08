@@ -7,7 +7,7 @@ using namespace std;
 
 int main(){
 	string phrase;
-	cout<<"Please enter a string to test if a palindrome: ";
+	//cout<<"Please enter a string to test if a palindrome: ";
 	getline(cin,phrase);
 	Palindrome Palindrome;
 	Palindrome.setEnteredPhrase(phrase);

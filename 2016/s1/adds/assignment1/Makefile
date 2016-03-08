@@ -1,7 +1,7 @@
 all: Compiled 
 
 Compiled: main.o Palindrome.o
-	g++ -o Compiled Main.o Palindrome.o
+	g++ -o Compiled main.o Palindrome.o
 
 
 
