@@ -24,7 +24,6 @@ int referee::getNumberOfGames(){
 void referee::playGame(human H,computer C,int y){
 	int i=0;
 	int j=0;
-	int t=0;
 	while(i<y){
 		j=(2*i);
 		if(C.getMove()=='R'){

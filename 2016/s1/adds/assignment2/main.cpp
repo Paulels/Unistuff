@@ -13,6 +13,10 @@ int main(){
 
 	string str;
 	getline(cin,str);
+	if(str[1]!=' '){
+		cout<<"Enter in the form of k, followed by k moves with a space inbetween."<<endl;
+	}
+	else{
 	human human;
 	human.setMoves(str);
 	computer computer;
@@ -21,5 +25,5 @@ int main(){
 	int y=referee.getNumberOfGames();
 	GameController GameController;
 	GameController.play(human,computer,referee,y);
-
+	}
 }
