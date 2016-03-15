@@ -2,35 +2,23 @@
 #include <string>
 #include <cctype>
 #include <stdio.h>
-#ifndef PALINDROME_H
-#define PALINDROME_H
+#include <string.h>
+#include <ctype.h>
+#ifndef HUMAN_H
+#define HUMAN_H
 
-// A class that implements a to check if a phrase is a palindrome
-
-class Palindrome{
+class human{
 
 	private:
-		
-		std::string enteredPhrase;
-		std::string allLettersPhrase;
-		std::string lowerCasePhrase;
+
+		std::string moves;
 
 	public:
-		
-		// Constructs a palindrome
-		Palindrome();
 
-		void setEnteredPhrase(std::string es);
-		void setAllLettersPhrase(std::string ls);
-		void setLowerCasePhrase(std::string lcs);
-		std::string getEnteredPhrase();
-		std::string getAllLettersPhrase();
-		std::string getLowerCasePhrase();
-		
-		//Behaviours that check a given string to see if it is a palindrome
-		std::string removeNonLetters(std::string s1);
-		std::string lowerCase(std::string s2);
-		int isPalindrome(std::string s3);
+		human();
+
+		void setMoves(std::string s);
+		char getMoves(int z);
 
 };
-#endif  //PALINDROME_H
+#endif 
