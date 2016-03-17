@@ -22,4 +22,3 @@ int main(){
 	GameController GameController;
 	GameController.play(human,computer,referee,y); //runs for the actual playing of the games
 	}
-}
