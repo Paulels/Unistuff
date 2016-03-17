@@ -13,11 +13,11 @@ class referee{
 
 	private:
 
-		int numberOfGames;
+		int numberOfGames; //How many games are played
 
 	public:
 
-		referee();
+		referee(); //Constructor for referee
 
 		void setNumberOfGames(char c);
 		int getNumberOfGames();

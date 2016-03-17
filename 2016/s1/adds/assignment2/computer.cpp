@@ -8,7 +8,7 @@
 using namespace std;
 
 computer::computer(){
-	move='R';
+	move='R'; //Dumb computer only plays rock
 }
 
 char computer::getMove(){

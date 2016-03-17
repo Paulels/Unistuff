@@ -16,9 +16,9 @@ class GameController{
 
 	public:
 
-		GameController();
+		GameController(); //constructor for gamecontroller
 
-		void play(human h,computer c,referee r,int y);
+		void play(human h,computer c,referee r,int y); //takes in classes and number of moves
 
 };
 #endif  //GAMECONTROLLER_H

@@ -11,6 +11,6 @@ GameController::GameController(){
 
 }
 
-void GameController::play(human h,computer c,referee r,int y){
-	r.playGame(h,c,y);
+void GameController::play(human h,computer c,referee r,int y){ //takes in all classes
+	r.playGame(h,c,y); //decides who wins
 };

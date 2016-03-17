@@ -12,7 +12,7 @@ referee::referee(){
 }
 
 void referee::setNumberOfGames(char c){
-	int x=c-'0';
+	int x=c-'0'; //subtracts the ascii number for 0 to make it an integer equal to its actual value
 	numberOfGames=x;
 
 };
@@ -24,9 +24,9 @@ int referee::getNumberOfGames(){
 void referee::playGame(human H,computer C,int y){
 	int i=0;
 	int j=0;
-	while(i<y){
+	while(i<y){ //runs for amount of games inputted
 		j=(2*i);
-		if(C.getMove()=='R'){
+		if(C.getMove()=='R'){ //checks with who plays what and outputs whether they won, lost or tied
 			if(H.getMoves(j)=='R'){
 				cout<<"T";
 			}
@@ -59,10 +59,10 @@ void referee::playGame(human H,computer C,int y){
 				cout<<"T";
 			}
 		}
-		if(i<(y-1)){
+		if(i<(y-1)){ //inputting space between results
 			cout<<" ";
 		}
-		if(i==(y-1)){
+		if(i==(y-1)){ //prints a new line after all rounds
 		cout<<"\n";
 		}
 		i++;

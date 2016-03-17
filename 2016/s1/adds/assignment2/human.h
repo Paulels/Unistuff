@@ -15,10 +15,10 @@ class human{
 
 	public:
 
-		human();
+		human(); //constructor for human
 
 		void setMoves(std::string s);
-		char getMoves(int z);
+		char getMoves(int z); //takes an input so that it knows what move to access
 
 };
-#endif 
+#endif //HUMAN_H

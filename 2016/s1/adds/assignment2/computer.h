@@ -11,15 +11,15 @@ class computer{
 
 	private:
 
-	char move;
+	char move; 
 
 	public:
 	
-	computer();
+	computer(); //constructor for computer
 
-	char getMove();
+	char getMove(); //only need get move because dumb computer
 
 
 
 };
-#endif 
+#endif //COMPUTER_H

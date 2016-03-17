@@ -11,19 +11,15 @@ using namespace std;
 
 int main(){
 
-	string str;
-	getline(cin,str);
-	if(str[1]!=' '){
-		cout<<"Enter in the form of k, followed by k moves with a space inbetween."<<endl;
-	}
-	else{
-	human human;
+	string str; //initialises for input
+	getline(cin,str); //Gets user input
+	human human; 
 	human.setMoves(str);
 	computer computer;
 	referee referee;
-	referee.setNumberOfGames(str[0]);
+	referee.setNumberOfGames(str[0]); //refers to the first character in str which will be number of games
 	int y=referee.getNumberOfGames();
 	GameController GameController;
-	GameController.play(human,computer,referee,y);
+	GameController.play(human,computer,referee,y); //runs for the actual playing of the games
 	}
 }
