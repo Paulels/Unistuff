@@ -7,7 +7,6 @@
 #include <cstdlib>
 #include "Human.h"
 #include "Player.h"
-#include "Computer.h"
 #include "Tournament.h"
 #include "Avalanche.h"
 #include "RandomComputer.h"
@@ -21,34 +20,34 @@ using namespace std;
 
 int main(){
 
-	vector<Player> players;
+	vector<Player*> players;
 	string str;
 	int i=0;
 
-	while(idx <8){
+	while(i<8){
 		cin >> str;
-		if(input=="Bureaucrat"){
-			players.push_back(Bureaucrat());
+		if(str=="Bureaucrat"){
+			players.push_back(new Bureaucrat());
 			i++;
 		}
-		else if(input=="Crescendo"){
-			players.push_back(Crescendo());
+		else if(str=="Crescendo"){
+			players.push_back(new Crescendo());
 			i++;
 		}
-		else if(input=="FistfullODollars"){
-			players.push_back(FistfullODollars());
+		else if(str=="FistfullODollars"){
+			players.push_back(new FistfullODollars());
 			i++;
 		}
-		else if(input=="PaperDoll"){
-			players.push_back(PaperDoll());
+		else if(str=="PaperDoll"){
+			players.push_back(new PaperDoll());
 			i++;
 		}
-		else if(input=="Avalanche"){
-			players.push_back(Avalanche());
+		else if(str=="Avalanche"){
+			players.push_back(new Avalanche());
 			i++;
 		}
-		else if(input=="Toolbox"){
-			players.push_back(ToolBox());
+		else if(str=="Toolbox"){
+			players.push_back(new ToolBox());
 			i++;
 		}
 	}

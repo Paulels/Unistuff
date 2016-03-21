@@ -6,9 +6,8 @@
 #ifndef PAPERDOLL_H
 #define PAPERDOLL_H
 #include "Player.h"
-#include "Computer.h"
 
-class PaperDoll:public Computer{
+class PaperDoll:public Player{
 
 }
 #endif //PAPERDOLL_H

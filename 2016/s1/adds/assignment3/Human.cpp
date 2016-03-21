@@ -7,11 +7,11 @@
 #include "Human.h"
 using namespace std;
 
-human::human(){
+Human::Human():Player("Human"){
 
 }
 
-void human::setMoves(string s){
+void Human::setMoves(string s){
 	int a=0;
 	int b=2;
 	int c=0;
@@ -24,7 +24,7 @@ void human::setMoves(string s){
 	}
 };
 
-char human::getMoves(int z){ //allows input to know which move to access
+char Human::getMoves(int z){ //allows input to know which move to access
 	char s=moves[z];
 	return s;
 };

@@ -6,9 +6,8 @@
 #ifndef CRESCENDO_H
 #define CRESCENDO_H
 #include "Player.h"
-#include "Computer.h"
 
-class Crescendo:public Computer{
+class Crescendo:public Player{
 
 }
 #endif //CRESCENDO_H

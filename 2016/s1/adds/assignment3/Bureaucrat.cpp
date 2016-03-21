@@ -7,7 +7,7 @@
 #include "Bureaucrat.h"
 using namespace std;
 
-Bureaucrat::Bureaucrat(){
+Bureaucrat::Bureaucrat():Player("Bureaucrat"){
 
 }
 

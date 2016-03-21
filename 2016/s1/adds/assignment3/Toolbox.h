@@ -6,9 +6,8 @@
 #ifndef TOOLBOX_H
 #define TOOLBOX_H
 #include "Player.h"
-#include "Computer.h"
 
-class Toolbox:public Computer{
+class Toolbox:public Player{
 
 }
 #endif //TOOLBOX_H

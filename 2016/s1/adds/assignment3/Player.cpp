@@ -9,8 +9,16 @@ using namespace std;
 
 Player::Player(){
 
+	numberOfWins=0;
+
 }
 
-Player::otherfunction(){
+Player::Player(string newName):name(newName){
 
+	numberOfWins=0;
+
+}
+
+Player::getName(){
+	return name;
 };

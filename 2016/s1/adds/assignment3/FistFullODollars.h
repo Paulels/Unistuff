@@ -6,9 +6,8 @@
 #ifndef FISTFULLODOLLARS_H
 #define FISTFULLODOLLARS_H
 #include "Player.h"
-#include "Computer.h"
 
-class FistFullODollars:public Computer{
+class FistFullODollars:public Player{
 
 }
 #endif //FISTFULLODOLLARS_H

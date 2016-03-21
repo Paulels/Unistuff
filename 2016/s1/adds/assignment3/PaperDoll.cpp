@@ -7,7 +7,7 @@
 #include "PaperDoll.h"
 using namespace std;
 
-PaperDoll::PaperDoll(){
+PaperDoll::PaperDoll():Player("PaperDoll"){
 
 }
 

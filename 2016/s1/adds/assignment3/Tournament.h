@@ -7,7 +7,6 @@
 #define TOURNAMENT_H
 #include "Human.h"
 #include "Player.h"
-#include "Computer.h"
 #include "Avalanche.h"
 #include "RandomComputer.h"
 #include "Bureaucrat.h"

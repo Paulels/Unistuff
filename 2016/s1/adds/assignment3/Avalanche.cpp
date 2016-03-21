@@ -7,10 +7,31 @@
 #include "Avalanche.h"
 using namespace std;
 
-Avalanche::Avalanche(){
+Avalanche::Avalanche():Player("Avalanche"){
 
+	moves="RRRRR";
 }
 
-Avalanche::otherfunction(){
+char Avalanche::getMove(int x){
+
+	return moves[x];
+
+};
+
+void Avalanche::incrementNumberOfWins(){
+
+	numberOfWins++;
+
+};
+
+int Avalanche::getNumberOfWins(){
+
+	return numberOfWins;
+
+};
+
+void Avalanche::resetNumberOfWins(){
+
+	numberOfWins=0;
 
 };

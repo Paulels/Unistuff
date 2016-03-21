@@ -7,7 +7,7 @@
 #include "FistFullODollars.h"
 using namespace std;
 
-FistFullODollars::FistFullODollars(){
+FistFullODollars::FistFullODollars():Player("FistFullODollars"){
 
 }
 

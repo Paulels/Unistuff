@@ -8,5 +8,22 @@
 
 class Player{
 
+	protected:
+
+		std::string name;
+		std::string moves;
+		int numberOfWins;
+
+	public:
+
+		Player();
+		Player(std::string);
+
+		std::string getName();
+		virtual char getMove(int x);
+		virtual void incrementNumberOfWin();
+		virtual int getNumberOfWins();
+		virtual void resetNumberOfWins();
+
 }
 #endif //PLAYER_H

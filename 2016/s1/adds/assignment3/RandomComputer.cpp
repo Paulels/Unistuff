@@ -7,7 +7,7 @@
 #include "RandomComputer.h"
 using namespace std;
 
-RandomComputer::RandomComputer(){
+RandomComputer::RandomComputer():Player("RandomComputer"){
 
 }
 

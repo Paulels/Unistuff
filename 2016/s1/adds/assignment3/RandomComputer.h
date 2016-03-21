@@ -6,9 +6,8 @@
 #ifndef RANDOMCOMPUTER_H
 #define RANDOMCOMPUTER_H
 #include "Player.h"
-#include "Computer.h"
 
-class RandomComputer:public Computer{
+class RandomComputer:public Player{
 
 }
 #endif //RANDOMCOMPUTER_H

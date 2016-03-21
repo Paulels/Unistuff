@@ -7,7 +7,7 @@
 #include "Crescendo.h"
 using namespace std;
 
-Crescendo::Crescendo(){
+Crescendo::Crescendo():Player("Crescendo"){
 
 }
 
