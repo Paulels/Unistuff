@@ -28,6 +28,6 @@ Player* Tournament::driver(Referee R){
 		matchNumber=matchNumber+2;
 	}
 	matchNumber=0;
-	Player* winner=R.playGame(round2[matchNumber],round2[matchNumber+1]);
+	Player* winner=R.playGame(round3[matchNumber],round3[matchNumber+1]);
 	return winner;
 };

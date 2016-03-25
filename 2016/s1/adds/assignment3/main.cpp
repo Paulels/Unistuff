@@ -50,6 +50,9 @@ int main(){
 return 0;
 		}
 	}
+/*for(int c=0;c<8;c++){
+cout<<players[c]->getName()<<endl;
+}*/
 
 
 	Tournament Tournament(players);
