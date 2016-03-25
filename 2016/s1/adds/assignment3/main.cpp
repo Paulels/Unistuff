@@ -46,9 +46,9 @@ int main(){
 		else if(str=="Toolbox"){
 			players.push_back(new Toolbox);
 		}
-		else{
-return 0;
-		}
+//		else{
+//return 0;
+	//	}
 	}
 /*for(int c=0;c<8;c++){
 cout<<players[c]->getName()<<endl;
