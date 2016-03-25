@@ -34,8 +34,8 @@ int main(){
 		else if(str=="Crescendo"){
 			players.push_back(new Crescendo);
 		}
-		else if(str=="FistFullODollars"){
-			players.push_back(new FistFullODollars);
+		else if(str=="FistfullODollars"){
+			players.push_back(new FistfullODollars);
 		}
 		else if(str=="PaperDoll"){
 			players.push_back(new PaperDoll);
@@ -46,22 +46,13 @@ int main(){
 		else if(str=="Toolbox"){
 			players.push_back(new Toolbox);
 		}
-//		else{
-//return 0;
-	//	}
 	}
-/*for(int c=0;c<8;c++){
-cout<<players[c]->getName()<<endl;
-}*/
-
 
 	Tournament Tournament(players);
 	Referee Referee;
 	Player* winner=Tournament.driver(Referee);
 	string s=winner->getName();
 	cout<<s<<endl;
-
-
 
 	int j=0;
 	for(j=0;j<8;j++){

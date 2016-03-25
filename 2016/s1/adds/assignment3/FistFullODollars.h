@@ -7,12 +7,12 @@
 #define FISTFULLODOLLARS_H
 #include "Player.h"
 
-class FistFullODollars:public Player{
+class FistfullODollars:public Player{
 
 	public:
 
-		FistFullODollars();
-		~FistFullODollars();
+		FistfullODollars();
+		~FistfullODollars();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();

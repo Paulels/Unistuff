@@ -7,35 +7,35 @@
 #include "FistFullODollars.h"
 using namespace std;
 
-FistFullODollars::FistFullODollars():Player("FistFullODollars"){
+FistfullODollars::FistfullODollars():Player("FistFullODollars"){
 
 	moves="RPPRP";
 
 }
 
-FistFullODollars::~FistFullODollars(){
+FistfullODollars::~FistfullODollars(){
 
 }
 
-char FistFullODollars::getMove(int x){
+char FistfullODollars::getMove(int x){
 
 	return moves[x];
 
 };
 
-void FistFullODollars::incrementNumberOfWin(){
+void FistfullODollars::incrementNumberOfWin(){
 
 	numberOfWins++;
 
 };
 
-int FistFullODollars::getNumberOfWins(){
+int FistfullODollars::getNumberOfWins(){
 
 	return numberOfWins;
 
 };
 
-void FistFullODollars::resetNumberOfWins(){
+void FistfullODollars::resetNumberOfWins(){
 
 	numberOfWins=0;
 
