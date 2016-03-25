@@ -25,7 +25,6 @@ class Player{
 		virtual void incrementNumberOfWin()=0;
 		virtual int getNumberOfWins()=0;
 		virtual void resetNumberOfWins()=0;
-		virtual ~Player();
 
 };
 #endif //PLAYER_H

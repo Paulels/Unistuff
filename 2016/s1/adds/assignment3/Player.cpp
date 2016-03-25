@@ -19,12 +19,6 @@ Player::Player(string newName):name(newName){
 
 }
 
-Player::~Player(){
-
-
-
-}
-
 string Player::getName(){
 	return name;
 };
