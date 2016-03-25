@@ -45,7 +45,7 @@ Player* Referee::playGame(Player* A,Player* B){
 			}
 		}
 	}
-	if(A->getNumberOfWins()>=B->getNumberOfWins()){
+	if(A->getNumberOfWins()>B->getNumberOfWins()){
 		A->resetNumberOfWins();
 		B->resetNumberOfWins();
 		return A;
@@ -54,5 +54,10 @@ Player* Referee::playGame(Player* A,Player* B){
 		A->resetNumberOfWins();
 		B->resetNumberOfWins();
 		return B;
+	}
+	else{
+		A->resetNumberOfWins();
+		B->resetNumberOfWins();
+		return A;
 	}
 };

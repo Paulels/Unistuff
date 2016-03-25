@@ -18,12 +18,14 @@ class Player{
 
 		Player();
 		Player(std::string);
+		
 
 		std::string getName();
 		virtual char getMove(int x)=0;
 		virtual void incrementNumberOfWin()=0;
 		virtual int getNumberOfWins()=0;
 		virtual void resetNumberOfWins()=0;
+		~Player();
 
 };
 #endif //PLAYER_H

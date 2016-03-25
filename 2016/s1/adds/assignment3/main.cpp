@@ -64,7 +64,7 @@ int main(){
 
 
 	int j=0;
-	for(j=0;j<players.size();j++){
+	for(j=0;j<8;j++){
 		delete players[j];
 	}
 	players.clear(); 
