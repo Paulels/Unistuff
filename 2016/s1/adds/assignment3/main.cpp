@@ -26,31 +26,27 @@ int main(){
 	string str;
 	int i=0;
 
-	while(i<8){
+	for(i=0;i<8;i++){
 		cin >> str;
 		if(str=="Bureaucrat"){
 			players.push_back(new Bureaucrat);
-			i++;
 		}
 		else if(str=="Crescendo"){
 			players.push_back(new Crescendo);
-			i++;
 		}
 		else if(str=="FistFullODollars"){
 			players.push_back(new FistFullODollars);
-			i++;
 		}
 		else if(str=="PaperDoll"){
 			players.push_back(new PaperDoll);
-			i++;
 		}
 		else if(str=="Avalanche"){
 			players.push_back(new Avalanche);
-			i++;
 		}
 		else if(str=="Toolbox"){
 			players.push_back(new Toolbox);
-			i++;
+		}
+		else{
 		}
 	}
 
