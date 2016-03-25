@@ -47,6 +47,7 @@ int main(){
 			players.push_back(new Toolbox);
 		}
 		else{
+return 0;
 		}
 	}
 
