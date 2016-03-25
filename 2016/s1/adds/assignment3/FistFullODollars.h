@@ -12,6 +12,7 @@ class FistFullODollars:public Player{
 	public:
 
 		FistFullODollars();
+		~FistFullODollars();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();

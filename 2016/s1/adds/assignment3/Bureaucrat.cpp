@@ -13,6 +13,10 @@ Bureaucrat::Bureaucrat():Player("Bureaucrat"){
 
 }
 
+Bureaucrat::~Bureaucrat(){
+
+}
+
 char Bureaucrat::getMove(int x){
 
 	return moves[x];

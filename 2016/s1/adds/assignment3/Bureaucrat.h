@@ -12,6 +12,7 @@ class Bureaucrat:public Player{
 	public:
 
 		Bureaucrat();
+		~Bureaucrat();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();

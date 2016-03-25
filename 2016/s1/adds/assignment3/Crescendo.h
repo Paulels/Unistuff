@@ -12,6 +12,7 @@ class Crescendo:public Player{
 	public:
 
 		Crescendo();
+		~Crescendo();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();

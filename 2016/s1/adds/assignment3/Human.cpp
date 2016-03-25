@@ -18,6 +18,10 @@ Human::Human():Player("Human"){
 	}
 }
 
+Human::~Human(){
+
+}
+
 char Human::getMove(int x){
 
 	return moves[x];

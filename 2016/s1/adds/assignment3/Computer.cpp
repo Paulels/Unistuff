@@ -11,6 +11,10 @@ Computer::Computer():Player("Computer"){
 	moves="RRRRR"; //Dumb computer only plays rock
 }
 
+Computer::~Computer(){
+
+}
+
 char Computer::getMove(int x){
 
 	return moves[x];

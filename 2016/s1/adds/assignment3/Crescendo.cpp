@@ -13,6 +13,10 @@ Crescendo::Crescendo():Player("Crescendo"){
 
 }
 
+Crescendo::~Crescendo(){
+
+}
+
 char Crescendo::getMove(int x){
 
 	return moves[x];

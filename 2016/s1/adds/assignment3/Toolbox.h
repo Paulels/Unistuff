@@ -12,6 +12,7 @@ class Toolbox:public Player{
 	public:
 
 		Toolbox();
+		~Toolbox();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();

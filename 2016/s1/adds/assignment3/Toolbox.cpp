@@ -13,6 +13,10 @@ Toolbox::Toolbox():Player("Toolbox"){
 
 }
 
+Toolbox::~Toolbox(){
+
+}
+
 char Toolbox::getMove(int x){
 
 	return moves[x];

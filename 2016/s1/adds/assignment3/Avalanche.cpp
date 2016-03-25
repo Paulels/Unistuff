@@ -13,6 +13,10 @@ Avalanche::Avalanche():Player("Avalanche"){
 
 }
 
+Avalanche::~Avalanche(){
+
+}
+
 char Avalanche::getMove(int x){
 
 	return moves[x];

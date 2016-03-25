@@ -13,6 +13,10 @@ PaperDoll::PaperDoll():Player("PaperDoll"){
 
 }
 
+PaperDoll::~PaperDoll(){
+
+}
+
 char PaperDoll::getMove(int x){
 
 	return moves[x];

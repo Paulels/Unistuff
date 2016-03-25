@@ -13,6 +13,7 @@ class Computer:public Player{
 	public:
 
 		Computer();
+		~Computer();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();

@@ -12,6 +12,7 @@ class RandomComputer:public Player{
 	public:
 
 		RandomComputer();
+		~RandomComputer();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();

@@ -13,6 +13,7 @@ class Human:public Player{
 	public:
 
 		Human();
+		~Human();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();

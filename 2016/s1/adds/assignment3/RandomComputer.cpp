@@ -30,6 +30,10 @@ RandomComputer::RandomComputer():Player("RandomComputer"){
 
 }
 
+RandomComputer::~RandomComputer(){
+
+}
+
 char RandomComputer::getMove(int x){
 
 	return moves[x];

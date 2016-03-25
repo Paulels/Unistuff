@@ -12,6 +12,7 @@ class Avalanche:public Player{
 	public:
 
 		Avalanche();
+		~Avalanche();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();

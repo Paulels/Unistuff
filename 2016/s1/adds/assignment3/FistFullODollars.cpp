@@ -13,6 +13,10 @@ FistFullODollars::FistFullODollars():Player("FistFullODollars"){
 
 }
 
+FistFullODollars::~FistFullODollars(){
+
+}
+
 char FistFullODollars::getMove(int x){
 
 	return moves[x];

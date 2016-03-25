@@ -12,6 +12,7 @@ class PaperDoll:public Player{
 	public:
 
 		PaperDoll();
+		~PaperDoll();
 		char getMove(int x);
 		void incrementNumberOfWin();
 		int getNumberOfWins();
