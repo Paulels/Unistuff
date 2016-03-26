@@ -11,15 +11,17 @@ Computer::Computer():Player("Computer"){
 	moves="RRRRR"; //Dumb computer only plays rock
 }
 
-Computer::~Computer(){
+Computer::~Computer(){		//deconstructor
 
 }
 
 char Computer::getMove(int x){
 
-	return moves[x];
+	return moves[x];		//allows to get the individual move according to what roound
 
 };
+
+//all following behaviours are to allow for number of winns to be incremented, returned and reset
 
 void Computer::incrementNumberOfWin(){
 

@@ -9,19 +9,21 @@ using namespace std;
 
 Avalanche::Avalanche():Player("Avalanche"){
 
-	moves="RRRRR";
+	moves="RRRRR";		//Only plays rock as its move
 
 }
 
-Avalanche::~Avalanche(){
+Avalanche::~Avalanche(){		//deconstructor to allow the object to be deleted
 
 }
 
 char Avalanche::getMove(int x){
 
-	return moves[x];
+	return moves[x];		//allows to get the individual move according to what roound
 
 };
+
+//all following behaviours are to allow for number of winns to be incremented, returned and reset
 
 void Avalanche::incrementNumberOfWin(){
 
@@ -35,7 +37,7 @@ int Avalanche::getNumberOfWins(){
 
 };
 
-void Avalanche::resetNumberOfWins(){
+void Avalanche::resetNumberOfWins(){		
 
 	numberOfWins=0;
 

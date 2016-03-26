@@ -7,18 +7,20 @@
 #include "Referee.h"
 using namespace std;
 
-Referee::Referee(){
+Referee::Referee(){		//constructor that sets rounds equal to 5
 
 	rounds=5;
 
 }
 
-int Referee::getRounds(){
+int Referee::getRounds(){		//so you winn be able to see how many rounds are being played
 	return rounds;
 };
 
 Player* Referee::playGame(Player* A,Player* B){
 	int i=0;
+
+	//run through each round of the game to see who wins, then returns the player with the most wins and resets their win count
 	for(i=0;i<5;i++){
 		if(A->getMove(i)=='R'){ 
 			if(B->getMove(i)=='P'){

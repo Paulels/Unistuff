@@ -6,6 +6,10 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+//Base class for all players which is abstract
+//Passes on most of its behaviours so that they can be redefined in the derived classes
+//every player has a name
+
 class Player{
 
 	protected:

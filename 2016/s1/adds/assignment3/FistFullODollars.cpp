@@ -9,19 +9,21 @@ using namespace std;
 
 FistfullODollars::FistfullODollars():Player("FistFullODollars"){
 
-	moves="RPPRP";
+	moves="RPPRP";		//Plays moves in order of rock, paper, paper
 
 }
 
-FistfullODollars::~FistfullODollars(){
+FistfullODollars::~FistfullODollars(){		//deconstructor
 
 }
 
 char FistfullODollars::getMove(int x){
 
-	return moves[x];
+	return moves[x];		//allows to get the individual move according to what roound
 
 };
+
+//all following behaviours are to allow for number of winns to be incremented, returned and reset
 
 void FistfullODollars::incrementNumberOfWin(){
 

@@ -7,6 +7,8 @@
 #define FISTFULLODOLLARS_H
 #include "Player.h"
 
+//Inherits all of its states and behaviours from Player class and just redefines behaviours
+
 class FistfullODollars:public Player{
 
 	public:

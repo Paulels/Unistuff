@@ -12,6 +12,7 @@ using namespace std;
 
 RandomComputer::RandomComputer():Player("RandomComputer"){
 
+	//Makes the moves of random so they are different every time
 	int i=0;
 	int x=0;
 	srand(time(NULL));
@@ -30,15 +31,17 @@ RandomComputer::RandomComputer():Player("RandomComputer"){
 
 }
 
-RandomComputer::~RandomComputer(){
+RandomComputer::~RandomComputer(){		//deconstructor
 
 }
 
 char RandomComputer::getMove(int x){
 
-	return moves[x];
+	return moves[x];		//allows to get the individual move according to what roound
 
 };
+
+//all following behaviours are to allow for number of winns to be incremented, returned and reset
 
 void RandomComputer::incrementNumberOfWin(){
 

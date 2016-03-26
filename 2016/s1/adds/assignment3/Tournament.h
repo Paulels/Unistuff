@@ -17,6 +17,9 @@
 #include "FistFullODollars.h"
 #include "Referee.h"
 
+//Has 3 vectors of players to store the winners from each round and also stores the winner
+//has a driver function which takes in the vector of players and returns the winner
+
 class Tournament{
 
 	private:
@@ -28,6 +31,7 @@ class Tournament{
 
 	public:
 
+		Tournament();
 		Tournament(std::vector<Player*> round1);
 		Player* driver(Referee R);
 

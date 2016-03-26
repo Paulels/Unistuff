@@ -22,9 +22,11 @@ using namespace std;
 
 int main(){
 
-	vector<Player*> players;
+	vector<Player*> players;		//intialising my vector of players
 	string str;
 	int i=0;
+
+	//runs through for the 8 inputs and creates new players based on the input
 
 	for(i=0;i<8;i++){
 		cin >> str;
@@ -48,11 +50,13 @@ int main(){
 		}
 	}
 
-	Tournament Tournament(players);
-	Referee Referee;
-	Player* winner=Tournament.driver(Referee);
+	Tournament Tournament(players);		//creating the tournament
+	Referee Referee;		//creating the referee
+	Player* winner=Tournament.driver(Referee);		//running the tournament and storing the winner
 	string s=winner->getName();
-	cout<<s<<endl;
+	cout<<s<<endl;		//printing out the winner
+
+	//deleting all of the players that were created above
 
 	int j=0;
 	for(j=0;j<8;j++){

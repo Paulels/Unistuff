@@ -16,6 +16,9 @@
 #include "PaperDoll.h"
 #include "FistFullODollars.h"
 
+//referee stores the number of rounds beinmg played
+//It playes the individual ganmes in the tournament and returns the winner of those games
+
 class Referee{
 
 	private:

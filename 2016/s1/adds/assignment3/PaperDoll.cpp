@@ -9,19 +9,21 @@ using namespace std;
 
 PaperDoll::PaperDoll():Player("PaperDoll"){
 
-	moves="PSSPS";
+	moves="PSSPS";		//Plays moves in the order of paer, scissors, scissors
 
 }
 
-PaperDoll::~PaperDoll(){
+PaperDoll::~PaperDoll(){		//deconstructor
 
 }
 
 char PaperDoll::getMove(int x){
 
-	return moves[x];
+	return moves[x];		//allows to get the individual move according to what roound
 
 };
+
+//all following behaviours are to allow for number of winns to be incremented, returned and reset
 
 void PaperDoll::incrementNumberOfWin(){
 
