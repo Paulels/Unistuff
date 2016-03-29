@@ -31,13 +31,14 @@ int main(){
 	cout<<" ";
 
 	Fibonacci Fibonacci;
+	EfficientFibonacci EF;
 	int i=atoi(iStr.c_str());
 
 	if(i==0){
 		cout<<"ERROR"<<endl;
 	}
 	else{
-		cout<<Fibonacci.calcFib(i)<<endl;
+		cout<<EF.calculateFib(i)<<endl;
 	}
 
 }
