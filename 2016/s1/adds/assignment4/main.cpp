@@ -13,7 +13,7 @@ using namespace std;
 
 int main(){
 
-	string sStr;  //what do you mean by efficient fibonacci
+	string sStr; 
 	string iStr;
 	cin>>sStr;
 	cin>>iStr;
@@ -33,8 +33,20 @@ int main(){
 	Fibonacci Fibonacci;
 	EfficientFibonacci EF;
 	int i=atoi(iStr.c_str());
+	int z=0;
 
-	if(i==0){
+	for(z=0;z<iStr.size();z++){
+		if(isdigit(iStr[z])){
+		}
+		else{
+			i=0;
+		}
+	}
+
+	if(iStr=="0"){
+		cout<<"0"<<endl;
+	}
+	else if(i==0){
 		cout<<"ERROR"<<endl;
 	}
 	else{
