@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <vector>
 #include "Fibonacci.h"
-using namespace std
+using namespace std;
 
 Fibonacci::Fibonacci(){
 
@@ -15,4 +15,11 @@ Fibonacci::Fibonacci(){
 
 int Fibonacci::calcFib(int n){
 
+	if(n==0){
+		return 0;
+	}
+	if(n==1||n==2){
+		return 1;
+	}
+	return (calcFib(n-1)+calcFib(n-2));
 };

@@ -6,8 +6,8 @@
 #include <ctime>
 #include <cstdlib>
 #include <vector>
-#include "EfficienctFibonacci.h"
-using namespace std
+#include "EfficientFibonacci.h"
+using namespace std;
 
 EfficientFibonacci::EfficientFibonacci(){
 

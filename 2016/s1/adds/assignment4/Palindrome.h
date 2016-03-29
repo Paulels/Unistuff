@@ -13,19 +13,17 @@ class Palindrome{
 
 	public:
 
-		Palindrome();
+		Palindrome(std::string origS);
 
-		bool isPalindrome(std::sting s);
-		std::string reverseString(std::string str);		//must be recursive
-		void setOiginalString(std::string os);
+		bool isPalindrome(std::string s);
+		void reverseString(std::string str);		//must be recursive
+		void setOriginalString(std::string os);
 		std::string getOriginalString();
-		std::string getReversedString();
 		bool getIsPalin();
 
 	private:
 
 		std::string originalString;
-		std::string reversedSting;  //do i need to store it
 		bool isPalin;
 
 };
