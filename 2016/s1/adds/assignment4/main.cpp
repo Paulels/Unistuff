@@ -13,13 +13,15 @@ using namespace std;
 
 int main(){
 
-	string string;  //How do i take the input and what do you mean by efficient fibonacci
-	
+	string sStr;  //what do you mean by efficient fibonacci
+	string iStr;
+	cin>>sStr;
+	cin>>iStr;
 
-	Palindrome Palindrome("");
-	Palindrome.reverseString("");
+	Palindrome Palindrome(sStr);
+	Palindrome.reverseString(sStr);
 	cout<<" ";
-	bool x=Palindrome.isPalindrome("");
+	bool x=Palindrome.isPalindrome(sStr);
 	if(x==true){
 		cout<<"yes";
 	}
@@ -27,9 +29,15 @@ int main(){
 		cout<<"no";
 	}
 	cout<<" ";
-	
-	Fibonacci Fibonacci;
-	cout<<Fibonacci.calcFib(20)<<endl;
 
+	Fibonacci Fibonacci;
+	int i=atoi(iStr.c_str());
+
+	if(i==0){
+		cout<<"ERROR"<<endl;
+	}
+	else{
+		cout<<Fibonacci.calcFib(i)<<endl;
+	}
 
 }
