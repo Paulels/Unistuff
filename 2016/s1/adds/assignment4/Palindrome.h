@@ -9,6 +9,8 @@
 #ifndef PALINDROME_H
 #define PALINDROME_H
 
+//class that checks if a given sting is a palindrome and reverses it
+
 class Palindrome{
 
 	public:
@@ -16,7 +18,7 @@ class Palindrome{
 		Palindrome(std::string origS);
 
 		bool isPalindrome(std::string s);
-		void reverseString(std::string str);		//must be recursive
+		void reverseString(std::string str);
 		void setOriginalString(std::string os);
 		std::string getOriginalString();
 		bool getIsPalin();

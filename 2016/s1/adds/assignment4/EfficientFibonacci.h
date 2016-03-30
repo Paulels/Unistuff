@@ -9,6 +9,8 @@
 #ifndef EFFICIENTFIBONACCI_H
 #define EFFICIENTFIBONACCI_H
 
+//class that runs fibonacci recursively but does it efficiently by storing values in an array
+
 class EfficientFibonacci{
 
 	private:

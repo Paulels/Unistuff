@@ -9,6 +9,8 @@
 #ifndef FIBONACCI_H
 #define FIBONACCI_H
 
+//calss that runs fibonacci recursively and returns the i-th value given i
+
 class Fibonacci{
 
 	public:
