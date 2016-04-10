@@ -9,7 +9,11 @@
 using namespace std;
 
 MapTriple::MapTriple(){
-k=1;
+
+}
+
+MapTriple::~MapTriple(){
+
 }
 
 int MapTriple::f(int x){
@@ -18,18 +22,25 @@ int MapTriple::f(int x){
 
 };
 
-deque<int> MapTriple::map(deque<int> mvec){
+int MapTriple::map(deque<int> mvec){
 
 	int c;
-	c=f(mvec[0]);
+	c=f(mvec.at(0));
 	mappedVec.push_back(c);
 	int s=mvec.size();
 	if(s==1){
-		return mappedVec;
+		return 0;
 	}
 	else{
 		mvec.pop_front();
 		map(mvec);
 	}
 };
+
+int MapTriple::getMappedVec(int p){
+
+	return mappedVec.at(p);
+
+};
+
 

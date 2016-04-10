@@ -9,7 +9,11 @@
 using namespace std;
 
 FilterPositiveTwoDigit::FilterPositiveTwoDigit(){
-k=4;
+
+}
+
+FilterPositiveTwoDigit::~FilterPositiveTwoDigit(){
+
 }
 
 bool FilterPositiveTwoDigit::f(int x){
@@ -24,19 +28,31 @@ bool FilterPositiveTwoDigit::f(int x){
 	}
 };
 
-deque<int> FilterPositiveTwoDigit::filter(deque<int> fvec){
+int FilterPositiveTwoDigit::filter(deque<int> fvec){
 
 	bool c;
-	c=f(fvec[0]);
+	c=f(fvec.at(0));
 	int s=fvec.size();
 	if(c==true){
 		filteredVec.push_back(fvec[0]);
 	}
 	if(s==1){
-		return filteredVec;
+		return 0;
 	}
 	else{
 		fvec.pop_front();
 		filter(fvec);
 	}
+};
+
+int FilterPositiveTwoDigit::getFilteredVec(int p){
+
+	return filteredVec.at(p);
+
+};
+
+int FilterPositiveTwoDigit::getVecSize(){
+
+	return filteredVec.size();
+
 };

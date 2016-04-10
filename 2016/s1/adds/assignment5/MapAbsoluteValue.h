@@ -20,11 +20,12 @@ class MapAbsoluteValue:public MapGeneric{
 		int f(int x);
 
 	public:
-int k;
 
 		MapAbsoluteValue();
+		~MapAbsoluteValue();
 
-		std::deque<int> map(std::deque<int> mvec);
+		int getMappedVec(int p);
+		int map(std::deque<int> mvec);
 
 };
 #endif //MMAPABSOLUTEVALUE_H

@@ -20,10 +20,13 @@ class FilterPositive:public FilterGeneric{
 		bool f(int x);
 
 	public:
-int k;
-		FilterPositive();
 
-		std::deque<int> filter(std::deque<int> fvec);
+		FilterPositive();
+		~FilterPositive();
+
+		int filter(std::deque<int> fvec);
+		int getFilteredVec(int p);
+		int getVecSize();
 
 };
 #endif //FILTERPOSITIVE_H

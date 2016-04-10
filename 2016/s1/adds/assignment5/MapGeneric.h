@@ -20,7 +20,7 @@ class MapGeneric{
 
 		MapGeneric();
 
-		virtual std::deque<int> map(std::deque<int> mvec)=0;
+		virtual int map(std::deque<int> mvec)=0;
 
 };
 #endif //MAPGENERIC_H

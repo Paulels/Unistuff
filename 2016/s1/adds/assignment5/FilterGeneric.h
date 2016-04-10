@@ -20,7 +20,7 @@ class FilterGeneric{
 
 		FilterGeneric();
 
-		virtual std::deque<int> filter(std::deque<int> fvec)=0;
+		virtual int filter(std::deque<int> fvec)=0;
 
 };
 #endif //FILTERGENERIC_H

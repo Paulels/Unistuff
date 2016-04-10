@@ -20,11 +20,13 @@ class FilterPositiveTwoDigit:public FilterGeneric{
 		bool f(int x);
 
 	public:
-int k;
 
 		FilterPositiveTwoDigit();
+		~FilterPositiveTwoDigit();
 
-		std::deque<int> filter(std::deque<int> fvec);
+		int filter(std::deque<int> fvec);
+		int getFilteredVec(int p);
+		int getVecSize();
 
 };
 #endif //FILTERPOSITIVETWODIGIT_H

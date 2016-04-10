@@ -9,7 +9,11 @@
 using namespace std;
 
 FilterEven::FilterEven(){
-k=6;
+
+}
+
+FilterEven::~FilterEven(){
+
 }
 
 bool FilterEven::f(int x){
@@ -22,19 +26,31 @@ bool FilterEven::f(int x){
 	}
 };
 
-deque<int> FilterEven::filter(deque<int> fvec){
+int FilterEven::filter(deque<int> fvec){
 
 	bool c;
-	c=f(fvec[0]);
+	c=f(fvec.at(0));
 	int s=fvec.size();
 	if(c==true){
 		filteredVec.push_back(fvec[0]);
 	}
 	if(s==1){
-		return filteredVec;
+		return 0;
 	}
 	else{
 		fvec.pop_front();
 		filter(fvec);
 	}
+};
+
+int FilterEven::getFilteredVec(int p){
+
+	return filteredVec.at(p);
+
+};
+
+int FilterEven::getVecSize(){
+
+	return filteredVec.size();
+
 };

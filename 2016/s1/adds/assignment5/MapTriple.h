@@ -20,11 +20,13 @@ class MapTriple:public MapGeneric{
 		int f(int x);
 
 	public:
-int k;
 
 		MapTriple();
+		~MapTriple();
 
-		std::deque<int> map(std::deque<int> mvec);
+		int map(std::deque<int> mvec);
+		int getMappedVec(int p);
+
 
 };
 #endif //MAPTRIPLE_H

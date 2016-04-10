@@ -20,11 +20,12 @@ class MapSquare:public MapGeneric{
 		int f(int x);
 
 	public:
-int k;
 
 		MapSquare();
+		~MapSquare();
 
-		std::deque<int> map(std::deque<int> mvec);
+		int getMappedVec(int p);
+		int map(std::deque<int> mvec);
 
 };
 #endif //MAPSQUARE_H

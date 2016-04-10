@@ -26,7 +26,7 @@ int main(){
 	int i=0;
 	vec.push_back(18);
 	vec.push_back(48);
-	vec.push_back(36);
+	vec.push_back(37);
 	vec.push_back(60);
 	vec.push_back(6);
 
@@ -39,18 +39,24 @@ int main(){
 	FilterPositive FilterPositive;
 	FilterEven FilterEven;
 
-//deque<int> saved;	
-//saved=MapSquare.map(vec);
-//MapTriple.map(vec);
-//MapAbsoluteValue.map(vec);
-//FilterPositiveTwoDigit.filter(vec);
-//FilterPositive.filter(vec);
-//FilterEven.filter(vec);
+	deque<int> saved;
+	MapAbsoluteValue.map(vec);
+	MapTriple.map(vec);
+	FilterPositiveTwoDigit.filter(vec);
+	FilterEven.filter(vec);
 
-	ReduceMinimum.reduce(vec);
+int a=FilterEven.getVecSize();
+
+for(i=0;i<a;i++){
+saved.push_back(FilterEven.getFilteredVec(i));
+cout<<saved.at(i)<<endl;
+}
+
+
+/*	ReduceMinimum.reduce(vec);
 
 	ReduceGCD.reduce(vec);
 
-	cout<<ReduceMinimum.getReduceInt()<<" "<<ReduceGCD.getReduceInt()<<endl;
-	//cout<<MapTriple.k<<MapSquare.k<<MapAbsoluteValue.k<<FilterPositiveTwoDigit.k<<FilterPositive.k<<FilterEven.k<<endl;
+	cout<<ReduceMinimum.getReduceInt()<<" "<<ReduceGCD.getReduceInt()<<endl;*/
+
 }

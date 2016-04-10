@@ -10,7 +10,11 @@
 using namespace std;
 
 MapAbsoluteValue::MapAbsoluteValue(){
-k=3;
+
+}
+
+MapAbsoluteValue::~MapAbsoluteValue(){
+
 }
 
 int MapAbsoluteValue::f(int x){
@@ -18,17 +22,23 @@ int MapAbsoluteValue::f(int x){
 	return abs(x);
 };
 
-deque<int> MapAbsoluteValue::map(deque<int> mvec){
+int MapAbsoluteValue::map(deque<int> mvec){
 
 	int a;
-	a=f(mvec[0]);
+	a=f(mvec.at(0));
 	mappedVec.push_back(a);
 	int s=mvec.size();
 	if(s==1){
-		return mappedVec;
+		return 0;
 	}
 	else{
 		mvec.pop_front();
 		map(mvec);
 	}
+};
+
+int MapAbsoluteValue::getMappedVec(int p){
+
+	return mappedVec.at(p);
+
 };

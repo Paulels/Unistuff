@@ -20,10 +20,13 @@ class FilterEven:public FilterGeneric{
 		bool f(int x);
 
 	public:
-int k;
-		FilterEven();
 
-		std::deque<int> filter(std::deque<int> fvec);
+		FilterEven();
+		~FilterEven();
+
+		int filter(std::deque<int> fvec);
+		int getFilteredVec(int p);
+		int getVecSize();
 
 };
 #endif //FILTEREVEN_H
