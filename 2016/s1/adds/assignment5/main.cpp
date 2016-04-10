@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <cstdlib>
 #include <deque>
+#include <sstream>
 #include "MapGeneric.h"
 #include "MapTriple.h"
 #include "MapSquare.h"
@@ -22,16 +23,21 @@ using namespace std;
 
 int main(){
 
+	string s;
 	deque<int> vec;
-	int i=0;
-	vec.push_back(18);
-	vec.push_back(48);
-	vec.push_back(37);
-	vec.push_back(60);
-	vec.push_back(6);
+	getline(cin,s);
 
-	ReduceMinimum ReduceMinimum;
-	ReduceGCD ReduceGCD(vec);
+	stringstream ss(s);
+
+	int j;
+
+	while(ss>>j){
+		vec.push_back(j);
+		if(ss.peek()==',' ||ss.peek()==' '){
+			ss.ignore();
+		}
+	}
+
 	MapTriple MapTriple;
 	MapSquare MapSquare;
 	MapAbsoluteValue MapAbsoluteValue;
@@ -40,23 +46,45 @@ int main(){
 	FilterEven FilterEven;
 
 	deque<int> saved;
+	int i=0;
+
 	MapAbsoluteValue.map(vec);
-	MapTriple.map(vec);
-	FilterPositiveTwoDigit.filter(vec);
-	FilterEven.filter(vec);
 
-int a=FilterEven.getVecSize();
+	for(i=0;i<20;i++){
+		saved.push_back(MapAbsoluteValue.getMappedVec(i));
+	}
 
-for(i=0;i<a;i++){
-saved.push_back(FilterEven.getFilteredVec(i));
-cout<<saved.at(i)<<endl;
-}
+	MapTriple.map(saved);
+	saved.clear();
 
+	for(i=0;i<20;i++){
+		saved.push_back(MapTriple.getMappedVec(i));
+	}
 
-/*	ReduceMinimum.reduce(vec);
+	int a;
+	FilterPositiveTwoDigit.filter(saved);
+	a=FilterPositiveTwoDigit.getVecSize();
+	saved.clear();
 
-	ReduceGCD.reduce(vec);
+	for(i=0;i<a;i++){
+		saved.push_back(FilterPositiveTwoDigit.getFilteredVec(i));
+	}
 
-	cout<<ReduceMinimum.getReduceInt()<<" "<<ReduceGCD.getReduceInt()<<endl;*/
+	FilterEven.filter(saved);
+	a=FilterEven.getVecSize();
+	saved.clear();
+
+	for(i=0;i<a;i++){
+		saved.push_back(FilterEven.getFilteredVec(i));
+	}
+
+	ReduceMinimum ReduceMinimum;
+	ReduceGCD ReduceGCD(saved);
+
+	ReduceMinimum.reduce(saved);
+
+	ReduceGCD.reduce(saved);
+
+	cout<<ReduceMinimum.getReduceInt()<<" "<<ReduceGCD.getReduceInt()<<endl;
 
 }
