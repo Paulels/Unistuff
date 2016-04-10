@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <cstdlib>
-#include <vector>
+#include <deque>
 #include "ReduceGeneric.h"
 using namespace std;
 

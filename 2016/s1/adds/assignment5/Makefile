@@ -1,3 +1,4 @@
+
 all: Compiled 
 
 Compiled: main.o MapGeneric.o FilterGeneric.o ReduceGeneric.o MapTriple.o MapSquare.o MapAbsoluteValue.o FilterEven.o FilterPositive.o FilterPositiveTwoDigit.o ReduceMinimum.o ReduceGCD.o
@@ -44,4 +45,3 @@ main.o: main.cpp MapGeneric.h FilterGeneric.h ReduceGeneric.h MapTriple.h MapSqu
 
 clean:
 	rm -f Compiled *.o
-

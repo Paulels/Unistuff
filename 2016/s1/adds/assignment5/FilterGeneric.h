@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <cstdlib>
-#include <vector>
+#include <deque>
 #ifndef FILTERGENERIC_H
 #define FILTERGENERIC_H
 
@@ -14,11 +14,13 @@ class FilterGeneric{
 
 	private:
 
-
+		virtual bool f(int x)=0;
 
 	public:
 
+		FilterGeneric();
 
+		virtual std::deque<int> filter(std::deque<int> fvec)=0;
 
 };
 #endif //FILTERGENERIC_H
