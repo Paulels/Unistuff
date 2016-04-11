@@ -22,10 +22,12 @@ class ReduceGCD:public ReduceGeneric{
 
 	public:
 
-		ReduceGCD(std::deque<int> ovec);
+		ReduceGCD();
 
 		int reduce(std::deque<int> rvec);
 		int getReduceInt();
+		void setReduceInt(int ri);
+		void setOriginalVec(std::deque<int> ovec);
 
 };
 #endif //REDUCEGCD_H

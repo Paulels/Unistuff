@@ -16,6 +16,7 @@ class ReduceMinimum:public ReduceGeneric{
 	private:
 
 		int reduceInt;
+		std::deque<int> originalVec;
 
 		int binary_operator(int x,int y);
 
@@ -25,6 +26,8 @@ class ReduceMinimum:public ReduceGeneric{
 
 		int reduce(std::deque<int> rvec);
 		int getReduceInt();
+		void setReduceInt(int ri);
+		void setOriginalVec(std::deque<int> ovec);
 
 };
 #endif //REDUCEMINIMUM_H

@@ -79,10 +79,15 @@ int main(){
 	}
 
 	ReduceMinimum ReduceMinimum;
-	ReduceGCD ReduceGCD(saved);
+	ReduceGCD ReduceGCD;
+
+	ReduceMinimum.setReduceInt(saved.at(0));
+	ReduceGCD.setReduceInt(saved.at(0));
+
+	ReduceMinimum.setOriginalVec(saved);
+	ReduceGCD.setOriginalVec(saved);
 
 	ReduceMinimum.reduce(saved);
-
 	ReduceGCD.reduce(saved);
 
 	cout<<ReduceMinimum.getReduceInt()<<" "<<ReduceGCD.getReduceInt()<<endl;

@@ -8,12 +8,21 @@
 #include "ReduceGCD.h"
 using namespace std;
 
-ReduceGCD::ReduceGCD(deque<int> ovec){
-
-	originalVec=ovec;
-	reduceInt=ovec.at(0);
+ReduceGCD::ReduceGCD(){
 
 }
+
+void ReduceGCD::setReduceInt(int ri){
+
+	reduceInt=ri;
+
+};
+
+void ReduceGCD::setOriginalVec(deque<int> ovec){
+
+	originalVec=ovec;
+
+};
 
 int ReduceGCD::binary_operator(int x,int y){
 
@@ -25,7 +34,8 @@ int ReduceGCD::binary_operator(int x,int y){
 	}
 	else if(x==y){
 		reduceInt=x;
-		return x;
+		r=0;
+		return r;
 	}
 	else{
 		r=x%y;

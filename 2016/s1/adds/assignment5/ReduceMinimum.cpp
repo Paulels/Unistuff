@@ -10,25 +10,43 @@ using namespace std;
 
 ReduceMinimum::ReduceMinimum(){
 
-	reduceInt=32767;
-
 }
+
+void ReduceMinimum::setReduceInt(int ri){
+
+	reduceInt=ri;
+
+};
+
+void ReduceMinimum::setOriginalVec(deque<int> ovec){
+
+	originalVec=ovec;
+
+};
 
 int ReduceMinimum::binary_operator(int x,int y){
 
 	if(y<x){
-		return y;
+		reduceInt=y;
+		return 0;
 	}
-	else{
-		return x;
+	else if(x==y){
+		reduceInt=x;
+		return 0;
+	}
+	else if(y>x){
+		reduceInt=x;
+		return 0;
 	}
 	
 };
 
 int ReduceMinimum::reduce(deque<int> rvec){
 
-	reduceInt=binary_operator(reduceInt,rvec[0]);
-	if(rvec.size()==1){
+	int s;
+	s=rvec.size();
+	binary_operator(reduceInt,rvec[0]);
+	if(s==1){
 		return reduceInt;
 	}
 	else{
