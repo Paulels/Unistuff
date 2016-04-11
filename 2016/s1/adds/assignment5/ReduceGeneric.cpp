@@ -8,6 +8,7 @@
 #include "ReduceGeneric.h"
 using namespace std;
 
+//Just a basic constructor
 ReduceGeneric::ReduceGeneric(){
 
 }

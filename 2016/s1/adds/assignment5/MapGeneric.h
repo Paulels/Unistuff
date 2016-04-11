@@ -8,7 +8,8 @@
 #ifndef MAPGENERIC_H
 #define MAPGENERIC_H
 
-//
+//This is the generic map class that is purely virtual 
+//It has a recursive function and a private function which work together to map the values
 
 class MapGeneric{
 

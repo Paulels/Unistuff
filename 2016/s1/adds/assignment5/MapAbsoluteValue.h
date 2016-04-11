@@ -9,7 +9,10 @@
 #define MAPABSOLUTEVALUE_H
 #include "MapGeneric.h"
 
-//
+//This class takes in a deque and then makes all of the values in it positive
+//it stores the mapped deque 
+//It has both a public recursive function and a private function
+//it inherits from MapGeneric
 
 class MapAbsoluteValue:public MapGeneric{
 

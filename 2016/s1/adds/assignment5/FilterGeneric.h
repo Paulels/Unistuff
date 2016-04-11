@@ -8,7 +8,8 @@
 #ifndef FILTERGENERIC_H
 #define FILTERGENERIC_H
 
-//
+//This is the generic filter class that is purely virtual
+//It has a recursive public function and a private function which work together to filter the deque
 
 class FilterGeneric{
 

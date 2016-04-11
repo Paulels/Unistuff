@@ -9,7 +9,10 @@
 #define FILTERPOSITIVETWODIGIT_H
 #include "FilterGeneric.h"
 
-//
+//This class takes in a deque and then filters out all of the non positive two digit values
+//it stores the filtered deque 
+//It has both a public recursive function and a private function
+//it inherits from FilterGeneric
 
 class FilterPositiveTwoDigit:public FilterGeneric{
 

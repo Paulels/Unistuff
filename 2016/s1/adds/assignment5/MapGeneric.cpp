@@ -8,6 +8,7 @@
 #include "MapGeneric.h"
 using namespace std;
 
+//Just a basic constructor
 MapGeneric::MapGeneric(){
 
 }

@@ -8,7 +8,9 @@
 #ifndef REDUCEGENERIC_H
 #define REDUCEGENERIC_H
 
-//
+//This is the generic reduce class which has the public recursive function and the private operator 
+//function which work together to produce a value which has been reduced from a deque
+//This class is purely virtual
 
 class ReduceGeneric{
 

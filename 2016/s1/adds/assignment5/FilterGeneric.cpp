@@ -8,6 +8,7 @@
 #include "FilterGeneric.h"
 using namespace std;
 
-FilterGeneric::FilterGeneric(){
+//Just a basic constructor
+FilterGeneric::FilterGeneric(){ 
 
 }

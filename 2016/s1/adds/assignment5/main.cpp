@@ -19,25 +19,28 @@
 #include "ReduceGCD.h"
 using namespace std;
 
-//comments
+//Takes in a users input of 20 numbers with commas and/or spaces inbetween and it prints ot the 
+//minimum and the greatest common denominator of these values one they have been mapped and filtered
 
 int main(){
 
+	//getting users input as a string
 	string s;
 	deque<int> vec;
 	getline(cin,s);
 
-	stringstream ss(s);
+	stringstream ss(s); //constructing a stringstream object
 
 	int j;
 
-	while(ss>>j){
-		vec.push_back(j);
-		if(ss.peek()==',' ||ss.peek()==' '){
-			ss.ignore();
+	while(ss>>j){				//stores the numbers as integers in j
+		vec.push_back(j);		
+		if(ss.peek()==',' ||ss.peek()==' '){	//checks to see what the next character in the stream 
+			ss.ignore();						//and ignores it if it is a space or comma
 		}
 	}
 
+	//Initialising my classes
 	MapTriple MapTriple;
 	MapSquare MapSquare;
 	MapAbsoluteValue MapAbsoluteValue;
@@ -45,9 +48,13 @@ int main(){
 	FilterPositive FilterPositive;
 	FilterEven FilterEven;
 
-	deque<int> saved;
+	deque<int> saved;		//deque used to store the results of the mapping and filtering
 	int i=0;
 
+	//mapping for the absolute value and tripling and then filtering positive two digit numbers
+	//that are even 
+	//inbetween each map and filter I store the result in saved and then  that is my input for the
+	//next stage, I then clear out saved ready to store the next results
 	MapAbsoluteValue.map(vec);
 
 	for(i=0;i<20;i++){
@@ -78,6 +85,7 @@ int main(){
 		saved.push_back(FilterEven.getFilteredVec(i));
 	}
 
+	//initialising the reduce classes
 	ReduceMinimum ReduceMinimum;
 	ReduceGCD ReduceGCD;
 
@@ -87,9 +95,11 @@ int main(){
 	ReduceMinimum.setOriginalVec(saved);
 	ReduceGCD.setOriginalVec(saved);
 
+	//reducing the deque saved down to the minimum and GCD
 	ReduceMinimum.reduce(saved);
 	ReduceGCD.reduce(saved);
 
+	//Printing out the results
 	cout<<ReduceMinimum.getReduceInt()<<" "<<ReduceGCD.getReduceInt()<<endl;
 
 }
