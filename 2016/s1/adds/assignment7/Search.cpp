@@ -19,26 +19,10 @@ Search::~Search(){
 }
 
 //
-something Search::get(         ){
+bool Search::getSearchRes(){
 
+	return searchRes;
 	
 };
 
-//
-something Search::get(         ){
-
-	
-};
-
-//
-something Search::get(         ){
-
-	
-};
-
-//
-something Search::get(         ){
-
-	
-};
 

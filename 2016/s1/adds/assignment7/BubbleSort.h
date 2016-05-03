@@ -22,7 +22,7 @@ class BubbleSort:public Sort{
 		BubbleSort();
 		~BubbleSort();
 
-		void sort(std::vector<int> A);
+		void sort(int *A,int start,int end);
 
 };
 #endif //BUBBLESORT_H

@@ -12,16 +12,18 @@
 
 class Search{
 
-	private:
+	protected:
 
-		
+		bool searchRes;
 
 	public:
 
 		Search();
 		~Search();
 
-		
+		virtual bool search(std::vector<int> A)=0;
+		int getIVec(int x);
+		bool getSearchRes();
 
 };
 #endif //SEARCH_H

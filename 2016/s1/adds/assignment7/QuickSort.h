@@ -15,14 +15,14 @@ class QuickSort:public Sort{
 
 	private:
 
-		
+		int partition(int *B,int start,int end);
 
 	public:
 
 		QuickSort();
 		~QuickSort();
 
-		void sort(std::vector<int> A);
+		void sort(int *A,int start,int end);
 
 };
 #endif //QUICKSORT_H

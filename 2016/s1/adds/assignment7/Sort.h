@@ -12,17 +12,16 @@
 
 class Sort{
 
-	private:
+	protected:
 
-		std::vector<int> initialVec;
-		std::vector<int> sortedVec;
+		
 
 	public:
 
 		Sort();
 		~Sort();
 
-		virtual void sort(std::vector<int> A)=0;
+		virtual void sort(int *A,int start,int end)=0;
 
 };
 #endif //SORT_H

@@ -22,7 +22,7 @@ class RecursiveBinarySearch:public Search{
 		RecursiveBinarySearch();
 		~RecursiveBinarySearch();
 
-		
+		bool search(std::vector<int> A);
 
 };
 #endif //RECURSIVEBINARYSEARCH_H

@@ -22,7 +22,7 @@ class ThreePartSearch:public Search{
 		ThreePartSearch();
 		~ThreePartSearch();
 
-		
+		bool search(std::vector<int> A);
 
 };
 #endif //THREEPARTSEARCH_H

@@ -14,30 +14,7 @@ Sort::Sort(){
 }
 
 //Just a basic deconstructor
-Sort::Sort(){
+Sort::~Sort(){
 
 }
 
-//
-something QuickSort::get(       ){
-
-	
-};
-
-//
-something QuickSort::get(       ){
-
-	
-};
-
-//
-something QuickSort::get(       ){
-
-	
-};
-
-//
-something QuickSort::get(       ){
-
-	
-};
