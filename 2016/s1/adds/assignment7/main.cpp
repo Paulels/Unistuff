@@ -37,6 +37,8 @@ int main(){
 	int size=vec.size();
 	int array[size];		
 	int i=0;
+	bool TorF;
+	string str;
 
 	for(i=0;i<size;i++){
 		array[i]=vec.at(i);
@@ -48,10 +50,17 @@ int main(){
 	RecursiveBinarySearch RecursiveBinarySearch;
 	ThreePartSearch ThreePartSearch; 
 
-/*	QuickSort.sort(array,0,size);
-	ThreePartSearch.search(          );
+	QuickSort.sort(array,0,size);
+	TorF=ThreePartSearch.search(array,0,size-1);
 
-	cout<<get boolean if 0 is contained<<" ";
+	if(TorF==1){
+		str="true";
+	}
+	else{
+		str="false";
+	}
+
+	cout<<str<<" ";
 	for(i=0;i<size;i++){
 		if(i==size-1){
 			cout<<array[i]<<endl;
@@ -59,5 +68,5 @@ int main(){
 		else{
 			cout<<array[i]<<" ";
 		}
-	}*/
+	}
 }

@@ -21,8 +21,7 @@ class Search{
 		Search();
 		~Search();
 
-		virtual bool search(std::vector<int> A)=0;
-		int getIVec(int x);
+		virtual bool search(int A[],int start,int end)=0;
 		bool getSearchRes();
 
 };
