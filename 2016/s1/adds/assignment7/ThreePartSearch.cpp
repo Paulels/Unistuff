@@ -34,10 +34,13 @@ bool ThreePartSearch::search(int A[],int start,int end){
 			search(A,start,firstThird-1);
 		}
 		else if(find>A[firstThird] && find<A[secondThird]){
-			search(A,firstThird,secondThird);
+			search(A,firstThird+1,secondThird-1);
 		}
 		else if(find>A[secondThird]){
 			search(A,secondThird+1,end);
+		}
+		else{
+			return false;
 		}
 	}
 	else{
