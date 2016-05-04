@@ -25,7 +25,7 @@ bool ThreePartSearch::search(int A[],int start,int end){
 	int find=0;
 	int firstThird=floor((end+start)/3);
 	int secondThird=floor(2*(end+start)/3);
-	if(start+1<end){
+	if(start<=end){
 		if(find==A[firstThird] || find==A[secondThird]){
 			searchRes=true;
 			return true;
