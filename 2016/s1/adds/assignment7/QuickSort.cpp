@@ -22,7 +22,6 @@ QuickSort::~QuickSort(){
 void QuickSort::sort(int *A,int start,int end){
 
 	int saved;
-	int i=0;
 	if(start<end){
 		saved=partition(A,start,end);
 		sort(A,start,saved-1);
