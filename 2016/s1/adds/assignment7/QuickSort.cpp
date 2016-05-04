@@ -29,6 +29,7 @@ void QuickSort::sort(int *A,int start,int end){
 	}
 };
 
+//
 int QuickSort::partition(int *B,int start,int end){
 
 	int pivot;
@@ -40,7 +41,7 @@ int QuickSort::partition(int *B,int start,int end){
 		pivot=B[start+2];
 	}
 	while(start<end){
-		while(B[start]<pivot){
+		while(B[start]<=pivot){
 			start++;
 		}
 		while(B[end]>pivot){
