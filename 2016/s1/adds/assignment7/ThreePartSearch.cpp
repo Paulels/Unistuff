@@ -39,9 +39,6 @@ bool ThreePartSearch::search(int A[],int start,int end){
 		else if(find>A[secondThird]){
 			search(A,secondThird+1,end);
 		}
-		else{
-			return false;
-		}
 	}
 	else{
 		searchRes=false;

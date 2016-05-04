@@ -51,7 +51,8 @@ int main(){
 	ThreePartSearch ThreePartSearch; 
 
 	QuickSort.sort(array,0,size);
-	TorF=ThreePartSearch.search(array,0,size-1);
+//	TorF=ThreePartSearch.search(array,0,size-1);
+	TorF=RecursiveBinarySearch.search(array,0,size-1);
 
 	if(TorF==1){
 		str="true";
