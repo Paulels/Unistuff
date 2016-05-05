@@ -15,7 +15,7 @@ class QuickSort:public Sort{
 
 	private:
 
-		int partition(int *B,int start,int end);
+		
 
 	public:
 

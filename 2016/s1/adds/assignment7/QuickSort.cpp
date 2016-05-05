@@ -23,48 +23,37 @@ void QuickSort::sort(int *A,int start,int end){
 
 	int saved;
 	if(start<end){
-		saved=partition(A,start,end);
-		sort(A,start,saved-1);
-		sort(A,saved+1,end);
+		int pivot;
+		int stored;
+		int s=start;
+		int e=end;
+		if((end-start)<3){
+			pivot=A[end];
+		}
+		else{
+			pivot=A[start+2];
+		}
+		while(s<=e){
+			while(A[s]<pivot){
+				s++;
+			}
+			while(A[e]>pivot){
+				e--;
+			}
+			if(s<=e){
+				stored=A[s];
+				A[s]=A[e];
+				A[e]=stored;
+				s++;
+				e--;
+			}
+		}
+		sort(A,start,e);
+		sort(A,s,end);
 	}
 	else{
 		return;
 	}
-};
-
-//
-int QuickSort::partition(int *B,int start,int end){
-
-	int pivot;
-	int stored;
-	int s=start+1;
-	int e=end;
-	if((end-start)<3){
-		pivot=B[end];
-	}
-	else{
-		pivot=B[start+2];
-		stored=B[start+2];
-		B[start+2]=B[start];
-		B[start]=stored;
-	}
-	while(s<=e){
-		while(B[s]<=pivot){
-			s++;
-		}
-		while(B[e]>pivot){
-			e--;
-		}
-		if(s<e){
-			stored=B[s];
-			B[s]=B[e];
-			B[e]=stored;
-		}
-	}
-	return end;
-
-
-
 };
 
 
