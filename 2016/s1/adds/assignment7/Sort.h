@@ -8,7 +8,10 @@
 #ifndef SORT_H
 #define SORT_H
 
-//
+//This is the base class sort 
+//it has a constructor and a deconstuctor
+//it has a virtual function in it which makes this class unable to be created
+//This function needs defining in the sub classes
 
 class Sort{
 

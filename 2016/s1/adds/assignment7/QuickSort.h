@@ -9,7 +9,9 @@
 #define QUICKSORT_H
 #include "Sort.h"
 
-//
+//This is the class that implements bubblesort
+//It inheirts from the base class sort
+//It has a constuctor and deconstructor and a function to be redefined fom the base class
 
 class QuickSort:public Sort{
 

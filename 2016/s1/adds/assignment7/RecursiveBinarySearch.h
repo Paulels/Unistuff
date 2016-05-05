@@ -9,7 +9,9 @@
 #define RECURSIVEBINARYSEARCH_H
 #include "Search.h"
 
-//
+//This is the class that implements recursive binary search
+//It inheirts from the base class search
+//It has a constuctor and deconstructor and a function to be redefined fom the base class
 
 class RecursiveBinarySearch:public Search{
 
