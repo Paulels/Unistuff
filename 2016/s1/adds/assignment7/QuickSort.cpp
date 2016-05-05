@@ -27,6 +27,9 @@ void QuickSort::sort(int *A,int start,int end){
 		sort(A,start,saved-1);
 		sort(A,saved+1,end);
 	}
+	else{
+		return;
+	}
 };
 
 //
@@ -34,29 +37,28 @@ int QuickSort::partition(int *B,int start,int end){
 
 	int pivot;
 	int stored;
+	int s=start+1;
+	int e=end;
 	if((end-start)<3){
 		pivot=B[end];
 	}
 	else{
 		pivot=B[start+2];
+		stored=B[start+2];
+		B[start+2]=B[start];
+		B[start]=stored;
 	}
-	while(start<end){
-		while(B[start]<=pivot){
-			start++;
+	while(s<=e){
+		while(B[s]<=pivot){
+			s++;
 		}
-		while(B[end]>pivot){
-			end--;
+		while(B[e]>pivot){
+			e--;
 		}
-		if(start<end){
-			stored=B[start];
-			B[start]=B[end];
-			B[end]=stored;
-		}
-		else{
-			stored=pivot;
-			pivot=B[start];
-			B[start]=pivot;
-			break;
+		if(s<e){
+			stored=B[s];
+			B[s]=B[e];
+			B[e]=stored;
 		}
 	}
 	return end;
