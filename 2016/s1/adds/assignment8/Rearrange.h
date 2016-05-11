@@ -20,7 +20,8 @@ class Rearrange:public Individual{
 
 	public:
 
-		Rearrange();
+		Rearrange(int length);
+		Rearrange(std::string s);
 		~Rearrange();
 
 		void execute(int k);

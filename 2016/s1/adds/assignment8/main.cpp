@@ -23,6 +23,7 @@ int main(){
 
 	stringstream ss(s); 			//constructing a stringstream object
 
+	string str;
 	int j;
 
 	while(ss>>j){					//stores the numbers as integers in j

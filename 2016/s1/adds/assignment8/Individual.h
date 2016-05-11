@@ -21,7 +21,8 @@ class Individual{
 
 	public:
 
-		Individual();				//constructor?????
+		Individual(int length);
+		Individual(std::string s);
 		~Individual();
 
 		std::string getString();

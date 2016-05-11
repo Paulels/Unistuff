@@ -22,6 +22,8 @@ class BinaryNode{
 		BinaryNode();
 		~BinaryNode();
 
+		void setX(bool var);
+		void setNext(BinaryNode* node);
 		bool getX();
 		BinaryNode* getNext();
 

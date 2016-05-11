@@ -20,7 +20,8 @@ class BitFlip:public Individual{
 
 	public:
 
-		BitFlip();
+		BitFlip(int length);
+		BitFlip(std::string s);
 		~BitFlip();
 
 		void execute(int k);

@@ -8,20 +8,41 @@
 #include "Rearrange.h"
 using namespace std;
 
-//Just a basic constructor     How to constuct
-Rearange::Rearange(){
+//
+Rearange::Rearange(int length):Individual(lenght){
 
 }
 
-//Just a basic deconstructor
-Rearange::~Rearange(){
+//
+Rearrange::Rearrange(string s):Individual(s){
+
+}
+
+//
+Rearange::~Rearange():~Individual(){
 
 }
 
 //
 void Rearange::execute(int k){
 
-
+	int j=k%listLength;
+	int i=1;
+	BinaryNode* start=firstBit;
+	BinaryNode* ptr=firstBit;
+	while(i!=j){
+		while(i!=j-1){
+			ptr=ptr->getNext();
+			i++;
+		}
+		BinaryNode* p=ptr->getNext();
+		ptr->setNext(NULL){
+	}
+	setFirstBit(p);
+	while(p!=NULL){
+		p=p->getNext();
+	}
+	p->setNext(start);
 };
 
 
