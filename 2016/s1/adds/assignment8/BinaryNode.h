@@ -8,7 +8,8 @@
 #ifndef BINARYNODE_H
 #define BINARYNODE_H
 
-//
+//This class is used to create the linked list
+//very simple class only contains a variable and a pointer to the next node
 
 class BinaryNode{
 

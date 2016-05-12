@@ -18,26 +18,26 @@ BinaryNode::~BinaryNode(){
 
 }
 
-//
+//Sets the variable x
 void BinaryNode::setX(bool var){
 
 	x=var;
 };
 
-//
+//sets the pointer to the next node
 void BinaryNode::setNext(BinaryNode* node){
 
 	next=node;
 };
 
 
-//
+//returns the variable x
 bool BinaryNode::getX(){
 
 	return x;
 };
 
-//
+//returns the pointer to the next node
 BinaryNode* BinaryNode::getNext(){
 
 	return next;

@@ -10,7 +10,10 @@
 #include "Individual.h"
 #include "BinaryNode.h"
 
-//
+//This class extends Individual and inherits from it
+//It defines the function execute
+//It has 2 different constuctors and a deconstructor
+//it will take a binary string and flip the kth digit
 
 class BitFlip:public Individual{
 

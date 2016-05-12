@@ -9,7 +9,10 @@
 #define INDIVIDUAL_H
 #include "BinaryNode.h"
 
-//
+//This is the base class
+//It is virtual because it has a virtual function in it
+//It defines all the functions for the class and sub classes to be able to use
+//it will hold the linked list
 
 class Individual{
 
