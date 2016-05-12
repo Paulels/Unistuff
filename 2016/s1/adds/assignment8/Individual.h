@@ -15,9 +15,13 @@ class Individual{
 
 	private:
 
+
+
+	protected:
+
+		std::string binaryStr;	
+		int listLength;	
 		BinaryNode* firstBit;
-		std::string binaryStr;
-		int listLength;
 
 	public:
 

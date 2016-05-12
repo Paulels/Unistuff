@@ -18,24 +18,24 @@ int main(){
 
 	//getting users input as a string
 	string s;
-	vector<int> vec;
 	getline(cin,s);
 
 	stringstream ss(s); 			//constructing a stringstream object
 
-	string str;
-	int j;
+	string binarystr1;
+	string binarystr2;
+	int k1;
+	int k2;
 
-	while(ss>>j){					//stores the numbers as integers in j
-		vec.push_back(j);		
-		if(ss.peek()==' '){			//checks to see what the next character in the stream 
-			ss.ignore();			//and ignores it if it is a space
-		}
-	}
-
+	ss>>binarystr1>>k1>>binarystr2>>k2;
 
 	//initialising classes
-	
+	BitFlip bf(binarystr1);
+	Rearrange r(binarystr2);
 
+	bf.execute(k1);
+	r.execute(k2);
+
+	cout<<bf.getString()<<" "<<r.getString()<<endl;
 
 }

@@ -11,14 +11,15 @@ using namespace std;
 //
 Individual::Individual(int length){
 
-	binaryStr(listLength,'0')
 	listLength=length;
+	string s(listLength,'0');
+	binaryStr=s;
 	BinaryNode* head = NULL;
 	int i=listLength;
 	for(i=listLength;i>0;i--) {
 		BinaryNode* conductor=new BinaryNode;
-		conductor->x=false;
-		conductor->next=head;
+		conductor->setX(false);
+		conductor->setNext(head);
 		head=conductor;
 	}
 	firstBit=head;
@@ -33,8 +34,13 @@ Individual::Individual(string s){
 	int i=listLength;
 	for(i=listLength;i>0;i--) {
 		BinaryNode* conductor=new BinaryNode;
-		conductor->x=s[i-1];
-		conductor->next=head;
+		if(s[i-1]=='1'){
+			conductor->setX(true);
+		}
+		else{
+			conductor->setX(false);
+		}
+		conductor->setNext(head);
 		head=conductor;
 	}
 	firstBit=head;
@@ -43,6 +49,11 @@ Individual::Individual(string s){
 //
 Individual::~Individual(){
 
+	while(firstBit!=NULL){
+		BinaryNode* old=firstBit;
+		firstBit=firstBit->getNext();
+		delete old;
+	}
 }
 
 //
@@ -70,7 +81,7 @@ int Individual::getMaxOnes(){
 	int count=0;
 	BinaryNode* ptr=firstBit;
 	while(ptr!=NULL){
-		while(ptr->x==true){
+		while(ptr->getX()==true){
 			count++;
 			ptr=ptr->getNext();
 		}
@@ -79,6 +90,7 @@ int Individual::getMaxOnes(){
 		}
 		count=0;
 		ptr=ptr->getNext();
+	}
 };
 
 //

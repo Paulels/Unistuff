@@ -20,15 +20,15 @@ BitFlip::BitFlip(string s):Individual(s){
 }
 
 //
-BitFlip::~BitFlip():~Individual(){
+BitFlip::~BitFlip(){
 
 }
 
 //
-void BitFlip::execute(int k){
+void BitFlip::execute(int k){ 
 
-	int j=k%listLength;
-	int i=1;
+	int j=k%listLength-1;
+	int i=0;
 	BinaryNode* ptr=firstBit;
 	while(i!=j){
 		ptr=ptr->getNext();
@@ -37,11 +37,23 @@ void BitFlip::execute(int k){
 	bool var;
 	var=ptr->getX();
 	if(var==true){
-		var=false;
-	else{
-		var=true;
+		ptr->setX(false);
 	}
-	ptr->setX(var);
+	else{
+		ptr->setX(true);
+	}
+	BinaryNode* pt=firstBit;
+	int a=0;
+	while(pt!=NULL){
+		if(pt->getX()==true){
+			binaryStr[a]='1';
+		}
+		else{
+			binaryStr[a]='0';
+		}
+		a++;
+		pt=pt->getNext();
+	}
 };
 
 
