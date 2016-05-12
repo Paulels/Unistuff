@@ -27,8 +27,11 @@ BitFlip::~BitFlip(){
 //
 void BitFlip::execute(int k){ 
 
-	int j=k%listLength-1;
-	int i=0;
+	int j=k%listLength;
+	if(j==0){
+		j=listLength;
+	}
+	int i=1;
 	BinaryNode* ptr=firstBit;
 	while(i!=j){
 		ptr=ptr->getNext();

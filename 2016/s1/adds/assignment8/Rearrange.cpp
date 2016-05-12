@@ -26,8 +26,11 @@ Rearrange::~Rearrange(){
 //
 void Rearrange::execute(int k){ 
 
-	int j=k%listLength-1;
-	int i=0;
+	int j=k%listLength;
+	if(j==0){
+		j=listLength;
+	}
+	int i=1;
 	BinaryNode* start=firstBit;
 	BinaryNode* ptr=firstBit;
 	BinaryNode* p;
