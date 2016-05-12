@@ -30,38 +30,43 @@ void Rearrange::execute(int k){
 	if(j==0){
 		j=listLength;
 	}
-	int i=1;
-	BinaryNode* start=firstBit;
-	BinaryNode* ptr=firstBit;
-	BinaryNode* p;
-	while(i!=j-1){
-		ptr=ptr->getNext();
-		i++;
+	if(j==1){
+		return;
 	}
-	setFirstBit(ptr->getNext());
-	p=firstBit;
-	ptr->setNext(NULL);
-	int y=1;
-	while(y!=0){
-		if(p->getNext()==NULL){
-			y=0;
+	else{
+		int i=1;
+		BinaryNode* start=firstBit;
+		BinaryNode* ptr=firstBit;
+		BinaryNode* last=ptr;
+		while(i!=j){
+			last=ptr;
+			ptr=ptr->getNext();
+			i++;
 		}
-		else{
+		setFirstBit(ptr);
+		last->setNext(NULL);
+		int y=1;
+		while(y!=0){
+			if(ptr->getNext()==NULL){
+				y=0;
+			}
+			else{
+				ptr=ptr->getNext();
+			}
+		}
+		ptr->setNext(start);
+		BinaryNode* p=firstBit;
+		int a=0;
+		while(p!=NULL){
+			if(p->getX()==true){
+				binaryStr[a]='1';
+			}
+			else{
+				binaryStr[a]='0';
+			}
+			a++;
 			p=p->getNext();
 		}
-	}
-	p->setNext(start);
-	BinaryNode* pt=firstBit;
-	int a=0;
-	while(pt!=NULL){
-		if(pt->getX()==true){
-			binaryStr[a]='1';
-		}
-		else{
-			binaryStr[a]='0';
-		}
-		a++;
-		pt=pt->getNext();
 	}
 };
 
