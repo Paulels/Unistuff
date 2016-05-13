@@ -5,11 +5,11 @@
 #include <ctype.h>
 #include <cstdlib>
 #include <vector>
-#include "Individual.h"
+#include "Container.h"
 using namespace std;
 
 //Creates a linked list with an inputted length and all values are 0
-Individual::Individual(int length){
+/*Container::Container(int length){
 
 	listLength=length;
 	string s(listLength,'0');
@@ -23,10 +23,10 @@ Individual::Individual(int length){
 		head=conductor;
 	}
 	firstBit=head;
-}
+}*/
 
 //creates a linked list given a string
-Individual::Individual(string s){
+Container::Container(string s){
 
 	binaryStr=s;
 	listLength=s.size();
@@ -47,7 +47,7 @@ Individual::Individual(string s){
 }
 
 //A deconstructor that destroys all the nodes in the linked list so ther is no memory leaks 
-Individual::~Individual(){
+Container::~Container(){
 
 	while(firstBit!=NULL){
 		BinaryNode* old=firstBit;
@@ -56,26 +56,20 @@ Individual::~Individual(){
 	}
 }
 
-//returns the binary string
-string Individual::getString(){
-
-	return binaryStr;
-};
-
 //returns the position of the first bit
-BinaryNode* Individual::getFirstBit(){
+Node* Container::getHead(){
 
-	return firstBit;
+	return head;
 };
 
 //sets the position of the first bit
-void Individual::setFirstBit(BinaryNode* newHead){
+void Container::setHead(Node* newHead){
 
-	firstBit=newHead;
+	head=newHead;
 };
 
-//returns the maximum number of ones in a ow in the linked list
-int Individual::getMaxOnes(){
+//
+int Container::getMiddle(){
 
 	int max=0;
 	int count=0;
@@ -94,10 +88,23 @@ int Individual::getMaxOnes(){
 };
 
 //returns the length of the list
-int Individual::getLength(){
+int Container::getLength(){
 
 	return listLength;
 };
+
+//
+void Container::addNode(){
+
+
+};
+
+//
+void Container::removeNode(){
+
+
+};
+
 
 
 

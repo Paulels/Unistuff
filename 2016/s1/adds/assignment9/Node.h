@@ -5,28 +5,28 @@
 #include <ctype.h>
 #include <cstdlib>
 #include <vector>
-#ifndef BINARYNODE_H
-#define BINARYNODE_H
+#ifndef NODE_H
+#define NODE_H
 
 //This class is used to create the linked list
 //very simple class only contains a variable and a pointer to the next node
 
-class BinaryNode{
+class Node{
 
 	private:
 
-		bool x;
-		BinaryNode* next;
+		int x;
+		Node* next;
 
 	public:
 
-		BinaryNode();
-		~BinaryNode();
+		Node();
+		~Node();
 
-		void setX(bool var);
-		void setNext(BinaryNode* node);
+		void setX(int var);
+		void setNext(Node* node);
 		bool getX();
-		BinaryNode* getNext();
+		Node* getNext();
 
 };
-#endif //BINARYNODE_H
+#endif //NODE_H

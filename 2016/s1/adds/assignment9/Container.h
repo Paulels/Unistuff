@@ -7,14 +7,11 @@
 #include <vector>
 #ifndef INDIVIDUAL_H
 #define INDIVIDUAL_H
-#include "BinaryNode.h"
+#include "Node.h"
 
-//This is the base class
-//It is virtual because it has a virtual function in it
-//It defines all the functions for the class and sub classes to be able to use
-//it will hold the linked list
+//
 
-class Individual{
+class Container{
 
 	private:
 
@@ -22,22 +19,20 @@ class Individual{
 
 	protected:
 
-		std::string binaryStr;	
 		int listLength;	
-		BinaryNode* firstBit;
+		Node* head;
 
 	public:
 
-		Individual(int length);
-		Individual(std::string s);
-		~Individual();
+		//Container(int length);
+		Container(std::string s);
+		~Container();
 
-		std::string getString();
-		BinaryNode* getFirstBit();
-		void setFirstBit(BinaryNode* newHead);
-		int getMaxOnes();
+		Node* getHead();
+		void setHead(Node* newHead);
+		int getMiddle();
 		int getLength();
-		virtual void execute(int k)=0;
-
+		void addNode();    //??
+		void removeNode();
 };
 #endif //INDIVIDUAL_H

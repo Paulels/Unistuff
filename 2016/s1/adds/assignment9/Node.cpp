@@ -5,40 +5,40 @@
 #include <ctype.h>
 #include <cstdlib>
 #include <vector>
-#include "BinaryNode.h"
+#include "Node.h"
 using namespace std;
 
 //Just a basic constructor
-BinaryNode::BinaryNode(){
+Node::Node(){
 
 }
 
 //Just a basic deconstructor
-BinaryNode::~BinaryNode(){
+Node::~Node(){
 
 }
 
 //Sets the variable x
-void BinaryNode::setX(bool var){
+void Node::setX(int var){
 
 	x=var;
 };
 
 //sets the pointer to the next node
-void BinaryNode::setNext(BinaryNode* node){
+void Node::setNext(Node* node){
 
 	next=node;
 };
 
 
 //returns the variable x
-bool BinaryNode::getX(){
+bool Node::getX(){
 
 	return x;
 };
 
 //returns the pointer to the next node
-BinaryNode* BinaryNode::getNext(){
+Node* Node::getNext(){
 
 	return next;
 };

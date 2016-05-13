@@ -1,23 +1,17 @@
 
 all: Compiled 
 
-Compiled: main.o BinaryNode.o Individual.o Rearrange.o BitFlip.o
-	g++ -o Compiled main.o BinaryNode.o Individual.o Rearrange.o BitFlip.o
+Compiled: main.o Node.o Container.o
+	g++ -o Compiled main.o Node.o Container.o
 
 
-BinaryNode.o: BinaryNode.cpp BinaryNode.h
-	g++ -c BinaryNode.cpp
+Node.o: Node.cpp Node.h
+	g++ -c Node.cpp
 
-Individual.o: Individual.cpp Individual.h BinaryNode.h
-	g++ -c Individual.cpp
+Container.o: Container.cpp Container.h Node.h
+	g++ -c Container.cpp
 
-BitFlip.o: BitFlip.cpp BitFlip.h Individual.h BinaryNode.h
-	g++ -c BitFlip.cpp
-
-Rearrange.o: Rearrange.cpp Rearrange.h Individual.h BinaryNode.h
-	g++ -c Rearrange.cpp
-
-main.o: main.cpp BinaryNode.h Individual.h Rearrange.h BitFlip.h
+main.o: main.cpp Node.h Container.h
 	g++ -c main.cpp
 
 
