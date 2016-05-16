@@ -11,7 +11,8 @@
 #include "Container.h"
 using namespace std;
 
-//
+//This main function will take in a single line of input and will add and remove 
+//elements in a linked list based on what the user inputs and will then print out the result
 
 int main(){
 
@@ -39,11 +40,11 @@ int main(){
 
 	int i=0;
 
-	for(i=0;i<count;i++){
+	for(i=0;i<count;i++){					//iterating fo the number of inputs
 		string tStr=vec.at(i);
-		if(tStr[0]=='A'){
+		if(tStr[0]=='A'){					//seeing what function needs to be called
 			string subStr=tStr.substr(1);
-			int k=atoi(subStr.c_str());
+			int k=atoi(subStr.c_str());		//converting to an integer
 			container.addNode(k);
 		}
 		else if(tStr[0]=='R'){
@@ -51,6 +52,6 @@ int main(){
 		}
 	}
 
-	container.printList();
+	container.printList();					//calling the function to print the results
 
 }

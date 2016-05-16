@@ -9,7 +9,11 @@
 #define INDIVIDUAL_H
 #include "Node.h"
 
-//
+//This class will hold and be able to control and manipulate the linked list
+//it will hold pointers to the start middle and end and will hold the length
+//it will have functions to alter the linked list as the user requires
+//It also has functions to print out results
+//the functions addNode, removeNode, setMiddle and printMiddle all have O(1) complexity
 
 class Container{
 

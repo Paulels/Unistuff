@@ -10,6 +10,7 @@
 
 //This class is used to create the linked list
 //very simple class only contains a variable and a pointer to the next node
+//contains also all of the relevant getter and setter functions
 
 class Node{
 
