@@ -70,13 +70,16 @@ void Container::removeNode(){
 	else if(listLength==1){
 		tmp=head;
 		head=NULL;
+		tail=NULL;
 		delete tmp;
 		middle=0;
+		listLength--;
 	}
 	else{
 		tmp=head;
 		head=head->getNext();
 		delete tmp;
+		listLength--;
 	}
 };
 
