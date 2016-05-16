@@ -13,6 +13,8 @@ using namespace std;
 Container::Container(){
 
 	listLength=0;
+	head=NULL;
+	tail=NULL;
 }
 
 //A deconstructor that destroys all the nodes in the linked list so ther is no memory leaks 
@@ -41,50 +43,86 @@ int Container::getLength(){
 void Container::addNode(int val){
 
 	if(listLength==0){
-		head=new Node;
-		tail=head;
+		tail=new Node;
 		tail->setNext(NULL);
 		tail->setX(val);
+		head=tail;
 		listLength++;
 		middle=head;
 	}
 	else{
-		ptr=tail;
+		Node* ptr=tail;
 		tail=new Node;
 		ptr->setNext(tail);
 		tail->setNext(NULL);
 		tail->setX(val);
 		listLength++;
-		if(listLength%2==1){
-			middle=middle->getNext();
-		}
-		else{
-		}
+		setMiddle();
 	}
 };
 
 //
 void Container::removeNode(){
 
+	Node* tmp;
 	if(listLength==0){
 	}
-	else if(listLength==1)
-		
+	else if(listLength==1){
+		tmp=head;
+		head=NULL;
+		delete tmp;
+		middle=0;
 	}
 	else{
-		
+		tmp=head;
+		head=head->getNext();
+		delete tmp;
 	}
 };
 
-void printList(){
+void Container::printList(){
 
-	//print list
-
-	//check if one middle or 2 
-
-	//print out relevant info
+	if(listLength==0){
+		cout<<"empty ";
+		printMiddle();
+	}
+	else{
+		Node* pt=head;
+		while(pt!=NULL){
+			if(pt==tail){
+				cout<<pt->getX()<<" ";
+			}
+			else{
+				cout<<pt->getX()<<"->";
+			}
+		pt=pt->getNext();
+		}
+		printMiddle();
+	}
 };
 
+//
+void Container::setMiddle(){
 
+	if(listLength%2==1){
+		middle=middle->getNext();
+	}
+	else{
+	}
+};
+
+//
+void Container::printMiddle(){
+
+	if(listLength==0){
+		cout<<"0"<<endl;
+	}
+	else if(listLength%2==0){
+		cout<<middle->getX()<<" "<<(middle->getNext())->getX()<<endl;
+	}
+	else{
+		cout<<middle->getX()<<endl;
+	}
+};
 
 

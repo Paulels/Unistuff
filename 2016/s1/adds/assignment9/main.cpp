@@ -24,12 +24,14 @@ int main(){
 	stringstream ss(s);
 
 	string tempStr;
+	int count=0;
 
 	while(ss>>tempStr){					//stores the numbers as integers in j
 		vec.push_back(tempStr);		
 		if(ss.peek()==' '){			//checks to see what the next character in the stream 
 			ss.ignore();			//and ignores it if it is a space
 		}
+		count++;
 	}
 
 	//initialising classes
@@ -37,10 +39,10 @@ int main(){
 
 	int i=0;
 
-	for(i=0;i<container.getLength();i++){
-		tStr=vec.at(i);
+	for(i=0;i<count;i++){
+		string tStr=vec.at(i);
 		if(tStr[0]=='A'){
-			subStr=tStr.substr(1);
+			string subStr=tStr.substr(1);
 			int k=atoi(subStr.c_str());
 			container.addNode(k);
 		}
@@ -49,6 +51,6 @@ int main(){
 		}
 	}
 
-	cout<<container.printList()<<endl;
+	container.printList();
 
 }

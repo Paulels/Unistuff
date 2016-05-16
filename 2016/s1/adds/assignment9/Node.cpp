@@ -32,7 +32,7 @@ void Node::setNext(Node* node){
 
 
 //returns the variable x
-bool Node::getX(){
+int Node::getX(){
 
 	return x;
 };

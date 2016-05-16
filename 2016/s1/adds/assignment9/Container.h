@@ -26,8 +26,11 @@ class Container{
 		~Container();
 
 		Node* getHead();
-		void addNode(int val);    //??
+		void addNode(int val);   
 		void removeNode();
 		void printList();
+		void setMiddle();
+		void printMiddle();
+		int getLength();
 };
 #endif //INDIVIDUAL_H

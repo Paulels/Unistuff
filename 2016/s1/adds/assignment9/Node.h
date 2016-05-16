@@ -25,7 +25,7 @@ class Node{
 
 		void setX(int var);
 		void setNext(Node* node);
-		bool getX();
+		int getX();
 		Node* getNext();
 
 };
