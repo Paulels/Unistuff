@@ -15,24 +15,19 @@ class Container{
 
 	private:
 
-
-
-	protected:
-
 		int listLength;	
 		Node* head;
+		Node* tail;
+		Node* middle;
 
 	public:
 
-		//Container(int length);
-		Container(std::string s);
+		Container();
 		~Container();
 
 		Node* getHead();
-		void setHead(Node* newHead);
-		int getMiddle();
-		int getLength();
-		void addNode();    //??
+		void addNode(int val);    //??
 		void removeNode();
+		void printList();
 };
 #endif //INDIVIDUAL_H
