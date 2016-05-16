@@ -80,6 +80,7 @@ void Container::removeNode(){
 		head=head->getNext();
 		delete tmp;
 		listLength--;
+		setMiddle();
 	}
 };
 
