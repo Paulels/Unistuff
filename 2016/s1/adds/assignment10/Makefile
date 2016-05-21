@@ -1,17 +1,17 @@
 
 all: Compiled 
 
-Compiled: main.o Node.o Container.o
-	g++ -o Compiled main.o Node.o Container.o
+Compiled: main.o Node.o BinaryTree.o
+	g++ -o Compiled main.o Node.o BinaryTree.o
 
 
 Node.o: Node.cpp Node.h
 	g++ -c Node.cpp
 
-Container.o: Container.cpp Container.h Node.h
-	g++ -c Container.cpp
+BinaryTree.o: BinaryTree.cpp BinaryTree.h Node.h
+	g++ -c BinaryTree.cpp
 
-main.o: main.cpp Node.h Container.h
+main.o: main.cpp Node.h BinaryTree.h
 	g++ -c main.cpp
 
 

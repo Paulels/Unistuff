@@ -18,31 +18,41 @@ Node::~Node(){
 
 }
 
-//Sets the variable x
-void Node::setX(int var){
+//Sets the variable c
+void Node::setC(char ch){
 
-	x=var;
+	c=ch;
 };
 
-//sets the pointer to the next node
-void Node::setNext(Node* node){
+//sets the pointer to the left node
+void Node::setLeft(Node* l){
 
-	next=node;
+	left=l;
 };
 
+//sets the pointer to the right node
+void Node::setRight(Node* r){
 
-//returns the variable x
-int Node::getX(){
-
-	return x;
+	right=r;
 };
 
-//returns the pointer to the next node
-Node* Node::getNext(){
+//returns the variable c
+char Node::getC(){
 
-	return next;
+	return c;
 };
 
+//returns the pointer to the left node
+Node* Node::getLeft(){
+
+	return left;
+};
+
+//returns the pointer to the right node
+Node* Node::getRight(){
+
+	return right;
+};
 
 
 

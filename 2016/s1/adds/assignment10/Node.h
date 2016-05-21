@@ -14,18 +14,21 @@ class Node{
 
 	private:
 
-		int x;
-		Node* next;
+		char c;
+		Node* left;
+		Node* right;
 
 	public:
 
 		Node();
 		~Node();
 
-		void setX(int var);
-		void setNext(Node* node);
-		int getX();
-		Node* getNext();
+		void setC(char ch);
+		void setLeft(Node* l);
+		void setRight(Node* r);
+		char getC();
+		Node* getLeft();
+		Node* getRight();
 
 };
 #endif //NODE_H

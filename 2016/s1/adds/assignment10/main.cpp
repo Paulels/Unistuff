@@ -8,35 +8,36 @@
 #include <sstream>
 #include <math.h>
 #include "Node.h"
-#include "Container.h"
+#include "BinaryTree.h"
 using namespace std;
 
-//This main function will take in a single line of input and will add and remove 
-//elements in a linked list based on what the user inputs and will then print out the result
+//
 
 int main(){
 
 	//getting users input as a string
 	string s;
 	getline(cin,s);
-	vector<string> vec;
+	vector<char> vec;
 
 	//constructing a stringstream object
 	stringstream ss(s);
 
-	string tempStr;
+	char tempChar;
 	int count=0;
 
-	while(ss>>tempStr){					//stores the numbers as integers in j
-		vec.push_back(tempStr);		
+	while(ss>>tempChar){					//stores the characters
+		vec.push_back(tempChar);		
 		if(ss.peek()==' '){			//checks to see what the next character in the stream 
 			ss.ignore();			//and ignores it if it is a space
 		}
-		count++;
+		if(tempChar<48 || tempChar>57)
+			count++;
+		}
 	}
 
 	//initialising classes
-	Container container;
+	BinaryTree BT;
 
 	int i=0;
 
