@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <cstdlib>
-#include <vector>
-#ifndef INDIVIDUAL_H
-#define INDIVIDUAL_H
+#include <deque>
+#ifndef BINARYTREE_H
+#define BINARYTREE_H
 #include "Node.h"
 
 //
@@ -19,11 +19,11 @@ class BinaryTree{
 
 	public:
 
-		Container();
-		~Container();
+		BinaryTree();
+		~BinaryTree();
 
 		Node* getRoot();
-		void addNode(char ch);
+		void createTree(std::deque<char> ch);
 		void printList();
 };
-#endif //INDIVIDUAL_H
+#endif //BINARYTREE_H
