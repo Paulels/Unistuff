@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <cstdlib>
+#include <sstream>
 #include <deque>
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
@@ -23,7 +24,9 @@ class BinaryTree{
 		~BinaryTree();
 
 		Node* getRoot();
-		void createTree(std::deque<char> ch);
-		void printList();
+		void deleteNode(Node* node);
+		void createTree(std::stringstream ss);
+		void addNode(char c);
+		void printList(Node* node);
 };
 #endif //BINARYTREE_H

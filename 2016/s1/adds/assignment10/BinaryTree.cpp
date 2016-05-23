@@ -18,11 +18,7 @@ BinaryTree::BinaryTree(){
 //A deconstructor that destroys all the nodes in the linked list so ther is no memory leaks 
 BinaryTree::~BinaryTree(){
 
-/*	while(head!=NULL){					//?????????????????????????????????
-		Node* old=head;
-		head=head->getNext();
-		delete old;
-	}*/
+	deleteNode(root);
 }
 
 //returns the position of the first bit
@@ -31,16 +27,31 @@ Node* BinaryTree::getRoot(){
 	return root;
 };
 
+void BinaryTree::deleteNode(Node* node){
+
+	Node* left=node->getLeft();
+	Node* left=node->getLeft();
+	delete node;
+	deleteNode(left);
+	deleteNode(right);
+};
+
 //This will add a node to the tail with a value of val. It has O(1) complexity
-void BinaryTree::createTree(deque<char> ch){
+void BinaryTree::createTree(stringstream ss){
 
+	
+};
 
+//
+void BinaryTree::addNode(char c){
+
+	
 };
 
 //
 void BinaryTree::printList(){
 
-
+	
 };
 
 

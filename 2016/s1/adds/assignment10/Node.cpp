@@ -11,6 +11,8 @@ using namespace std;
 //Just a basic constructor
 Node::Node(){
 
+	right=NULL;
+	left=NULL;
 }
 
 //Just a basic deconstructor
