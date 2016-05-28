@@ -8,7 +8,7 @@
 #include <deque>
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
-#include "Node.h"
+#include "Stack.h"
 
 //
 
@@ -16,7 +16,10 @@ class BinaryTree{
 
 	private:
 
-		Node* root;
+		Stack* root;
+		int operators;
+		int count;
+		int checker;
 
 	public:
 
@@ -24,9 +27,15 @@ class BinaryTree{
 		~BinaryTree();
 
 		Node* getRoot();
+		int getOperators();
+		void setOperators(int n);
+		void setCount(int c);
 		void deleteNode(Node* node);
-		void createTree(std::stringstream ss);
-		void addNode(char c);
-		void printList(Node* node);
+		void push(Node* np);
+		Node* pop();
+		void createTree(std::string s);
+		void addNode(char ch);
+		void printTree();
+		void infix(Node* p);
 };
 #endif //BINARYTREE_H
