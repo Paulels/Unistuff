@@ -20,25 +20,25 @@ Stack::~Stack(){
 
 }
 
-//sets the pointer to the left node
+//sets the tree node pointer
 void Stack::setTreeNode(Node* t){
 
 	treeNode=t;
 };
 
-//sets the pointer to the right node
+//sets the pointer to the next node
 void Stack::setNext(Stack* n){
 
 	next=n;
 };
 
-//returns the pointer to the left node
+//returns the tree node pointer
 Node* Stack::getTreeNode(){
 
 	return treeNode;
 };
 
-//returns the pointer to the right node
+//returns the pointer to the next node
 Stack* Stack::getNext(){
 
 	return next;

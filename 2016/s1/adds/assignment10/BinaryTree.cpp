@@ -9,44 +9,44 @@
 #include "BinaryTree.h"
 using namespace std;
 
-//Just a basic constructor setting the variables to 0
+//Just a basic constructor setting the root to NULL
 BinaryTree::BinaryTree(){
 
 	root=NULL;
 }
 
-//A deconstructor that destroys all the nodes in the linked list so ther is no memory leaks 
+//A deconstructor that destroys all the nodes in the tree so that there are no memory leaks 
 BinaryTree::~BinaryTree(){
 
 	deleteNode(root->getTreeNode());
 }
 
-//returns the position of the first bit
+//returns the position of the root
 Node* BinaryTree::getRoot(){
 
 	return root->getTreeNode();
 };
 
-//
+//sets the varible operators with the number of operators
 void BinaryTree::setOperators(int n){
 
 	operators=n;
 };
 
-//
+//Sets varibles with the number of numbers
 void BinaryTree::setCount(int c){
 
 	count=c;
 	checker=c;
 };
 
-//
+//returns the number of operators
 int BinaryTree::getOperators(){
 
 	return operators;
 };
 
-//
+//function to push a node onto the stack
 void BinaryTree::push(Node* np){
 
 	if(root==NULL){
@@ -61,7 +61,7 @@ void BinaryTree::push(Node* np){
 	}
 };
 
-//
+//function to pop a node off of the stack
 Node* BinaryTree::pop(){
 
 	if(root==NULL){
@@ -74,7 +74,7 @@ Node* BinaryTree::pop(){
 	}
 };
 
-//
+//function to add the node to the tree
 void BinaryTree::addNode(char ch){
 
 	if(ch>='0' && ch<='9'){
@@ -94,6 +94,7 @@ void BinaryTree::addNode(char ch){
 	}
 };
 
+//function to delete all of the nodes
 void BinaryTree::deleteNode(Node* node){
 
 	if(node==NULL){
@@ -108,7 +109,7 @@ void BinaryTree::deleteNode(Node* node){
 	}
 };
 
-//This will add a node to the tail with a value of val. It has O(1) complexity
+//this will create the tee by adding nodes to the ight places
 void BinaryTree::createTree(string s){
 
 	int a=s.length()-1;
@@ -119,7 +120,7 @@ void BinaryTree::createTree(string s){
 };
 
 
-//
+//This will print out the tree
 void BinaryTree::printTree(){
 
 	int k=0;
@@ -129,7 +130,7 @@ void BinaryTree::printTree(){
 	infix(getRoot());
 };
 
-//
+//This will print out the tree with infix notation
 void BinaryTree::infix(Node* p){
 
 	if(p!=NULL){

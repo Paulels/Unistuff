@@ -8,7 +8,9 @@
 #ifndef NODE_H
 #define NODE_H
 
-//
+//This will create the node that wil be put in the tree
+//it has the character and left and right pointers to its leaves
+//it also has the relevant setter and getter functions
 
 class Node{
 

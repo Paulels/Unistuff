@@ -10,8 +10,10 @@
 #define BINARYTREE_H
 #include "Stack.h"
 
-//
-
+//A class to create a binary tree given a prefix expression
+//has variables to keep tack of the root, number of operators and the number of operands
+//has functions to set and get these along with functions create, detroy and print out the tree
+ 
 class BinaryTree{
 
 	private:
