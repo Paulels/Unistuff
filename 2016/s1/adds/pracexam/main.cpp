@@ -50,17 +50,19 @@ struct Node {
 };
 
 Node* addIfNotExist(Node* head, int data) {
-    bool isThere=false;
+    bool isThere=false;		//declares a boolean to store whether it is there
     Node* ptr=head;
+
+    //runs through the linked list to see if the data is already in it
     while(ptr!=NULL){
         if(ptr->data==data){
-            isThere=true;
+            isThere=true;	//if the data is there changes the boolean
         }
 	else{
         }
         ptr=ptr->next;
     }
-    if(isThere==false){
+    if(isThere==false){		//if it doesnt exist adds the data to the front
         Node* oldHead=head;
         head=new Node;
 	head->data=data;
@@ -70,7 +72,13 @@ Node* addIfNotExist(Node* head, int data) {
 }
 
 Node* concat(Node* list1, Node* list2) {
-    // fill in here, replace the following
+    Node* ptrL1=list1;
+    Node* ptrL2=list2;
+    while(ptrL1!=NULL && ptrL2!=NULL){
+        Node* lastL1=ptrL1
+    //run until find null 
+//once find null add list thats not null to that list 
+//head of short list is 
     return list1;
 }
 
