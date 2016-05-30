@@ -74,12 +74,28 @@ Node* addIfNotExist(Node* head, int data) {
 Node* concat(Node* list1, Node* list2) {
     Node* ptrL1=list1;
     Node* ptrL2=list2;
-    while(ptrL1!=NULL && ptrL2!=NULL){
-        Node* lastL1=ptrL1
-    //run until find null 
-//once find null add list thats not null to that list 
-//head of short list is 
-    return list1;
+    bool l=false;
+    int i=0;
+    for(i=0;i<10;i++){
+	if(ptrL1->next==NULL){
+            l=true;
+            break;
+        }
+        else if(ptrL2->next==NULL){
+            l=false;
+            break;
+        }
+        ptrL1=ptrL1->next;
+        ptrL2=ptrL2->next;
+    }
+    if(l==true){
+        ptrL1->next=list2;
+        return list1;
+    }
+    else{
+        ptrL2->next=list1;
+        return list2;
+    }
 }
 
 void disp(Node* head) {
