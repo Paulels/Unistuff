@@ -74,8 +74,11 @@ Node* addIfNotExist(Node* head, int data) {
 Node* concat(Node* list1, Node* list2) {
     Node* ptrL1=list1;
     Node* ptrL2=list2;
-    bool l=false;
+    bool l=false;			//to check which list is the short list
     int i=0;
+
+    //O(1) since we know the short list is less than 10 nodes
+    //iterating through the nodes to find which is the short list
     for(i=0;i<10;i++){
 	if(ptrL1->next==NULL){
             l=true;
@@ -88,6 +91,8 @@ Node* concat(Node* list1, Node* list2) {
         ptrL1=ptrL1->next;
         ptrL2=ptrL2->next;
     }
+
+    //joining the long list to the end of the short list
     if(l==true){
         ptrL1->next=list2;
         return list1;
