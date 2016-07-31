@@ -14,6 +14,7 @@ CHIP And {
     OUT out;
 
     PARTS:
-    Nand(a=a,b=b,out=n1);
-	Not(in=n1,out=out);
+    Nand(a=a,b=b,out=n1);		//using the base gate 
+
+	Not(in=n1,out=out);			//Double negative so it just becomes an And
 }

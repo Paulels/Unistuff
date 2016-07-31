@@ -14,7 +14,8 @@ CHIP Or {
     OUT out;
 
     PARTS:
-    Not(in=a,out=na);
+    Not(in=a,out=na);			//getting the opposite of both inputs
 	Not(in=b,out=nb);
-	Nand(a=na,b=nb,out=out);
+
+	Nand(a=na,b=nb,out=out);	//Nand is the opposite of Or hence why we use 2 Not gates on the inputs
 }
