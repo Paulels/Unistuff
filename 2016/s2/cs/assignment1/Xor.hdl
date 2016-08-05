@@ -14,10 +14,10 @@ CHIP Xor {
 
     PARTS:
     Not(in=a,out=na);		//getting the inverses of the inputs
-	Not(in=b,out=nb);
+    Not(in=b,out=nb);
 
-	And(a=a,b=nb,out=a1);	//Anding one input with the inverse of another
-	And(a=b,b=na,out=a2);
+    And(a=a,b=nb,out=a1);	//Anding one input with the inverse of another
+    And(a=b,b=na,out=a2);
 
-	Or(a=a1,b=a2,out=out);	//Oring those outputs to achieve the equired result
+    Or(a=a1,b=a2,out=out);	//Oring those outputs to achieve the required result
 }

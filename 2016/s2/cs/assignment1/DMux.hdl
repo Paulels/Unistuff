@@ -16,7 +16,7 @@ CHIP DMux {
     PARTS:
     Not(in=sel,out=nsel);		//getting the inverse of the selector
 
-	And(a=in,b=sel,out=b);		//If in and sel are both 1 then b becomes 1
+    And(a=in,b=sel,out=b);		//If in and sel are both 1 then b becomes 1
 
-	And(a=in,b=nsel,out=a);		//if in==1 and sel==0 then a becomes 1
+    And(a=in,b=nsel,out=a);		//if in==1 and sel==0 then a becomes 1
 }
