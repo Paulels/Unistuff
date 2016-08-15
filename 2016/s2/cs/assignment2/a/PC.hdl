@@ -22,7 +22,7 @@ CHIP PC {
 
     Mux16(a=mi,b=in,sel=load,out=ml);			//if load==1 then load the input
 
-    Mux16(a=ml,b=false,load=reset,out=mr);		//if reset==1 then load false
+    Mux16(a=ml,b=false,sel=reset,out=mr);		//if reset==1 then load false
 
     Register(in=mr,load=true,out=out,out=mem);	//always output the input and have a memory output aswell
 }
