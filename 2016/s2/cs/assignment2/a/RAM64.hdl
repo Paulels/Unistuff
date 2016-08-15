@@ -17,7 +17,7 @@ CHIP RAM64 {
     PARTS:
     DMux8Way(in=load,sel=address[3..5],a=da,b=db,c=dc,d=dd,e=de,f=df,g=dg,h=dh);	//choosing which RAM chip to use
 
-    RAM8(in=in,load=da,address=address[0..2],out=ra);		//8 RAM chips hence RAM64
+    RAM8(in=in,load=da,address=address[0..2],out=ra);		//8 RAM8 chips hence RAM64
     RAM8(in=in,load=db,address=address[0..2],out=rb);
     RAM8(in=in,load=dc,address=address[0..2],out=rc);
     RAM8(in=in,load=dd,address=address[0..2],out=rd);
