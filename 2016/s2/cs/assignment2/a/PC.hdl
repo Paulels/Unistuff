@@ -16,5 +16,13 @@ CHIP PC {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    Inc16(in=mem,out=imem);						//incrementing the memory
+
+    Mux16(a=mem,b=imem,sel=inc,out=mi);			//if inc==1 then load the incremented memory
+
+    Mux16(a=mi,b=in,sel=load,out=ml);			//if load==1 then load the input
+
+    Mux16(a=ml,b=false,load=reset,out=mr);		//if reset==1 then load false
+
+    Register(in=mr,load=true,out=out,out=mem);	//always output the input and have a memory output aswell
 }
