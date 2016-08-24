@@ -1,5 +1,5 @@
 (KEY)
-	@KEYBOARD
+	@KBD
 	D=M
 	@KEY
 	D;JEQ
