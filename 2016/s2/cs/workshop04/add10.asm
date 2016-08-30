@@ -20,9 +20,11 @@
 	D=A
 	@i
 	M=M+1
-	D=D+M
+	D=M
 	@array
-M=D
+	D=D+A
+	A=D
+	D=M
 	@LOOP
 	0;JMP
 (END)
