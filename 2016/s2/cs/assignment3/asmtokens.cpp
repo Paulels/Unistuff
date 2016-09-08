@@ -1,3 +1,26 @@
+// a skeleton of the vmtokens class implementation
+
+#include <iostream>
+#include <ctype.h>
+#include "asmsymbols.h"
+#include "asmtokens.h"
+
+using namespace std ;
+
+// define your own class to implement asmtokens
+class asmtokens_x : public asmtokens
+{
+public:
+	asmtokens_x() ;			// create a new tokeniser
+        string next_token() ; 		// read the next token from the input and return its kind
+        string token_value() ;		// return the current token as a string
+private:
+        symbols_string *symbols ;	// internal symbol table - maps token values to token class
+	string tvalue ;			// the current token as a string
+	int ch ;			// the next character in the input
+	void nextch() ;			// a function to read the next character and update ch
+} ;
+
 // return a pointer to a new tokeniser
 asmtokens *asmtokens::newtokeniser()
 {
@@ -92,13 +115,6 @@ string asmtokens_x::next_token()
 			tvalue = "?" ;
 			return "?" ;
 		}
-		if (ch=='@'){
-			bool test=false;
-			if(nextchar>='0' && nextcha<='9'){
-				test1=true;
-			}
-			else if(
-			while(nextchar()==' || nextchar()==46 || nextchar()==95 ||( nextchar()>=48 && nextchar()<=58)||(nextchar()>=65 && nextchar()<=90	
-	nextch() ;
+		nextch() ;
 	}
 }
