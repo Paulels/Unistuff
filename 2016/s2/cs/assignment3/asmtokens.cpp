@@ -115,6 +115,40 @@ string asmtokens_x::next_token()
 			tvalue = "?" ;
 			return "?" ;
 		}
-		nextch() ;
+		if (ch=='@'){
+			bool test=true;
+			int i=0;
+			while(test1==true){
+				nextchar();
+				if(ch>='0' && ch<='9'){
+					test1=true;
+				}
+				else if(ch>='a' && ch<='z'){
+					test1=true;
+				}
+				if(ch>='A' && ch<='Z'){
+					test1=true;
+				}
+				else if(ch=='$'){
+					test1=true;
+				}
+				else if(ch=='_'){
+					test1=true;
+				}
+				else if(ch==':'){
+					test1=true;
+				}
+				else if(ch=='.'){
+					test1=true;
+				}
+				else{
+					test1=false;
+				}
+				tvalue[i]=ch;
+				i++;
+			}
+			return "address";
+		}
+	//nextch() ;
 	}
 }
