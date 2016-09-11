@@ -137,6 +137,7 @@ string asmtokens_x::next_token()
 		}
 
 		if (ch == '@'){
+			string temp;
 			bool test1 = true;
 			while(test1 == true){
 				nextch();
@@ -165,12 +166,15 @@ string asmtokens_x::next_token()
 					test1 = false;
 					break;
 				}
-				tvalue += ch;
+				temp.push_back(ch);
 			}
+			tvalue=temp;
+			temp.clear();
 			return "address";
 		}
 
 		if (ch == '('){
+			string temp;
 			bool test2 = true;
 			bool test3 = false;
 			while(test2 == true && test3==false){
@@ -203,8 +207,10 @@ string asmtokens_x::next_token()
 					test3 = true;
 					break;
 				}
-				tvalue += ch;
+				temp.push_back(ch);
 			}
+			tvalue=temp;
+			temp.clear();
 			return "label";
 		}
 
@@ -284,6 +290,6 @@ string asmtokens_x::next_token()
 				return token;
 			}
 		}
-	nextch() ;
+		nextch();
 	}
 }
