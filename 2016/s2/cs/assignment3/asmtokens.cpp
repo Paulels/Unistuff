@@ -110,12 +110,13 @@ string asmtokens_x::next_token()
 	// loop to read characters until a token is found or EOF is found
 	while ( true )
 	{
-		if ( ch == EOF )
+		if ( ch == EOF )			//checks if end of function and if so returns ?	
 		{
 			tvalue = "?" ;
 			return "?" ;
 		}
 
+		//The next few just handle simple single characters 
 		if (ch == ';')
 		{
 			tvalue = ';' ;
@@ -136,9 +137,10 @@ string asmtokens_x::next_token()
 			return "null";
 		}
 
+		//This is to check an A-instruction and will allow all addresses that are legal
 		if (ch == '@'){
 			string temp;
-			bool test1 = true;
+			bool test1 = true;			//to check characters are legal
 			while(test1 == true){
 				nextch();
 				if(ch >= '0' && ch <= '9'){
@@ -173,10 +175,11 @@ string asmtokens_x::next_token()
 			return "address";
 		}
 
+		//checkinbg for labels and if they are legal labels
 		if (ch == '('){
 			string temp;
-			bool test2 = true;
-			bool test3 = false;
+			bool test2 = true;			//checking their legal and follow the rules
+			bool test3 = false;			//checking to find )
 			while(test2 == true && test3==false){
 				nextch();
 				if(ch >= '0' && ch <= '9'){
@@ -214,18 +217,20 @@ string asmtokens_x::next_token()
 			return "label";
 		}
 
+		//ignoes comments so it looks for 2 /
 		if(ch=='/'){
 			nextch();
 			if(ch=='/'){
-				while(ch!='\n' && ch!='\r'){
+				while(ch!='\n' && ch!='\r'){		//loops til a new line is found
 					nextch();
 				}
 			}
 			else{
-				cin.putback(ch);
+				cin.putback(ch);		//puts character back in stream if the 2nd one isnt a /
 			}
 		}
 
+		//dealing with jump commands cause my other C-instruction section didnt seem to handle it
 		if(ch=='J'){
 			string token;
 			string temp;
@@ -235,7 +240,7 @@ string asmtokens_x::next_token()
 			temp+=c;
 			nextch();
 			temp+=ch;
-			token=symbols->lookup(temp);
+			token=symbols->lookup(temp);	//checks in the above table to see if it is there
 			if (token!=""){
 				tvalue=temp;
 				temp.clear();
@@ -243,21 +248,22 @@ string asmtokens_x::next_token()
 				return token;
 			}
 			else{
-				cin.putback(ch);
+				cin.putback(ch);			//puts the characters back in the stream if they arent needed
 				cin.putback(c);
 			}
 		}
 
+		//deals with all C-instructions apart from jumps
 		if ((ch!=' ')&&(ch!='\n')){
 			string token;
 			string temp;
+			//- and ! are in here cause my code didnt deal with these for some reason
 			if(ch=='!' || ch=='-'){
 				temp.push_back(ch);
 				nextch();
 				temp.push_back(ch);
 				token = symbols -> lookup(temp);
-				if (token!="")
-				{
+				if (token!=""){
 					tvalue=temp;
 					temp.clear();
 					nextch();
@@ -266,18 +272,16 @@ string asmtokens_x::next_token()
 			}
 			temp.push_back(ch);
 			token = symbols->lookup(temp);
-	
-			if (token!="")
-			{
+			//iterates through stating at 3 characters and going down to one to see what it is in the table above
+			if (token!=""){
 				nextch();
 				char a = ch;
-				temp.push_back(ch);
+				temp.push_back(ch);			//soring ch in the variable
 				nextch();
 				char b = ch;
 				temp.push_back(ch);
 				token = symbols -> lookup(temp);
-				if (token!="")
-				{
+				if (token!=""){				//checks to see if the token is empty
 					tvalue=temp;
 					temp.clear();
 					nextch();
@@ -285,8 +289,7 @@ string asmtokens_x::next_token()
 				}
 				temp.pop_back();
 				token=symbols -> lookup(temp);
-				if (token!="")
-				{
+				if (token!=""){
 					cin.putback(b);
 					tvalue=temp;
 					temp.clear();
