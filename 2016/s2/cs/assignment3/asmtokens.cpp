@@ -115,40 +115,175 @@ string asmtokens_x::next_token()
 			tvalue = "?" ;
 			return "?" ;
 		}
-		if (ch=='@'){
-			bool test=true;
-			int i=0;
-			while(test1==true){
-				nextchar();
-				if(ch>='0' && ch<='9'){
-					test1=true;
+
+		if (ch == ';')
+		{
+			tvalue = ';' ;
+			nextch();
+			return "semi";
+		}
+
+		if (ch == '=')
+		{
+			tvalue = '=' ;
+			nextch();
+			return "equals";
+		}
+
+		if(ch == '\0'){
+			tvalue = "null";
+			nextch();
+			return "null";
+		}
+
+		if (ch == '@'){
+			bool test1 = true;
+			while(test1 == true){
+				nextch();
+				if(ch >= '0' && ch <= '9'){
+					test1 = true;
 				}
-				else if(ch>='a' && ch<='z'){
-					test1=true;
+				else if(ch >= 'a' && ch <= 'z'){
+					test1 = true;
 				}
-				if(ch>='A' && ch<='Z'){
-					test1=true;
+				else if(ch >= 'A' && ch <= 'Z'){
+					test1 = true;
 				}
-				else if(ch=='$'){
-					test1=true;
+				else if(ch == '$'){
+					test1 = true;
 				}
-				else if(ch=='_'){
-					test1=true;
+				else if(ch == '_'){
+					test1 = true;
 				}
-				else if(ch==':'){
-					test1=true;
+				else if(ch == ':'){
+					test1 = true;
 				}
-				else if(ch=='.'){
-					test1=true;
+				else if(ch == '.'){
+					test1 = true;
 				}
 				else{
-					test1=false;
+					test1 = false;
+					break;
 				}
-				tvalue[i]=ch;
-				i++;
+				tvalue += ch;
 			}
 			return "address";
 		}
-	//nextch() ;
+
+		if (ch == '('){
+			bool test2 = true;
+			bool test3 = false;
+			while(test2 == true && test3==false){
+				nextch();
+				if(ch >= '0' && ch <= '9'){
+					test2 = true;
+				}
+				else if(ch >= 'a' && ch <= 'z'){
+					test2 = true;
+				}
+				else if(ch >= 'A' && ch <= 'Z'){
+					test2 = true;
+				}
+				else if(ch == '$'){
+					test2 = true;
+				}
+				else if(ch == '_'){
+					test2 = true;
+				}
+				else if(ch == ':'){
+					test2 = true;
+				}
+				else if(ch == '.'){
+					test2 = true;
+				}
+				else{
+					test2 = false;
+				}
+				if(ch == ')'){
+					test3 = true;
+					break;
+				}
+				tvalue += ch;
+			}
+			return "label";
+		}
+
+		if(ch=='/'){
+			nextch();
+			if(ch=='/'){
+				while(ch!='\n' && ch!='\r'){
+					nextch();
+				}
+			}
+			else{
+				cin.putback(ch);
+			}
+		}
+
+		if(ch=='J'){
+			string token;
+			string temp;
+			temp+=ch;
+			nextch();
+			char c=ch;
+			temp+=c;
+			nextch();
+			temp+=ch;
+			token=symbols->lookup(temp);
+			if (token!=""){
+				tvalue=temp;
+				temp.clear();
+				nextch();
+				return token;
+			}
+			else{
+				cin.putback(ch);
+				cin.putback(c);
+			}
+		}
+
+		if ((ch!=' ')&&(ch!='\n')){
+			string token;
+			string temp;
+			temp.push_back(ch);
+			token = symbols->lookup(temp);
+	
+			if (token!="")
+			{
+				nextch();
+				char a = ch;
+				temp.push_back(ch);
+				nextch();
+				char b = ch;
+				temp.push_back(ch);
+				token = symbols -> lookup(temp);
+				if (token!="")
+				{
+					tvalue=temp;
+					temp.clear();
+					nextch();
+					return token;
+				}
+				temp.pop_back();
+				token=symbols -> lookup(temp);
+				if (token!="")
+				{
+					cin.putback(b);
+					tvalue=temp;
+					temp.clear();
+					nextch();
+					return token;
+				}
+				temp.pop_back();
+				cin.putback(b);
+				cin.putback(a);
+				token=symbols -> lookup(temp);
+				tvalue=temp;
+				temp.clear();
+				nextch();
+				return token;
+			}
+		}
+	nextch() ;
 	}
 }
