@@ -251,6 +251,19 @@ string asmtokens_x::next_token()
 		if ((ch!=' ')&&(ch!='\n')){
 			string token;
 			string temp;
+			if(ch=='!' || ch=='-'){
+				temp.push_back(ch);
+				nextch();
+				temp.push_back(ch);
+				token = symbols -> lookup(temp);
+				if (token!="")
+				{
+					tvalue=temp;
+					temp.clear();
+					nextch();
+					return token;
+				}
+			}
 			temp.push_back(ch);
 			token = symbols->lookup(temp);
 	
