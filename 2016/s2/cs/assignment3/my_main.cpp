@@ -1,13 +1,9 @@
-
+#include <iostream>
+#include <ctype.h>
+#include "myAssembler.h"
 
 int main()
 {
-	map<string,string> SsTable;
-	while(
-
-	}
-
-	while{
-
-	}
+	myAssembler myAssembler;
+	myAssembler.Assemble();
 }
