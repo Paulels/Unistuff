@@ -108,7 +108,6 @@ string myBinaryMap::cMap(string parsedToken){
 		diff=semiSign-eqSign;
 		substring=parsedToken.substr((eqSign+1),diff-1);
 		s2=comp->lookup(substring);
-cout<<substring<<endl;
 	}
 	else if(eqSign!=l && semiSign==l){
 		substring=parsedToken.substr((eqSign+1));
@@ -117,16 +116,10 @@ cout<<substring<<endl;
 	else if(semiSign!=l && eqSign==l){
 		substring=parsedToken.substr(0,semiSign);
 		s2=comp->lookup(substring);
-cout<<substring<<endl;
 	}
 	else{
 		s2=comp->lookup(parsedToken);
 	}
-
-cout<<s1<<endl;
-cout<<s2<<endl;
-cout<<s3<<endl;
-cout<<s4<<endl;
 
 	final = s1 + s2 + s3 + s4;
 	
