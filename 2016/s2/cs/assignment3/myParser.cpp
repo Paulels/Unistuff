@@ -40,6 +40,7 @@ vector<pair<char,string> >* myParser::parse(){
 			parsedInstructions->push_back(make_pair('a',tokenValue));
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
+
 		}
 		if(tokenType=="dest" || tokenType=="dest-comp?" || tokenType=="null"){
 			part1=tokenValue;
@@ -70,6 +71,10 @@ vector<pair<char,string> >* myParser::parse(){
 				part4="";
 				part5="";
 			}
+		
+			wholeInstruction= part1 + part2 + part3 + part4 + part5;
+
+			parsedInstructions->push_back(make_pair('c',wholeInstruction));
 		}
 		else if(tokenType=="comp"){
 			part1="";
@@ -89,11 +94,19 @@ vector<pair<char,string> >* myParser::parse(){
 				part4="";
 				part5="";
 			}
+			
+			wholeInstruction= part1 + part2 + part3 + part4 + part5;
+
+			parsedInstructions->push_back(make_pair('c',wholeInstruction));
+		}
+		else{
+			tokenType=tokeniser->next_token();
+			tokenValue=tokeniser->token_value();
 		}
 		
-		wholeInstruction= part1 + part2 + part3 + part4 + part5;
+/*		wholeInstruction= part1 + part2 + part3 + part4 + part5;
 
-		parsedInstructions->push_back(make_pair('c',wholeInstruction));
+		parsedInstructions->push_back(make_pair('c',wholeInstruction));*/
 	}	
 
 	return parsedInstructions;
