@@ -5,6 +5,7 @@
 #include <ctype.h>
 #ifndef MYBINARYMAP_H
 #define MYBINARYMAP_H
+#include "asmsymbols.h"
 
 //
 
@@ -15,7 +16,13 @@ class myBinaryMap{
 		myBinaryMap();
 		~myBinaryMap();
 		std::string cMap(std::string parsedToken);
-		std::string aMap(std::string tokenValue);
+		void aMap(std::string tokenValue);
+
+	private:
+
+        symbols_string *dest ;
+        symbols_string *comp ;
+        symbols_string *jump ;
 
 };
 #endif //MYBINARYMAP_H

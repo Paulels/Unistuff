@@ -3,6 +3,8 @@
 #include <cctype>
 #include <stdio.h>
 #include <ctype.h>
+#include <vector>
+#include <utility>
 #ifndef MYPARSER_H
 #define MYPARSER_H
 
@@ -14,11 +16,11 @@ class myParser{
 
 		myParser();
 		~myParser();
-		vector<pair<char,string>>* parse();
+		std::vector<std::pair<char,std::string> >* parse();
 
 	private:
 
-		vector<pair<char,string>> *parsedInstructions;
+		std::vector<std::pair<char,std::string> > *parsedInstructions;
 
 };
 #endif //MYPARSER_H

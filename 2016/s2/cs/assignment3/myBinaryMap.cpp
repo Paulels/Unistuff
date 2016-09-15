@@ -1,6 +1,9 @@
 #include <iostream>
 #include <ctype.h>
+#include <string>
 #include "myBinaryMap.h"
+#include "asmcode.h"
+#include "asmsymbols.h"
 //include symbol table
 
 using namespace std ;
@@ -19,7 +22,7 @@ myBinaryMap::myBinaryMap(){
 	dest->insert("A","100") ;
 	dest->insert("M","001") ;
 	dest->insert("D","010") ;
-	dest->insert("NULL","000") 
+	dest->insert("NULL","000") ;
 
 	//comp
 	comp->insert("A","0110000") ;
@@ -69,18 +72,71 @@ myBinaryMap::~myBinaryMap(){		//deconstructor
 
 string myBinaryMap::cMap(string parsedToken){
 
-	string s1="111"
+	string s1="111";
 	string s2;
-	string s3;
-	string s4;
+	string s3="000";
+	string s4="000";
 	string final;
-		//deal with the whole c instruction and solve what each part is
+	string substring;
+	int l=parsedToken.length()-1;
+	int eqSign=0;
+	int semiSign=0;
+	int diff=0;
+	while((parsedToken.at(eqSign)!='=') && eqSign!=l){
+		eqSign++;
+	}
+	while(parsedToken.at(semiSign)!=';' && semiSign!=l){
+		semiSign++;
+	}
+	if(eqSign!=l){
+		substring=parsedToken.substr(0,eqSign);
+		s3=dest->lookup(substring);
+	}
+	else{
+		s3=dest->lookup("NULL");
+	}
+	if(semiSign!=l){
+		if(parsedToken.at(semiSign+1)=='J'){
+			substring=parsedToken.substr((semiSign+1));
+			s4=jump->lookup(substring);
+		}
+	}
+	else{
+		s4=jump->lookup("NULL");
+	}
+	if(eqSign!=l && semiSign!=l){
+		diff=semiSign-eqSign;
+		substring=parsedToken.substr((eqSign+1),diff-1);
+		s2=comp->lookup(substring);
+cout<<substring<<endl;
+	}
+	else if(eqSign!=l && semiSign==l){
+		substring=parsedToken.substr((eqSign+1));
+		s2=comp->lookup(substring);
+	}
+	else if(semiSign!=l && eqSign==l){
+		substring=parsedToken.substr(0,semiSign);
+		s2=comp->lookup(substring);
+cout<<substring<<endl;
+	}
+	else{
+		s2=comp->lookup(parsedToken);
+	}
 
+cout<<s1<<endl;
+cout<<s2<<endl;
+cout<<s3<<endl;
+cout<<s4<<endl;
+
+	final = s1 + s2 + s3 + s4;
+	
 	return final;
 }
 
-string myBinaryMap::aMap(string tokenValue){		//need symbol table
-	//use long longb and divide by 2 to get binary and use stoi
+void myBinaryMap::aMap(string tokenValue){		//need symbol table
+	int i;
+	i=atoi(tokenValue.c_str());
+	asmcode::output_16bits(i) ;
 }
 
 
