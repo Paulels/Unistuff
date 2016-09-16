@@ -7,7 +7,7 @@
 #define MYBINARYMAP_H
 #include "asmsymbols.h"
 
-//
+//This class will map my parsed instructions from strings to binary code and print that out
 
 class myBinaryMap{
 

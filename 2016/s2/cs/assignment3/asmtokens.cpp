@@ -137,7 +137,7 @@ string asmtokens_x::next_token()
 			return "null";
 		}
 
-		//This is to check an A-instruction and will allow all addresses that are legal
+		//This is to check an A-instruction and will allow all addresses that are legal(need to be changed re BNF)
 		if (ch == '@'){
 			string temp;
 			bool test1 = true;			//to check characters are legal
@@ -175,7 +175,7 @@ string asmtokens_x::next_token()
 			return "address";
 		}
 
-		//checkinbg for labels and if they are legal labels
+		//checkinbg for labels and if they are legal labels(need to be changed re BNF)
 		if (ch == '('){
 			string temp;
 			bool test2 = true;			//checking their legal and follow the rules
@@ -217,7 +217,7 @@ string asmtokens_x::next_token()
 			return "label";
 		}
 
-		//ignoes comments so it looks for 2 /
+		//ignoes comments so it looks for 2 / (also need to ignore /*)
 		if(ch=='/'){
 			nextch();
 			if(ch=='/'){
@@ -234,7 +234,7 @@ string asmtokens_x::next_token()
 		if(ch=='J'){
 			string token;
 			string temp;
-			temp+=ch;
+			temp+=ch;						//adds ch to temp
 			nextch();
 			char c=ch;
 			temp+=c;
@@ -276,7 +276,7 @@ string asmtokens_x::next_token()
 			if (token!=""){
 				nextch();
 				char a = ch;
-				temp.push_back(ch);			//soring ch in the variable
+				temp.push_back(ch);			//storing ch in the variable
 				nextch();
 				char b = ch;
 				temp.push_back(ch);
@@ -306,6 +306,6 @@ string asmtokens_x::next_token()
 				return token;
 			}
 		}
-		nextch();
+		nextch();			//goes to the next ch 
 	}
 }

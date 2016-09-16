@@ -8,6 +8,7 @@
 
 using namespace std ;
 
+//constructor
 myBinaryMap::myBinaryMap(){
 
 	jump = symbols_string::newtable() ;
@@ -66,10 +67,12 @@ myBinaryMap::myBinaryMap(){
 
 }
 
-myBinaryMap::~myBinaryMap(){		//deconstructor
+//deconstructor
+myBinaryMap::~myBinaryMap(){
 
 }
 
+//maps c-instructions to binary
 string myBinaryMap::cMap(string parsedToken){
 
 	string s1="111";
@@ -82,12 +85,14 @@ string myBinaryMap::cMap(string parsedToken){
 	int eqSign=0;
 	int semiSign=0;
 	int diff=0;
+	//counts to see where the signs are
 	while((parsedToken.at(eqSign)!='=') && eqSign!=l){
 		eqSign++;
 	}
 	while(parsedToken.at(semiSign)!=';' && semiSign!=l){
 		semiSign++;
 	}
+	//deals with dest part if its there
 	if(eqSign!=l){
 		substring=parsedToken.substr(0,eqSign);
 		s3=dest->lookup(substring);
@@ -95,6 +100,7 @@ string myBinaryMap::cMap(string parsedToken){
 	else{
 		s3=dest->lookup("NULL");
 	}
+	//deals with the jump part if it is there
 	if(semiSign!=l){
 		if(parsedToken.at(semiSign+1)=='J'){
 			substring=parsedToken.substr((semiSign+1));
@@ -104,6 +110,7 @@ string myBinaryMap::cMap(string parsedToken){
 	else{
 		s4=jump->lookup("NULL");
 	}
+	//deals with the comp stuff based off of whether there is dest and jump stuff
 	if(eqSign!=l && semiSign!=l){
 		diff=semiSign-eqSign;
 		substring=parsedToken.substr((eqSign+1),diff-1);
@@ -126,6 +133,7 @@ string myBinaryMap::cMap(string parsedToken){
 	return final;
 }
 
+//maps a-instructions to binary
 void myBinaryMap::aMap(string tokenValue){		//need symbol table
 	int i;
 	i=atoi(tokenValue.c_str());

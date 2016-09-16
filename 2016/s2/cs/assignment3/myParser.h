@@ -8,7 +8,8 @@
 #ifndef MYPARSER_H
 #define MYPARSER_H
 
-//
+//This is my class to parse from tokens to strings and will deal with populating the symbol table
+//I am going to store the parsed instructions in a vector of pairs
 
 class myParser{
 

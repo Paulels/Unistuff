@@ -13,7 +13,7 @@ class symbols_int_x : public symbols_int
 
         bool insert(string symbol,int value)		// returns false for duplicate symbol
 	{
-		if(SiTable.count(symbol)==0){
+		if(SiTable.count(symbol)==0){				//inserts it if not found
 			SiTable.insert(pair<string,int>(symbol,value));
 		}
 		else{
@@ -26,7 +26,7 @@ class symbols_int_x : public symbols_int
 			return -1;
 		}
 		else{
-			return SiTable.at(symbol);
+			return SiTable.at(symbol);		//returns it if it is in there
 		}
 	}
 	void display()					// display contents in an arbitrary order
@@ -51,7 +51,7 @@ class symbols_string_x : public symbols_string
 	// remember to include definitions of all the inherited pure virtual functions
         bool insert(string symbol,string value)		// returns false for duplicate symbol
 	{
-		if(SsTable.count(symbol)==0){
+		if(SsTable.count(symbol)==0){				//inserts it if not found
 			SsTable.insert(pair<string,string>(symbol,value));
 		}
 		else{
@@ -64,7 +64,7 @@ class symbols_string_x : public symbols_string
 			return "";
 		}
 		else{
-			return SsTable.at(symbol);
+			return SsTable.at(symbol);		//returns it if it is in there
 		}
 	}
 	void display()					// display contents in an arbitrary order

@@ -6,7 +6,7 @@
 #ifndef MYASSEMBLER_H
 #define MYASSEMBLER_H
 
-//
+//This is just my driver class which will initialise and tie everything together
 
 class myAssembler{
 

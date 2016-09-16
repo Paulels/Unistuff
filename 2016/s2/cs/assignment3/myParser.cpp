@@ -7,16 +7,18 @@
 
 using namespace std ;
 
+//constructor
 myParser::myParser(){
-
 
 }
 
-myParser::~myParser(){		//deconstructor
+//deconstructor
+myParser::~myParser(){
 
 	delete parsedInstructions;
 }
 
+//parses all the tokens
 vector<pair<char,string> >* myParser::parse(){
 
 	asmtokens *tokeniser = asmtokens::newtokeniser();
@@ -30,18 +32,22 @@ vector<pair<char,string> >* myParser::parse(){
 	string part5;
 	parsedInstructions=new vector<pair<char,string> >();
 
+	//runs until it reaches the end
 	while(tokenValue!="?"){
+		//deals with lables
 		if(tokenType=="label"){
 			//deal with symbol table
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
 		}
+		//deals with addresses
 		if(tokenType=="address"){
 			parsedInstructions->push_back(make_pair('a',tokenValue));
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
 
 		}
+		//deals with if there is a possibility of something before an equals sign
 		if(tokenType=="dest" || tokenType=="dest-comp?" || tokenType=="null"){
 			part1=tokenValue;
 			tokenType=tokeniser->next_token();
@@ -54,11 +60,13 @@ vector<pair<char,string> >* myParser::parse(){
 				tokenType=tokeniser->next_token();
 				tokenValue=tokeniser->token_value();
 			}
+			//if no equals then must be a comp
 			else{
 				part3=part1;
 				part1="";
 				part2="";
 			}
+			//deals with if there is a jump
 			if(tokenType=="semi"){
 				part4=tokenValue;
 				tokenType=tokeniser->next_token();
@@ -76,6 +84,7 @@ vector<pair<char,string> >* myParser::parse(){
 
 			parsedInstructions->push_back(make_pair('c',wholeInstruction));
 		}
+		//deals with when there is equals at the start
 		else if(tokenType=="comp"){
 			part1="";
 			part2="";
@@ -97,16 +106,13 @@ vector<pair<char,string> >* myParser::parse(){
 			
 			wholeInstruction= part1 + part2 + part3 + part4 + part5;
 
-			parsedInstructions->push_back(make_pair('c',wholeInstruction));
+			parsedInstructions->push_back(make_pair('c',wholeInstruction));		//storing result in a vector
 		}
+		//if there is an invalid thing then it skips
 		else{
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
 		}
-		
-/*		wholeInstruction= part1 + part2 + part3 + part4 + part5;
-
-		parsedInstructions->push_back(make_pair('c',wholeInstruction));*/
 	}	
 
 	return parsedInstructions;
