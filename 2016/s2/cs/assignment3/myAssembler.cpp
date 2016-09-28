@@ -69,6 +69,7 @@ void myAssembler::Assemble(){
 		pair=parsedInstructions->at(i);
 		if(pair.first=='a'){
 			myBM.aMap(pair.second);
+			cout<<pair.second<<endl;
 		}
 		else if(pair.first=='c'){
 			bS=myBM.cMap(pair.second);

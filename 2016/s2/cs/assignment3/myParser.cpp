@@ -82,7 +82,6 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 			symbols->insert(tokenValue,labelsCount);
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
-			labelsCount++;
 		}
 		//deals with addresses
 		if(tokenType=="address"){
