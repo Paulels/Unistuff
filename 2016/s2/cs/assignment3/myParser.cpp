@@ -144,6 +144,8 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 		else{
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
+			parsedInstructions->clear();
+			return parsedInstructions;
 		}
 	}	
 
