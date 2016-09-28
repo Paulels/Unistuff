@@ -49,7 +49,7 @@ vector<pair<char,string> >* myParser::parse(){
 		}
 		//deals with addresses
 		if(tokenType=="address"){
-			if((tokenValue.at(0)>='A' && tokenValue.at(0)>='Z') || (tokenValue.at(0)>='a' && tokenValue.at(0)>='z') || (tokenValue.at(0)='$') || (tokenValue.at(0)>='_') || (tokenValue.at(0)>=':') || (tokenValue.at(0)>='.')){
+			if((tokenValue.at(0)>='A' && tokenValue.at(0)<='Z') || (tokenValue.at(0)>='a' && tokenValue.at(0)<='z') || (tokenValue.at(0)=='$') || (tokenValue.at(0)=='_') || (tokenValue.at(0)==':') || (tokenValue.at(0)=='.')){
 				addressCheck=symbols->insert(tokenValue,addressCount);
 				if(addressCheck==true){
 					ostringstream convert;
@@ -63,10 +63,10 @@ vector<pair<char,string> >* myParser::parse(){
 					convert << alreadyAddressed;
 					tokenValue=convert.str();
 				}
+			}
 			parsedInstructions->push_back(make_pair('a',tokenValue));
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
-			}
 		}
 		//deals with if there is a possibility of something before an equals sign
 		if(tokenType=="dest" || tokenType=="dest-comp?" || tokenType=="null"){
