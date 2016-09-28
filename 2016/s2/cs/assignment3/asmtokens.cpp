@@ -137,38 +137,47 @@ string asmtokens_x::next_token()
 			return "null";
 		}
 
-		//This is to check an A-instruction and will allow all addresses that are legal(need to be changed re BNF)
+		//This is to check an A-instruction and will allow all addresses that are legal
 		if (ch == '@'){
 			string temp;
 			bool test1 = true;			//to check characters are legal
-			while(test1 == true){
-				nextch();
-				if(ch >= '0' && ch <= '9'){
-					test1 = true;
+			nextch();
+			if(ch >= '0' && ch <= '9'){
+				while(ch >= '0' && ch <= '9'){
+					temp.push_back(ch);
+					nextch();
 				}
-				else if(ch >= 'a' && ch <= 'z'){
-					test1 = true;
+			}
+			else{
+				while(test1 == true){
+					if(ch >= '0' && ch <= '9'){
+						test1 = true;
+					}
+					else if(ch >= 'a' && ch <= 'z'){
+						test1 = true;
+					}
+					else if(ch >= 'A' && ch <= 'Z'){
+						test1 = true;
+					}
+					else if(ch == '$'){
+						test1 = true;
+					}
+					else if(ch == '_'){
+						test1 = true;
+					}
+					else if(ch == ':'){
+						test1 = true;
+					}
+					else if(ch == '.'){
+						test1 = true;
+					}
+					else{
+						test1 = false;
+						break;
+					}
+					temp.push_back(ch);
+					nextch();
 				}
-				else if(ch >= 'A' && ch <= 'Z'){
-					test1 = true;
-				}
-				else if(ch == '$'){
-					test1 = true;
-				}
-				else if(ch == '_'){
-					test1 = true;
-				}
-				else if(ch == ':'){
-					test1 = true;
-				}
-				else if(ch == '.'){
-					test1 = true;
-				}
-				else{
-					test1 = false;
-					break;
-				}
-				temp.push_back(ch);
 			}
 			tvalue=temp;
 			temp.clear();
@@ -180,41 +189,47 @@ string asmtokens_x::next_token()
 			string temp;
 			bool test2 = true;			//checking their legal and follow the rules
 			bool test3 = false;			//checking to find )
-			while(test2 == true && test3==false){
+			nextch();
+			if(ch >= '0' && ch <= '9'){
 				nextch();
-				if(ch >= '0' && ch <= '9'){
-					test2 = true;
-				}
-				else if(ch >= 'a' && ch <= 'z'){
-					test2 = true;
-				}
-				else if(ch >= 'A' && ch <= 'Z'){
-					test2 = true;
-				}
-				else if(ch == '$'){
-					test2 = true;
-				}
-				else if(ch == '_'){
-					test2 = true;
-				}
-				else if(ch == ':'){
-					test2 = true;
-				}
-				else if(ch == '.'){
-					test2 = true;
-				}
-				else{
-					test2 = false;
-				}
-				if(ch == ')'){
-					test3 = true;
-					break;
-				}
-				temp.push_back(ch);
 			}
+			else{
+				while(test2 == true && test3==false){
+					nextch();
+					if(ch >= '0' && ch <= '9'){
+						test2 = true;
+					}
+					else if(ch >= 'a' && ch <= 'z'){
+						test2 = true;
+					}
+					else if(ch >= 'A' && ch <= 'Z'){
+						test2 = true;
+					}
+					else if(ch == '$'){
+						test2 = true;
+					}
+					else if(ch == '_'){
+						test2 = true;
+					}
+					else if(ch == ':'){
+						test2 = true;
+					}
+					else if(ch == '.'){
+						test2 = true;
+					}
+					else{
+						test2 = false;
+					}
+					if(ch == ')'){
+						test3 = true;
+						break;
+					}
+					temp.push_back(ch);
+				}
 			tvalue=temp;
 			temp.clear();
 			return "label";
+			}
 		}
 
 		//ignoes comments so it looks for 2 / (also need to ignore /*)

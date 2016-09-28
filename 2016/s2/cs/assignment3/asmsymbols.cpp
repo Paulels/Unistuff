@@ -15,6 +15,7 @@ class symbols_int_x : public symbols_int
 	{
 		if(SiTable.count(symbol)==0){				//inserts it if not found
 			SiTable.insert(pair<string,int>(symbol,value));
+			return true;
 		}
 		else{
 			return false;
@@ -31,10 +32,13 @@ class symbols_int_x : public symbols_int
 	}
 	void display()					// display contents in an arbitrary order
 	{
-
+		for(map<string,int>::iterator it=SiTable.begin(); it!=SiTable.end();++it){
+			cout<<it->first<<' '<<it->second<<endl;
+		}
 	}
 	void deleteme()					// deletes the symbol table
 	{
+		SiTable.clear();
 	}
 } ;
 
@@ -69,9 +73,13 @@ class symbols_string_x : public symbols_string
 	}
 	void display()					// display contents in an arbitrary order
 	{
+		for(map<string,string>::iterator it=SsTable.begin(); it!=SsTable.end();++it){
+			cout<<it->first<<' '<<it->second<<endl;
+		}
 	}
 	void deleteme()					// deletes the symbol table
 	{
+		SsTable.clear();
 	}
 } ;
 

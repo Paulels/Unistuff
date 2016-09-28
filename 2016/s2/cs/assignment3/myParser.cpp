@@ -2,8 +2,10 @@
 #include <ctype.h>
 #include "myParser.h"
 #include "asmtokens.h"
+#include "asmsymbols.h"
 #include <utility>
 #include <vector>
+#include <sstream>
 
 using namespace std ;
 
@@ -22,6 +24,7 @@ myParser::~myParser(){
 vector<pair<char,string> >* myParser::parse(){
 
 	asmtokens *tokeniser = asmtokens::newtokeniser();
+	symbols_int *symbols = symbols_int::newtable();
 	string tokenType=tokeniser->next_token();
 	string tokenValue=tokeniser->token_value();
 	string wholeInstruction;
@@ -31,21 +34,39 @@ vector<pair<char,string> >* myParser::parse(){
 	string part4;
 	string part5;
 	parsedInstructions=new vector<pair<char,string> >();
+	int labelsCount=0;
+	int addressCount=16;
+	int alreadyAddressed;
+	bool addressCheck;
 
 	//runs until it reaches the end
 	while(tokenValue!="?"){
 		//deals with lables
 		if(tokenType=="label"){
-			//deal with symbol table
+			symbols->insert(tokenValue,labelsCount);
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
 		}
 		//deals with addresses
 		if(tokenType=="address"){
+			if((tokenValue.at(0)>='A' && tokenValue.at(0)>='Z') || (tokenValue.at(0)>='a' && tokenValue.at(0)>='z') || (tokenValue.at(0)='$') || (tokenValue.at(0)>='_') || (tokenValue.at(0)>=':') || (tokenValue.at(0)>='.')){
+				addressCheck=symbols->insert(tokenValue,addressCount);
+				if(addressCheck==true){
+					ostringstream convert;
+					convert << addressCount;
+					tokenValue=convert.str();
+					addressCount++;
+				}
+				else{
+					alreadyAddressed=symbols->lookup(tokenValue);
+					ostringstream convert;
+					convert << alreadyAddressed;
+					tokenValue=convert.str();
+				}
 			parsedInstructions->push_back(make_pair('a',tokenValue));
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
-
+			}
 		}
 		//deals with if there is a possibility of something before an equals sign
 		if(tokenType=="dest" || tokenType=="dest-comp?" || tokenType=="null"){
@@ -113,6 +134,7 @@ vector<pair<char,string> >* myParser::parse(){
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
 		}
+	labelsCount++;
 	}	
 
 	return parsedInstructions;

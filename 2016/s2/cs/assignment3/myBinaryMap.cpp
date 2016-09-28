@@ -134,7 +134,7 @@ string myBinaryMap::cMap(string parsedToken){
 }
 
 //maps a-instructions to binary
-void myBinaryMap::aMap(string tokenValue){		//need symbol table
+void myBinaryMap::aMap(string tokenValue){
 	int i;
 	i=atoi(tokenValue.c_str());
 	asmcode::output_16bits(i) ;
