@@ -195,7 +195,6 @@ string asmtokens_x::next_token()
 			}
 			else{
 				while(test2 == true && test3==false){
-					nextch();
 					if(ch >= '0' && ch <= '9'){
 						test2 = true;
 					}
@@ -225,6 +224,7 @@ string asmtokens_x::next_token()
 						break;
 					}
 					temp.push_back(ch);
+					nextch();
 				}
 			tvalue=temp;
 			temp.clear();
