@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <vector>
 #include <utility>
+#include "asmsymbols.h"
 #ifndef MYPARSER_H
 #define MYPARSER_H
 
@@ -17,7 +18,7 @@ class myParser{
 
 		myParser();
 		~myParser();
-		std::vector<std::pair<char,std::string> >* parse();
+		std::vector<std::pair<char,std::string> >* parse(symbols_int *symbols);
 
 	private:
 

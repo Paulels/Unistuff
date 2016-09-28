@@ -21,12 +21,15 @@ myParser::~myParser(){
 }
 
 //parses all the tokens
-vector<pair<char,string> >* myParser::parse(){
+vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 
 	asmtokens *tokeniser = asmtokens::newtokeniser();
-	symbols_int *symbols = symbols_int::newtable();
+	asmtokens *tokeniserL = asmtokens::newtokeniser();
+//	symbols_int *symbols = symbols_int::newtable();
 	string tokenType=tokeniser->next_token();
 	string tokenValue=tokeniser->token_value();
+//	string tokenTypeL=tokeniserL->next_token();
+	//string tokenValueL=tokeniserL->token_value();
 	string wholeInstruction;
 	string part1;
 	string part2;
@@ -35,9 +38,42 @@ vector<pair<char,string> >* myParser::parse(){
 	string part5;
 	parsedInstructions=new vector<pair<char,string> >();
 	int labelsCount=0;
-	int addressCount=16;
-	int alreadyAddressed;
-	bool addressCheck;
+//	int addressCount=16;
+	//int alreadyAddressed;
+	//bool addressCheck;
+
+	symbols->insert("R0",0);
+	symbols->insert("R1",1);
+	symbols->insert("R2",2);
+	symbols->insert("R3",3);
+	symbols->insert("R4",4);
+	symbols->insert("R5",5);
+	symbols->insert("R6",6);
+	symbols->insert("R7",7);
+	symbols->insert("R8",8);
+	symbols->insert("R9",9);
+	symbols->insert("R10",10);
+	symbols->insert("R11",11);
+	symbols->insert("R12",12);
+	symbols->insert("R13",13);
+	symbols->insert("R14",14);
+	symbols->insert("R15",15);
+	symbols->insert("SP",0);
+	symbols->insert("LCL",1);
+	symbols->insert("ARG",2);
+	symbols->insert("THIS",3);
+	symbols->insert("THAT",4);
+	symbols->insert("SCREEN",16384);
+	symbols->insert("KBD",24576);
+
+/*	while(tokenValueL!="?"){
+		//deals with lables
+		if(tokenTypeL=="label"){
+			symbols->insert(tokenValueL,labelsCount);
+		}
+		tokenTypeL=tokeniserL->next_token();
+		tokenValueL=tokeniserL->token_value();
+	}*/
 
 	//runs until it reaches the end
 	while(tokenValue!="?"){
@@ -46,10 +82,11 @@ vector<pair<char,string> >* myParser::parse(){
 			symbols->insert(tokenValue,labelsCount);
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
+			labelsCount++;
 		}
 		//deals with addresses
 		if(tokenType=="address"){
-			if((tokenValue.at(0)>='A' && tokenValue.at(0)<='Z') || (tokenValue.at(0)>='a' && tokenValue.at(0)<='z') || (tokenValue.at(0)=='$') || (tokenValue.at(0)=='_') || (tokenValue.at(0)==':') || (tokenValue.at(0)=='.')){
+/*			if((tokenValue.at(0)>='A' && tokenValue.at(0)<='Z') || (tokenValue.at(0)>='a' && tokenValue.at(0)<='z') || (tokenValue.at(0)=='$') || (tokenValue.at(0)=='_') || (tokenValue.at(0)==':') || (tokenValue.at(0)=='.')){
 				addressCheck=symbols->insert(tokenValue,addressCount);
 				if(addressCheck==true){
 					ostringstream convert;
@@ -63,13 +100,15 @@ vector<pair<char,string> >* myParser::parse(){
 					convert << alreadyAddressed;
 					tokenValue=convert.str();
 				}
-			}
+			}*/
 			parsedInstructions->push_back(make_pair('a',tokenValue));
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
+			labelsCount++;
 		}
 		//deals with if there is a possibility of something before an equals sign
 		if(tokenType=="dest" || tokenType=="dest-comp?" || tokenType=="null"){
+			labelsCount++;
 			part1=tokenValue;
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
@@ -107,6 +146,7 @@ vector<pair<char,string> >* myParser::parse(){
 		}
 		//deals with when there is equals at the start
 		else if(tokenType=="comp"){
+			labelsCount++;
 			part1="";
 			part2="";
 			part3=tokenValue;
@@ -131,10 +171,10 @@ vector<pair<char,string> >* myParser::parse(){
 		}
 		//if there is an invalid thing then it skips
 		else{
+			labelsCount++;
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
 		}
-	labelsCount++;
 	}	
 
 	return parsedInstructions;

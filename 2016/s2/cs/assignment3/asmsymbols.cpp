@@ -44,6 +44,7 @@ class symbols_int_x : public symbols_int
 
 symbols_int *symbols_int::newtable()
 {
+	
 	return new symbols_int_x() ;
 }
 
