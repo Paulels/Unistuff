@@ -24,12 +24,8 @@ myParser::~myParser(){
 vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 
 	asmtokens *tokeniser = asmtokens::newtokeniser();
-	asmtokens *tokeniserL = asmtokens::newtokeniser();
-//	symbols_int *symbols = symbols_int::newtable();
 	string tokenType=tokeniser->next_token();
 	string tokenValue=tokeniser->token_value();
-//	string tokenTypeL=tokeniserL->next_token();
-	//string tokenValueL=tokeniserL->token_value();
 	string wholeInstruction;
 	string part1;
 	string part2;
@@ -38,9 +34,6 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 	string part5;
 	parsedInstructions=new vector<pair<char,string> >();
 	int labelsCount=0;
-//	int addressCount=16;
-	//int alreadyAddressed;
-	//bool addressCheck;
 
 	symbols->insert("R0",0);
 	symbols->insert("R1",1);
@@ -66,14 +59,7 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 	symbols->insert("SCREEN",16384);
 	symbols->insert("KBD",24576);
 
-/*	while(tokenValueL!="?"){
-		//deals with lables
-		if(tokenTypeL=="label"){
-			symbols->insert(tokenValueL,labelsCount);
-		}
-		tokenTypeL=tokeniserL->next_token();
-		tokenValueL=tokeniserL->token_value();
-	}*/
+
 
 	//runs until it reaches the end
 	while(tokenValue!="?"){
@@ -85,21 +71,7 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 		}
 		//deals with addresses
 		if(tokenType=="address"){
-/*			if((tokenValue.at(0)>='A' && tokenValue.at(0)<='Z') || (tokenValue.at(0)>='a' && tokenValue.at(0)<='z') || (tokenValue.at(0)=='$') || (tokenValue.at(0)=='_') || (tokenValue.at(0)==':') || (tokenValue.at(0)=='.')){
-				addressCheck=symbols->insert(tokenValue,addressCount);
-				if(addressCheck==true){
-					ostringstream convert;
-					convert << addressCount;
-					tokenValue=convert.str();
-					addressCount++;
-				}
-				else{
-					alreadyAddressed=symbols->lookup(tokenValue);
-					ostringstream convert;
-					convert << alreadyAddressed;
-					tokenValue=convert.str();
-				}
-			}*/
+
 			parsedInstructions->push_back(make_pair('a',tokenValue));
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
