@@ -142,7 +142,6 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 		}
 		//if there is an invalid thing then it skips
 		else{
-			labelsCount++;
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
 		}
