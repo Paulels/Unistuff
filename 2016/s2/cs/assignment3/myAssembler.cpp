@@ -28,7 +28,7 @@ void myAssembler::Assemble(){
 	myBinaryMap myBM;
 	symbols_int *symbols = symbols_int::newtable();
 
-	//initialising where to store the parsed stuff
+	//initialising where to store the parsed stuff and some symbol table stuff
 	vector<pair<char,string> > *parsedInstructions;
 	parsedInstructions=myParser.parse(symbols);
 	int l=parsedInstructions->size();
@@ -40,19 +40,21 @@ void myAssembler::Assemble(){
 	int alreadyAddressed;
 	bool addressCheck;
 
+	//deals with addresses and converts to binary
 	for(i=0;i<l;i++){
 		pair=parsedInstructions->at(i);
 		tV=pair.second;
 		if(pair.first=='a'){
+			//checks if it is a word and if so deals with it
 			if((tV.at(0)>='A' && tV.at(0)<='Z') || (tV.at(0)>='a' && tV.at(0)<='z') || (tV.at(0)=='$') || (tV.at(0)=='_') || (tV.at(0)==':') || (tV.at(0)=='.')){
-				addressCheck=symbols->insert(tV,addressCount);
-				if(addressCheck==true){
+				addressCheck=symbols->insert(tV,addressCount);		//checks to see if it is already in the symbol table
+				if(addressCheck==true){			//if not already in symbol table converts addressCount to a string
 					ostringstream convert;
 					convert << addressCount;
 					tV=convert.str();
 					addressCount++;
 				}
-				else{
+				else{							//if already nin the symbol table, looks up its address and converts to a string
 					alreadyAddressed=symbols->lookup(tV);
 					ostringstream convert;
 					convert << alreadyAddressed;
@@ -61,7 +63,7 @@ void myAssembler::Assemble(){
 			pair.second=tV;
 			}
 		}
-	parsedInstructions->at(i)=pair;
+	parsedInstructions->at(i)=pair;				//re adds it to the vector
 	}
 
 	//converting each of the parsed strings into their equvalent binary

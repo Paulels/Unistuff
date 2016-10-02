@@ -54,7 +54,7 @@ asmtokens_x::asmtokens_x()
 	symbols->insert("M","dest-comp?") ;
 	symbols->insert("D","dest-comp?") ;
 
-	// comp
+	//token class comp
 	symbols->insert("0","comp") ;
 	symbols->insert("1","comp") ;
 	symbols->insert("-1","comp") ;
@@ -82,7 +82,7 @@ asmtokens_x::asmtokens_x()
 	symbols->insert("D&M","comp") ;
 	symbols->insert("D|M","comp") ;
 
-	// jump
+	//token class jump
 	symbols->insert("JMP","jump") ;
 	symbols->insert("JLT","jump") ;
 	symbols->insert("JLE","jump") ;
@@ -91,7 +91,7 @@ asmtokens_x::asmtokens_x()
 	symbols->insert("JEQ","jump") ;
 	symbols->insert("JNE","jump") ;
 
-	// null
+	//token class null
 	symbols->insert("NULL","null") ;
 }
 
@@ -232,7 +232,7 @@ string asmtokens_x::next_token()
 			}
 		}
 
-		//ignoes comments so it looks for 2 / (also need to ignore /*)
+		//ignoes comments
 		if(ch=='/'){
 			nextch();
 			if(ch=='/'){
@@ -240,8 +240,17 @@ string asmtokens_x::next_token()
 					nextch();
 				}
 			}
-			else{
-				cin.putback(ch);		//puts character back in stream if the 2nd one isnt a /
+			else if(ch=='*'){
+				string str="aa";				//initialises a string to check
+				nextch();
+				str[0]=ch;
+				nextch();
+				str[1]=ch;
+				while(str!="*/"){				//checks if the sting is what we want and if not then we move it forward a position
+					str[0]=str[1];
+					nextch();
+					str[1]=ch;								
+				}
 			}
 		}
 

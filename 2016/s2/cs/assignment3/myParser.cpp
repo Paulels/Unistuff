@@ -35,6 +35,7 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 	parsedInstructions=new vector<pair<char,string> >();
 	int labelsCount=0;
 
+	//initialises all of the predefined symbols
 	symbols->insert("R0",0);
 	symbols->insert("R1",1);
 	symbols->insert("R2",2);
@@ -59,19 +60,16 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 	symbols->insert("SCREEN",16384);
 	symbols->insert("KBD",24576);
 
-
-
 	//runs until it reaches the end
 	while(tokenValue!="?"){
 		//deals with lables
 		if(tokenType=="label"){
-			symbols->insert(tokenValue,labelsCount);
+			symbols->insert(tokenValue,labelsCount);			//inserts labels and their position into the symbol table
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
 		}
 		//deals with addresses
 		if(tokenType=="address"){
-
 			parsedInstructions->push_back(make_pair('a',tokenValue));
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
@@ -110,9 +108,7 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 				part4="";
 				part5="";
 			}
-		
 			wholeInstruction= part1 + part2 + part3 + part4 + part5;
-
 			parsedInstructions->push_back(make_pair('c',wholeInstruction));
 		}
 		//deals with when there is equals at the start
@@ -134,11 +130,12 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 			else{
 				part4="";
 				part5="";
-			}
-			
+			}	
 			wholeInstruction= part1 + part2 + part3 + part4 + part5;
-
 			parsedInstructions->push_back(make_pair('c',wholeInstruction));		//storing result in a vector
+		}
+		else if(tokenValue=="?"){		//dealing with a specific bug so as not to clear vector
+			break;
 		}
 		//if there is an invalid thing then it skips
 		else{
@@ -148,6 +145,5 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 			return parsedInstructions;
 		}
 	}	
-
 	return parsedInstructions;
 }
