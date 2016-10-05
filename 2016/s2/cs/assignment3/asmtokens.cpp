@@ -251,6 +251,7 @@ string asmtokens_x::next_token()
 					nextch();
 					str[1]=ch;								
 				}
+			nextch();
 			}
 		}
 
