@@ -138,7 +138,7 @@ vector<pair<char,string> >* myParser::parse(symbols_int *symbols){
 			break;
 		}
 		//if there is an invalid thing then it skips
-		else{
+		else if(tokenType!="label" && tokenType!="address"){
 			tokenType=tokeniser->next_token();
 			tokenValue=tokeniser->token_value();
 			parsedInstructions->clear();
