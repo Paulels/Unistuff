@@ -251,8 +251,9 @@ string asmtokens_x::next_token()
 					nextch();
 					str[1]=ch;								
 				}
-			nextch();
+			//nextch();
 			}
+nextch();
 		}
 
 		//dealing with jump commands cause my other C-instruction section didnt seem to handle it
@@ -333,6 +334,8 @@ string asmtokens_x::next_token()
 		}
 		if(ch=='\n' || ch=='\r' || ch==' ' || ch==')'){
 			nextch();
+		}
+		else if(ch=='J' || ch=='@' || ch==';' || ch=='=' || ch=='(' || ch=='\0'){
 		}
 		else{
 			tvalue = "?" ;
