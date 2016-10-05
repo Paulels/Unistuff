@@ -330,7 +330,7 @@ string asmtokens_x::next_token()
 				return token;
 			}
 		}
-		if(ch=='\n' || ch=='\r' || ch==' '){
+		if(ch=='\n' || ch=='\r' || ch==' ' || ch==')'){
 			nextch();
 		}
 		else{
