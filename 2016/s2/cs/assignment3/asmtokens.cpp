@@ -330,6 +330,7 @@ string asmtokens_x::next_token()
 				return token;
 			}
 		}
-		nextch();			//goes to the next ch 
+	tvalue = "?" ;
+	return "?" ;
 	}
 }
