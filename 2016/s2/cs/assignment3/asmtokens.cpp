@@ -246,14 +246,13 @@ string asmtokens_x::next_token()
 				str[0]=ch;
 				nextch();
 				str[1]=ch;
-				while(str!="*/"){				//checks if the sting is what we want and if not then we move it forward a position
+				while(str!="*/" && ch!=EOF){				//checks if the sting is what we want and if not then we move it forward a position
 					str[0]=str[1];
 					nextch();
 					str[1]=ch;								
 				}
-			//nextch();
+			nextch();
 			}
-nextch();
 		}
 
 		//dealing with jump commands cause my other C-instruction section didnt seem to handle it
