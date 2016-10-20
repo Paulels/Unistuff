@@ -1,57 +1,106 @@
 #include <iostream>
 #include <stdlib.h>
-#include "myParser.h"
+#include "myparser_parser.h"
 #include "jackxml.h"
 
 using namespace std ;
 
 //constructor
-myParser::myParser(){
+myparser_parser::myparser_parser(){
 
 	xml=new jackxml();
+	tokeniser = jacktokens::newtokeniser();
 
-	tokeniser = NULL ;
-	token = "?" ;
-	tokenclass = "?" ;
-	tokenvalue = "?" ;
-
+	nextToken();
 }
 
 //deconstructor
-myParser::~myParser(){
+myparser_parser::~myparser_parser(){
 
 }
 
-string myParser::nextToken()
-{
-	token = tokeniser->next_token() ;
-	tokenclass = tokeniser->token_class() ;
-	tokenvalue = tokeniser->token_value() ;
+string myparser_parser::nextToken(){
+
+	token = tokeniser->next_token();
+	tokenclass = tokeniser->token_class();
+	tokenvalue = tokeniser->token_value();
 	return token ;
 }
 
-void myParser::mustbe(string expected)
-{
-	if ( expected != token )
-	{
-		exit(-1) ;
+void myparser_parser::mustbe(string expected){
+
+	if(expected!=token){
+		exit(-1);
 	}
-	(void) nextToken() ;
+	else{
+		xml->open_node(tokenclass);
+		xml->node_text(tokenvalue);
+		xml->close_node(tokenclass);
+		
+		nextToken();
+	}
 }
 
-bool myParser::have(string expected)
-{
-	if ( expected != token ) return false ;
-	(void) nextToken() ;
-	return true ;
+bool myparser_parser::have(string expected){
+
+	if(expected!=token){
+		return false;
+	}
+	else{
+		xml->open_node(tokenclass);
+		xml->node_text(tokenvalue);
+		xml->close_node(tokenclass);
+
+		nextToken();
+		return true;
+	}
 }
 
-void myParser::parseProgram(){
+void myparser_parser::lookAhead(){
+
+	if(token!="identifier"){
+		exit(-1);
+	}
+
+	string savedtoken=token;
+	string savedtokenclass=tokenclass;
+	string savedtokenvalue=tokenvalue;
+
+	nextToken();
+
+	if(token=="."){
+		//xml for class
+		have(".");
+		parseSubroutineName();
+		mustbe("(");
+		parseExpressionList();
+		mustbe(")");
+	}
+	else if(token=="["){
+		//xml for varname
+		mustbe("[");
+		parseExpression();
+		mustbe("]");
+	}
+	else if(token=="("){
+		//xml for subroutine
+		mustbe("(");
+		parseExpressionList();
+		mustbe(")");
+	}
+	else{
+		parseVarName();
+	}
+}
+
+void myparser_parser::parseProgram(){
 
 	parseClass();
+
+	xml->flush_output();
 }
 
-void myParser::parseClass(){
+void myparser_parser::parseClass(){
 
 	mustbe("class");
 	parseClassName();
@@ -64,7 +113,7 @@ void myParser::parseClass(){
 	}
 }
 
-void myParser::parseClassVarDec(){
+void myparser_parser::parseClassVarDec(){
 
 	parseType();
 	parseVarName();
@@ -74,28 +123,22 @@ void myParser::parseClassVarDec(){
 	mustbe(";");
 }
 
-void myParser::parseType(){		//????????
+void myparser_parser::parseType(){
 
-	if(have("int")){
-		//do stuff
-	}
-	else if(have("int")){
-		//do stuff
-	}
-	else if(have("int")){
-		//do stuff
+	if(have("int") || have("char") || have("boolean")){
 	}
 	else{
 		parseClassName();
 	}
 }
 
-void myParser::parseSubroutineDec(){
+void myparser_parser::parseSubroutineDec(){
 
-	if(have("constructor"){
-		
+	if(have("void")){
 	}
-	if(
+	else{
+		parseType();
+	}
 	parseSubroutineName();
 	mustbe("(");
 	parseParameterList();
@@ -103,14 +146,19 @@ void myParser::parseSubroutineDec(){
 	parseSubroutineBody();
 }
 
-void myParser::parseParameterList(){		//???????
+void myparser_parser::parseParameterList(){
 
-	if(have("int")
-	parseVarName();
-	
+	if(token!=")"){
+		parseType();
+		parseVarName();
+		while(have(",")){
+			parseType();
+			parseVarName();
+		}
+	}	
 }
 
-void myParser::parseSubroutineBody(){
+void myparser_parser::parseSubroutineBody(){
 
 	mustbe("{");
 	while(have("var")){
@@ -120,7 +168,7 @@ void myParser::parseSubroutineBody(){
 	mustbe("}");
 }
 
-void myParser::parseVarDec(){
+void myparser_parser::parseVarDec(){
 
 	parseType();
 	parseVarName();
@@ -130,29 +178,29 @@ void myParser::parseVarDec(){
 	mustbe(";");	
 }
 
-void myParser::parseClassName(){
+void myparser_parser::parseClassName(){
 
 	mustbe("identifier");
 }
 
-void myParser::parseSubroutineName(){
+void myparser_parser::parseSubroutineName(){
 
 	mustbe("identifier");
 }
 
-void myParser::parseVarName(){
+void myparser_parser::parseVarName(){
 
 	mustbe("identifier");
 }
 		
-void myParser::parseStatements(){
+void myparser_parser::parseStatements(){
 
 	while(have("let") || have("if") || have("while") || have("do") || have("return")){
 		parseStatement();
 	}
 }
 
-void myParser::parseStatement(){
+void myparser_parser::parseStatement(){
 
 	if(have("let")){
 		parseLetStatement();
@@ -171,7 +219,7 @@ void myParser::parseStatement(){
 	}
 }
 
-void myParser::parseWhileStatement(){
+void myparser_parser::parseWhileStatement(){
 
 	mustbe("(");
 	parseExpression();
@@ -182,7 +230,7 @@ void myParser::parseWhileStatement(){
 	
 }
 
-void myParser::parseIfStatement(){
+void myparser_parser::parseIfStatement(){
 
 	mustbe("(");
 	parseExpression();
@@ -197,7 +245,7 @@ void myParser::parseIfStatement(){
 	}
 }
 
-void myParser::parseLetStatement(){
+void myparser_parser::parseLetStatement(){
 
 	parseVarName();
 	if(have("[")){
@@ -209,39 +257,47 @@ void myParser::parseLetStatement(){
 	mustbe(";");
 }
 		
-void myParser::parseDoStatement(){
+void myparser_parser::parseDoStatement(){
 
-	if(//??????
-	parseSubroutineName();
-	mustbe("(");
-	parseExpressionList();
-	mustbe(")");
+	lookAhead();
 	mustbe(";");
 }
 
-void myParser::parseReturnSequence(){
+void myparser_parser::parseReturnStatement(){
 
-	if(//term????){
+	if(token!=";"){
 		parseExpression();
 	}
 	mustbe(";");
 }
-void myParser::parseExpression(){
+void myparser_parser::parseExpression(){
 
 	parseTerm();
-	while(have("+") || have("-") || have("*") || have("/") || have("&") || have("|") || have("<") || have(">") || have("=")){
+	while(token=="+" || token=="-" || token=="*" || token=="/" || token=="&" || token=="|" || token=="<" || token==">" || token=="="){
 		parseTerm();
 	}
 }
 
-void myParser::parseTerm(){
+void myparser_parser::parseTerm(){
 
-	//???????
+	if(tokenclass=="stringConstant" || tokenclass=="integerConstant" || tokenclass=="keyword"){
+		//xml stuff
+	}
+	else if(have("(")){
+		parseExpression();
+	}
+	else if(token=="~" || token=="-"){
+		parseUnaryOp();
+		parseTerm();
+	}
+	else{
+		lookAhead();
+	}
 }
 
-void myParser::parseExprssionList(){
+void myparser_parser::parseExpressionList(){
 
-	if(//?????){
+	if(token!=")"){
 		parseExpression();
 		while(have(",")){
 			parseExpression();
@@ -249,60 +305,33 @@ void myParser::parseExprssionList(){
 	}
 }
 
-void myParser::parseOp(){
+void myparser_parser::parseOp(){
 
-	if(have("+")){
-		
-	}
-	if(have("-")){
-		
-	}
-	if(have("*")){
-		
-	}
-	if(have("/")){
-		
-	}
-	if(have("&")){
-		
-	}
-	if(have("|")){
-		
-	}
-	if(have("<")){
-		
-	}
-	if(have(">")){
-		
-	}
-	if(have("=")){
-		
+	if(!(have("+") || have("-") || have("*") || have("/") || have("&") || have("|") || have("<") || have(">"))){
+		mustbe("=");		
 	}
 }
 
-void myParser::parseUnaryOp(){
+void myparser_parser::parseUnaryOp(){
 
-	if(have("-")){
-		
-	}
-	if(have("~")){
-		
+	if(!have("-")){
+		mustbe("-");
 	}
 }
 
-void myParser::	parseKeywordConstant(){
+void myparser_parser::	parseKeywordConstant(){
 
-	if(have("true")){
-		
+	if(tokenvalue=="true"){
+		//xml
 	}
-	if(have("false")){
-		
+	else if(tokenvalue=="false"){
+		//xml
 	}
-	if(have("null")){
-		
+	else if(tokenvalue=="null"){
+		//xml
 	}
-	if(have("this")){
-		
+	else{
+		//must be tokenvalue=="this"
 	}
 }
 

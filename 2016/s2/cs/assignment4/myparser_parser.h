@@ -5,23 +5,25 @@
 #include <ctype.h>
 #include <vector>
 #include <utility>
+#include "jackxml.h"
 #include "jacktokens.h"
-#ifndef MYPARSER_H
-#define MYPARSER_H
+#ifndef MYPARSER_PARSER_H
+#define MYPARSER_PARSER_H
 
 //This is my class to parse from tokens to strings and will deal with populating the symbol table
 //I am going to store the parsed instructions in a vector of pairs
 
-class myParser{
+class myparser_parser{
 
 	public:
 
-		myParser();
-		~myParser();
+		myparser_parser();
+		~myparser_parser();
 
-		bool have(std::string expected)
-		void mustbe(std::string expected)
-		std::string nextToken()
+		bool have(std::string expected);
+		void mustbe(std::string expected);
+		std::string nextToken();
+		void lookAhead();
 
 		void parseProgram();
 		void parseClass();
@@ -40,21 +42,22 @@ class myParser{
 		void parseIfStatement();
 		void parseLetStatement();
 		void parseDoStatement();
-		void parseReturnSequence();
+		void parseReturnStatement();
 		void parseExpression();
 		void parseTerm();
-		void parseExprssionList();
+		void parseExpressionList();
 		void parseOp();
 		void parseUnaryOp();
 		void parseKeywordConstant();
 
 	private:
 
-		static jacktokens *tokeniser;
-		static std::string token;
-		static std::string tokenclass;
-		static std::string tokenvalue;
+		jackxml *xml;
+		jacktokens *tokeniser;
+		std::string token;
+		std::string tokenclass;
+		std::string tokenvalue;
 
 
 };
-#endif //MYPARSER_H
+#endif //MYPARSER_PARSER_H
