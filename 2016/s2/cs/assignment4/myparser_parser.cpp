@@ -129,7 +129,7 @@ void myparser_parser::parseClass(){
 	while(tokenvalue=="static" || tokenvalue=="field"){
 		parseClassVarDec();
 	}
-	while(tokenvalue=="constuctor" || tokenvalue=="function" || tokenvalue=="method"){
+	while(tokenvalue=="constructor" || tokenvalue=="function" || tokenvalue=="method"){
 		parseSubroutineDec();
 	}
 	mustbe("}");
@@ -139,6 +139,8 @@ void myparser_parser::parseClass(){
 void myparser_parser::parseClassVarDec(){
 
 	xml->open_node("classVarDec");
+	if(have("static") || have("field")){
+	}
 	parseType();
 	parseVarName();
 	while(have(",")){
@@ -162,7 +164,7 @@ void myparser_parser::parseType(){
 void myparser_parser::parseSubroutineDec(){
 
 	xml->open_node("subroutineDec");
-	if(have("constuctor") || have("function") || have("method")){
+	if(have("constructor") || have("function") || have("method")){
 	}
 	if(have("void")){
 	}

@@ -75,21 +75,21 @@
    75 --         let lengthy = desty - y ;
    76 --         let dx = Math.abs(lengthx) ;
    77 --         let dy = Math.abs(lengthy) ;
-   78 --         let invert =(dx < dy) ;
+   78 --         let invert = (dx < dy) ;
    79 --         if (invert)
    80 3-         {
    81 --             let temp = dx ;
    82 --             let dx = dy ;
    83 --             let dy = temp ;
-   84 --             let positivex =(y < desty) ;
-   85 --             let positivey =(x < destx) ;
+   84 --             let positivex = (y < desty) ;
+   85 --             let positivey = (x < destx) ;
    86 -3         } else
    87 3-         {
-   88 --             let positivex =(x < destx) ;
-   89 --             let positivey =(y < desty) ;
+   88 --             let positivex = (x < destx) ;
+   89 --             let positivey = (y < desty) ;
    90 -3         }
    91 -- 
-   92 --         let d =(2 * dy) - dx ;
+   92 --         let d = (2 * dy) - dx ;
    93 --         let straightD = 2 * dy ;
    94 --         let diagonalD = 2 * (dy - dx) ;
    95 --         return ;
@@ -200,26 +200,26 @@
   200 --         if (wall = 1)
   201 3-         {
   202 --             let newx = 506 ;
-  203 --             let newy =(divLengthy * (-50)) / divLengthx ;
+  203 --             let newy = (divLengthy * (-50)) / divLengthx ;
   204 --             let newy = y + (newy * factor) ;
   205 -3         } else
   206 3-         {
   207 --             if (wall = 2)
   208 4-             {
   209 --                 let newx = 0 ;
-  210 --                 let newy =(divLengthy * 50) / divLengthx ;
+  210 --                 let newy = (divLengthy * 50) / divLengthx ;
   211 --                 let newy = y + (newy * factor) ;
   212 -4             } else
   213 4-             {
   214 --                 if (wall = 3)
   215 5-                 {
   216 --                     let newy = 250 ;
-  217 --                     let newx =(divLengthx * (-25)) / divLengthy ;
+  217 --                     let newx = (divLengthx * (-25)) / divLengthy ;
   218 --                     let newx = x + (newx * factor) ;
   219 -5                 } else
   220 5-                 {
   221 --                     let newy = 0 ;
-  222 --                     let newx =(divLengthx * 25) / divLengthy ;
+  222 --                     let newx = (divLengthx * 25) / divLengthy ;
   223 --                     let newx = x + (newx * factor) ;
   224 -5                 }
   225 -4             }

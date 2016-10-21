@@ -111,7 +111,7 @@
   111 --             let ballRight = ball.getRight() ;
   112 --             if (wall = 4)
   113 4-             {
-  114 --                 let exit =(batLeft > ballRight) | (batRight < ballLeft) ;
+  114 --                 let exit = (batLeft > ballRight) | (batRight < ballLeft) ;
   115 --                 if (~exit)
   116 5-                 {
   117 --                     if (ballRight < (batLeft + 10))
