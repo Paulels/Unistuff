@@ -291,7 +291,7 @@ void myparser_parser::parseIfStatement(){
 	parseStatements();
 	mustbe("}");
 	if(tokenvalue=="else"){
-		have("keyword");
+		have("else");
 		mustbe("{");
 		parseStatements();
 		mustbe("}");
@@ -347,20 +347,20 @@ void myparser_parser::parseExpression(){
 void myparser_parser::parseTerm(){
 
 	xml->open_node("term");
-	if(have("stringConstant")){
-	}
-	else if(have("integerConstant")){
+	if(have("(")){
+		parseExpression();
+		mustbe(")");
 	}
 	else if(tokenclass=="keyword"){
 		parseKeywordConstant();
 	}
-	else if(have("(")){
-		parseExpression();
-		mustbe(")");
-	}
-	else if(token=="~" || token=="-"){
+	else if(tokenvalue=="~" || tokenvalue=="-"){
 		parseUnaryOp();
 		parseTerm();
+	}	
+	else if(have("stringConstant")){
+	}
+	else if(have("integerConstant")){
 	}
 	else{
 		lookAhead();
@@ -389,7 +389,7 @@ void myparser_parser::parseOp(){
 
 void myparser_parser::parseUnaryOp(){
 
-	if(!have("-")){
+	if(!have("~")){
 		mustbe("-");
 	}
 }
