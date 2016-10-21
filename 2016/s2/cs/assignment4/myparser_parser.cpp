@@ -2,16 +2,18 @@
 #include <stdlib.h>
 #include "myparser_parser.h"
 #include "jackxml.h"
+#include "jacktokens.h"
 
 using namespace std ;
 
 //constructor
 myparser_parser::myparser_parser(){
 
-	xml=new jackxml();
-	tokeniser = jacktokens::newtokeniser();
-
+	tokeniser=jacktokens::newtokeniser();
 	nextToken();
+ 
+	xml=new jackxml();
+
 }
 
 //deconstructor
@@ -19,18 +21,21 @@ myparser_parser::~myparser_parser(){
 
 }
 
-string myparser_parser::nextToken(){
+void myparser_parser::nextToken(){
 
-	token = tokeniser->next_token();
-	tokenclass = tokeniser->token_class();
-	tokenvalue = tokeniser->token_value();
-	return token ;
+	token=tokeniser->next_token();
+	tokenclass=tokeniser->token_class();
+	tokenvalue=tokeniser->token_value();
+
+	return;
 }
 
 void myparser_parser::mustbe(string expected){
 
 	if(expected!=token){
-		exit(-1);
+			cout << "Error: found token \"" << token << "\" but expected \"" << expected << "\"" << endl ;
+		//exit(0);
+		nextToken();
 	}
 	else{
 		xml->open_node(tokenclass);
@@ -59,7 +64,7 @@ bool myparser_parser::have(string expected){
 void myparser_parser::lookAhead(){
 
 	if(token!="identifier"){
-		exit(-1);
+		exit(0);
 	}
 
 	string savedtoken=token;
@@ -69,7 +74,11 @@ void myparser_parser::lookAhead(){
 	nextToken();
 
 	if(token=="."){
-		//xml for class
+		xml->open_node("className");
+		xml->open_node(savedtokenclass);
+		xml->node_text(savedtokenvalue);
+		xml->close_node(savedtokenclass);
+		xml->close_node("className");
 		have(".");
 		parseSubroutineName();
 		mustbe("(");
@@ -77,19 +86,31 @@ void myparser_parser::lookAhead(){
 		mustbe(")");
 	}
 	else if(token=="["){
-		//xml for varname
+		xml->open_node("varName");
+		xml->open_node(savedtokenclass);
+		xml->node_text(savedtokenvalue);
+		xml->close_node(savedtokenclass);
+		xml->close_node("varName");
 		mustbe("[");
 		parseExpression();
 		mustbe("]");
 	}
 	else if(token=="("){
-		//xml for subroutine
+		xml->open_node("subroutineName");
+		xml->open_node(savedtokenclass);
+		xml->node_text(savedtokenvalue);
+		xml->close_node(savedtokenclass);
+		xml->close_node("subroutineName");
 		mustbe("(");
 		parseExpressionList();
 		mustbe(")");
 	}
 	else{
-		parseVarName();
+		xml->open_node("varName");
+		xml->open_node(savedtokenclass);
+		xml->node_text(savedtokenvalue);
+		xml->close_node(savedtokenclass);
+		xml->close_node("varName");
 	}
 }
 
@@ -102,38 +123,48 @@ void myparser_parser::parseProgram(){
 
 void myparser_parser::parseClass(){
 
+	xml->open_node("class");
 	mustbe("class");
 	parseClassName();
 	mustbe("{");
-	while(have("static") || have("field")){
+	while(tokenvalue=="static" || tokenvalue=="field"){
 		parseClassVarDec();
 	}
-	while(have("constuctor") || have("function") || have("method")){
+	while(tokenvalue=="constuctor" || tokenvalue=="function" || tokenvalue=="method"){
 		parseSubroutineDec();
 	}
+	mustbe("}");
+	xml->close_node("class");
 }
 
 void myparser_parser::parseClassVarDec(){
 
+	xml->open_node("classVarDec");
 	parseType();
 	parseVarName();
 	while(have(",")){
 		parseVarName();
 	}
 	mustbe(";");
+	xml->close_node("classVarDec");
 }
 
 void myparser_parser::parseType(){
 
+	xml->open_node("type");
 	if(have("int") || have("char") || have("boolean")){
 	}
 	else{
 		parseClassName();
 	}
+	xml->close_node("type");
 }
 
 void myparser_parser::parseSubroutineDec(){
 
+	xml->open_node("subroutineDec");
+	if(have("constuctor") || have("function") || have("method")){
+	}
 	if(have("void")){
 	}
 	else{
@@ -144,10 +175,12 @@ void myparser_parser::parseSubroutineDec(){
 	parseParameterList();
 	mustbe(")");
 	parseSubroutineBody();
+	xml->close_node("subroutineDec");
 }
 
 void myparser_parser::parseParameterList(){
 
+	xml->open_node("parameterList");
 	if(token!=")"){
 		parseType();
 		parseVarName();
@@ -156,97 +189,121 @@ void myparser_parser::parseParameterList(){
 			parseVarName();
 		}
 	}	
+	xml->close_node("parameterList");
 }
 
 void myparser_parser::parseSubroutineBody(){
 
+	xml->open_node("subroutineBody");
 	mustbe("{");
-	while(have("var")){
+	while(tokenvalue=="var"){
 		parseVarDec();
 	}
 	parseStatements();
 	mustbe("}");
+	xml->close_node("subroutineBody");
 }
 
 void myparser_parser::parseVarDec(){
 
+	xml->open_node("varDec");
+	mustbe("var");
 	parseType();
 	parseVarName();
 	while(have(",")){
 		parseVarName();
 	}
-	mustbe(";");	
+	mustbe(";");
+	xml->close_node("varDec");	
 }
 
 void myparser_parser::parseClassName(){
 
+	xml->open_node("className");
 	mustbe("identifier");
+	xml->close_node("className");
 }
 
 void myparser_parser::parseSubroutineName(){
 
+	xml->open_node("subroutineName");
 	mustbe("identifier");
+	xml->close_node("subroutineName");
 }
 
 void myparser_parser::parseVarName(){
 
+	xml->open_node("varName");
 	mustbe("identifier");
+	xml->close_node("varName");
 }
 		
 void myparser_parser::parseStatements(){
 
-	while(have("let") || have("if") || have("while") || have("do") || have("return")){
+	xml->open_node("statements");
+	while(tokenvalue=="let" || tokenvalue=="if" || tokenvalue=="while" || tokenvalue=="do" || tokenvalue=="return"){
 		parseStatement();
 	}
+	xml->close_node("statements");
 }
 
 void myparser_parser::parseStatement(){
 
-	if(have("let")){
+	xml->open_node("statement");
+	if(tokenvalue=="let"){
 		parseLetStatement();
 	}
-	if(have("if")){
+	else if(tokenvalue=="if"){
 		parseIfStatement();
 	}
-	if(have("while")){
+	else if(tokenvalue=="while"){
 		parseWhileStatement();
 	}
-	if(have("do")){
+	else if(tokenvalue=="do"){
 		parseDoStatement();
 	}
-	if(have("return")){
+	else{
 		parseReturnStatement();
 	}
+	xml->close_node("statement");
 }
 
 void myparser_parser::parseWhileStatement(){
 
+	xml->open_node("whileStatement");
+	mustbe("while");
 	mustbe("(");
 	parseExpression();
 	mustbe(")");
 	mustbe("{");
 	parseStatements();
 	mustbe("}");
-	
+	xml->close_node("whileStatement");
 }
 
 void myparser_parser::parseIfStatement(){
 
+	xml->open_node("ifStatement");
+	mustbe("if");
 	mustbe("(");
 	parseExpression();
 	mustbe(")");
 	mustbe("{");
 	parseStatements();
 	mustbe("}");
-	if(have("else")){
+	if(tokenvalue=="else"){
+		have("keyword");
 		mustbe("{");
 		parseStatements();
 		mustbe("}");
 	}
+	xml->close_node("ifStatement");
 }
 
 void myparser_parser::parseLetStatement(){
 
+	xml->open_node("letStatement");
+	mustbe("let");
 	parseVarName();
 	if(have("[")){
 		parseExpression();
@@ -255,33 +312,48 @@ void myparser_parser::parseLetStatement(){
 	mustbe("=");
 	parseExpression();
 	mustbe(";");
+	xml->close_node("letStatement");
 }
 		
 void myparser_parser::parseDoStatement(){
 
+	xml->open_node("doStatement");
+	mustbe("do");
 	lookAhead();
 	mustbe(";");
+	xml->close_node("doStatement");
 }
 
 void myparser_parser::parseReturnStatement(){
 
+	xml->open_node("returnStatement");
+	mustbe("return");
 	if(token!=";"){
 		parseExpression();
 	}
 	mustbe(";");
+	xml->close_node("returnStatement");
 }
 void myparser_parser::parseExpression(){
 
+	xml->open_node("expression");
 	parseTerm();
 	while(token=="+" || token=="-" || token=="*" || token=="/" || token=="&" || token=="|" || token=="<" || token==">" || token=="="){
+		parseOp();
 		parseTerm();
 	}
+	xml->close_node("expression");
 }
 
 void myparser_parser::parseTerm(){
 
-	if(tokenclass=="stringConstant" || tokenclass=="integerConstant" || tokenclass=="keyword"){
-		//xml stuff
+	xml->open_node("term");
+	if(have("stringConstant")){
+	}
+	else if(have("integerConstant")){
+	}
+	else if(tokenclass=="keyword"){
+		parseKeywordConstant();
 	}
 	else if(have("(")){
 		parseExpression();
@@ -293,16 +365,19 @@ void myparser_parser::parseTerm(){
 	else{
 		lookAhead();
 	}
+	xml->close_node("term");
 }
 
 void myparser_parser::parseExpressionList(){
 
+	xml->open_node("expressionList");
 	if(token!=")"){
 		parseExpression();
 		while(have(",")){
 			parseExpression();
 		}
 	}
+	xml->close_node("expressionList");
 }
 
 void myparser_parser::parseOp(){
@@ -319,19 +394,31 @@ void myparser_parser::parseUnaryOp(){
 	}
 }
 
-void myparser_parser::	parseKeywordConstant(){
+void myparser_parser::parseKeywordConstant(){
 
 	if(tokenvalue=="true"){
-		//xml
+		xml->open_node(tokenclass);
+		xml->node_text(tokenvalue);
+		xml->close_node(tokenclass);
+		nextToken();
 	}
 	else if(tokenvalue=="false"){
-		//xml
+		xml->open_node(tokenclass);
+		xml->node_text(tokenvalue);
+		xml->close_node(tokenclass);
+		nextToken();
 	}
 	else if(tokenvalue=="null"){
-		//xml
+		xml->open_node(tokenclass);
+		xml->node_text(tokenvalue);
+		xml->close_node(tokenclass);
+		nextToken();
 	}
 	else{
-		//must be tokenvalue=="this"
+		xml->open_node(tokenclass);
+		xml->node_text(tokenvalue);
+		xml->close_node(tokenclass);
+		nextToken();
 	}
 }
 

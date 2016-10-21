@@ -7,9 +7,9 @@ using namespace std ;
 
 int main()
 {
-	myparser_parser Parser;
-	// parse a Program
-	Parser.parseProgram() ;
+	myparser_parser *Parser = new myparser_parser();
+
+	Parser->parseProgram() ;
 
 	return 0;
 }
