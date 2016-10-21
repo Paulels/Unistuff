@@ -33,7 +33,6 @@ void myparser_parser::nextToken(){
 void myparser_parser::mustbe(string expected){
 
 	if(expected!=token){
-			cout << "Error: found token \"" << token << "\" but expected \"" << expected << "\"" << endl ;
 		//exit(0);
 		nextToken();
 	}
@@ -357,6 +356,7 @@ void myparser_parser::parseTerm(){
 	}
 	else if(have("(")){
 		parseExpression();
+		mustbe(")");
 	}
 	else if(token=="~" || token=="-"){
 		parseUnaryOp();
