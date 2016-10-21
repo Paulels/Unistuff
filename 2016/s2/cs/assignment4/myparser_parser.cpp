@@ -11,7 +11,7 @@ myparser_parser::myparser_parser(){
 
 	tokeniser=jacktokens::newtokeniser();
 	nextToken();
-  
+ 
 	xml=new jackxml();
 
 }
