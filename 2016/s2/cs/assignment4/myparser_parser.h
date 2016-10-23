@@ -10,9 +10,11 @@
 #ifndef MYPARSER_PARSER_H
 #define MYPARSER_PARSER_H
 
+//Class that will parse a given jack program using a tokenised version of it
+
 class myparser_parser{
 
-	public:
+	private:
 
 		jackxml *xml;
 		jacktokens *tokeniser;
@@ -20,15 +22,11 @@ class myparser_parser{
 		std::string tokenclass;
 		std::string tokenvalue;
 
-		myparser_parser();
-		~myparser_parser();
-
 		bool have(std::string expected);
 		void mustbe(std::string expected);
 		void nextToken();
 		void lookAhead();
 
-		void parseProgram();
 		void parseClass();
 		void parseClassVarDec();
 		void parseType();
@@ -53,8 +51,12 @@ class myparser_parser{
 		void parseUnaryOp();
 		void parseKeywordConstant();
 
-//	private:
+	public:
 
+		myparser_parser();
+		~myparser_parser();
+
+		void parseProgram();
 
 };
 #endif //MYPARSER_PARSER_H

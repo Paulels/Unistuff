@@ -19,8 +19,10 @@ myparser_parser::myparser_parser(){
 //deconstructor
 myparser_parser::~myparser_parser(){
 
+	delete xml;
 }
 
+//To allow us to advance tokens
 void myparser_parser::nextToken(){
 
 	token=tokeniser->next_token();
@@ -30,11 +32,11 @@ void myparser_parser::nextToken(){
 	return;
 }
 
+//checks for something if it has to be there, if it isnt there the prrogam exits and prints nothing
 void myparser_parser::mustbe(string expected){
 
 	if(expected!=token){
-		//exit(0);
-		nextToken();
+		exit(0);
 	}
 	else{
 		xml->open_node(tokenclass);
@@ -45,6 +47,7 @@ void myparser_parser::mustbe(string expected){
 	}
 }
 
+//checks to see if something is there cause it may or may not be 
 bool myparser_parser::have(string expected){
 
 	if(expected!=token){
@@ -60,18 +63,21 @@ bool myparser_parser::have(string expected){
 	}
 }
 
+//This is made for do statements and parseterm because you need to look ahead
 void myparser_parser::lookAhead(){
 
 	if(token!="identifier"){
 		exit(0);
 	}
 
+	//to save to allow us to print the previous stuff
 	string savedtoken=token;
 	string savedtokenclass=tokenclass;
 	string savedtokenvalue=tokenvalue;
 
 	nextToken();
 
+	//prints based on what it was
 	if(token=="."){
 		xml->open_node("className");
 		xml->open_node(savedtokenclass);
@@ -113,6 +119,7 @@ void myparser_parser::lookAhead(){
 	}
 }
 
+//base class and what can be called to start the parsing process
 void myparser_parser::parseProgram(){
 
 	parseClass();
@@ -120,8 +127,10 @@ void myparser_parser::parseProgram(){
 	xml->flush_output();
 }
 
+//Parses a class based on the BNF
 void myparser_parser::parseClass(){
 
+	//can do this at the start of most of the function to print the xml
 	xml->open_node("class");
 	mustbe("class");
 	parseClassName();
@@ -133,9 +142,11 @@ void myparser_parser::parseClass(){
 		parseSubroutineDec();
 	}
 	mustbe("}");
+	//can do this at the end of most of the functions to print the xml
 	xml->close_node("class");
 }
 
+////Parses a classVarDec based on the BNF
 void myparser_parser::parseClassVarDec(){
 
 	xml->open_node("classVarDec");
@@ -150,6 +161,7 @@ void myparser_parser::parseClassVarDec(){
 	xml->close_node("classVarDec");
 }
 
+//Parses a type based on the BNF
 void myparser_parser::parseType(){
 
 	xml->open_node("type");
@@ -161,6 +173,7 @@ void myparser_parser::parseType(){
 	xml->close_node("type");
 }
 
+//Parses a subroutineDec based on the BNF
 void myparser_parser::parseSubroutineDec(){
 
 	xml->open_node("subroutineDec");
@@ -179,6 +192,7 @@ void myparser_parser::parseSubroutineDec(){
 	xml->close_node("subroutineDec");
 }
 
+//Parses a parameterList based on the BNF
 void myparser_parser::parseParameterList(){
 
 	xml->open_node("parameterList");
@@ -193,6 +207,7 @@ void myparser_parser::parseParameterList(){
 	xml->close_node("parameterList");
 }
 
+//Parses a subroutineBody based on the BNF
 void myparser_parser::parseSubroutineBody(){
 
 	xml->open_node("subroutineBody");
@@ -205,6 +220,7 @@ void myparser_parser::parseSubroutineBody(){
 	xml->close_node("subroutineBody");
 }
 
+//Parses a varDec based on the BNF
 void myparser_parser::parseVarDec(){
 
 	xml->open_node("varDec");
@@ -218,6 +234,7 @@ void myparser_parser::parseVarDec(){
 	xml->close_node("varDec");	
 }
 
+//Parses a className based on the BNF
 void myparser_parser::parseClassName(){
 
 	xml->open_node("className");
@@ -225,6 +242,7 @@ void myparser_parser::parseClassName(){
 	xml->close_node("className");
 }
 
+//Parses a subroutineName based on the BNF
 void myparser_parser::parseSubroutineName(){
 
 	xml->open_node("subroutineName");
@@ -232,13 +250,15 @@ void myparser_parser::parseSubroutineName(){
 	xml->close_node("subroutineName");
 }
 
+//Parses a varName based on the BNF
 void myparser_parser::parseVarName(){
 
 	xml->open_node("varName");
 	mustbe("identifier");
 	xml->close_node("varName");
 }
-		
+
+//Parses statements based on the BNF
 void myparser_parser::parseStatements(){
 
 	xml->open_node("statements");
@@ -248,6 +268,7 @@ void myparser_parser::parseStatements(){
 	xml->close_node("statements");
 }
 
+//Parses a statement based on the BNF
 void myparser_parser::parseStatement(){
 
 	xml->open_node("statement");
@@ -269,6 +290,7 @@ void myparser_parser::parseStatement(){
 	xml->close_node("statement");
 }
 
+//Parses a whileStatement based on the BNF
 void myparser_parser::parseWhileStatement(){
 
 	xml->open_node("whileStatement");
@@ -282,6 +304,7 @@ void myparser_parser::parseWhileStatement(){
 	xml->close_node("whileStatement");
 }
 
+//Parses a ifStatement based on the BNF
 void myparser_parser::parseIfStatement(){
 
 	xml->open_node("ifStatement");
@@ -301,6 +324,7 @@ void myparser_parser::parseIfStatement(){
 	xml->close_node("ifStatement");
 }
 
+//Parses a letStatement based on the BNF
 void myparser_parser::parseLetStatement(){
 
 	xml->open_node("letStatement");
@@ -315,7 +339,8 @@ void myparser_parser::parseLetStatement(){
 	mustbe(";");
 	xml->close_node("letStatement");
 }
-		
+
+//Parses a doStatement based on the BNF
 void myparser_parser::parseDoStatement(){
 
 	xml->open_node("doStatement");
@@ -325,6 +350,7 @@ void myparser_parser::parseDoStatement(){
 	xml->close_node("doStatement");
 }
 
+//Parses a returnStatement based on the BNF
 void myparser_parser::parseReturnStatement(){
 
 	xml->open_node("returnStatement");
@@ -335,6 +361,8 @@ void myparser_parser::parseReturnStatement(){
 	mustbe(";");
 	xml->close_node("returnStatement");
 }
+
+//Parses an expression based on the BNF
 void myparser_parser::parseExpression(){
 
 	xml->open_node("expression");
@@ -346,6 +374,7 @@ void myparser_parser::parseExpression(){
 	xml->close_node("expression");
 }
 
+//Parses a term based on the BNF
 void myparser_parser::parseTerm(){
 
 	xml->open_node("term");
@@ -370,6 +399,7 @@ void myparser_parser::parseTerm(){
 	xml->close_node("term");
 }
 
+//Parses an expressionList based on the BNF
 void myparser_parser::parseExpressionList(){
 
 	xml->open_node("expressionList");
@@ -382,6 +412,7 @@ void myparser_parser::parseExpressionList(){
 	xml->close_node("expressionList");
 }
 
+//Parses an op based on the BNF
 void myparser_parser::parseOp(){
 
 	if(!(have("+") || have("-") || have("*") || have("/") || have("&") || have("|") || have("<") || have(">"))){
@@ -389,6 +420,7 @@ void myparser_parser::parseOp(){
 	}
 }
 
+//Parses a unaryOp based on the BNF
 void myparser_parser::parseUnaryOp(){
 
 	if(!have("~")){
@@ -396,6 +428,7 @@ void myparser_parser::parseUnaryOp(){
 	}
 }
 
+//Parses a keyword based on the BNF
 void myparser_parser::parseKeywordConstant(){
 
 	if(tokenvalue=="true"){
