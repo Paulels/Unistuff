@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <map>
 #include "mypretty_pretty.h"
 #include "jackxml.h"
 #include "jacktokens.h"
@@ -14,6 +15,9 @@ mypretty_pretty::mypretty_pretty(){
  
 	xml=new jackxml();
 
+	indentationCount=0;
+	savedIndentationCount=0;
+	lineCount==1;
 }
 
 //deconstructor
@@ -25,11 +29,13 @@ mypretty_pretty::~mypretty_pretty(){
 //To allow us to advance tokens
 void mypretty_pretty::nextToken(){
 
+	savedtoken=token;
+	savedtokenclass=tokenclass;
+	savedtokenvalue=tokenvalue;	
 	token=tokeniser->next_token();
 	tokenclass=tokeniser->token_class();
 	tokenvalue=tokeniser->token_value();
 
-	return;
 }
 
 //checks for something if it has to be there, if it isnt there the prrogam exits and prints nothing
@@ -40,9 +46,16 @@ void mypretty_pretty::mustbe(string expected){
 	}
 	else{
 
-		cout<<
+		cout<<" "<<tokenvalue;
 		
 		nextToken();
+		if(tokenvalue=="{"){
+			indentationCount++;
+		}
+		else if(tokenvalue=="}"){
+			indentationCount--;
+		}
+			
 	}
 }
 
@@ -55,7 +68,7 @@ bool mypretty_pretty::have(string expected){
 	else{
 
 
-		cout<<
+		cout<<" "<<tokenvalue;
 	
 		nextToken();
 		return true;
@@ -65,15 +78,52 @@ bool mypretty_pretty::have(string expected){
 //
 void mypretty_pretty::indentation(){
 
-	
+	if(tokenvalue=="}" || tokenvalue=="{"){
+		for(int i=1;i<indentationCount;i++){
+			cout<<"    ";
+		}
+	}
+	else{
+		for(int i=1;i<=indentationCount;i++){
+			cout<<"    ";
+		}
+	}
 
 }
 
 //
 void mypretty_pretty::finishLine(){
 
-	
-
+	cout<<endl;
+	lineCount++;
+	if(lineCount<10){
+		cout<<"    "<<lineCount<<" ";
+		if(tokenvalue=="{"){
+			cout<<indentationCount<<"-";
+		}
+		else if(tokenvalue=="}"){
+			cout<<"-"<<indentationCount;
+		}
+	}
+	else if(lineCount>9 && lineCount<100){
+		cout<<"   "<<lineCount<<" ";
+		if(tokenvalue=="{"){
+			cout<<indentationCount<<"-";
+		}
+		else if(tokenvalue=="}"){
+			cout<<"-"<<indentationCount;
+		}
+	}
+	else if(lineCount>99 && lineCount<1000){
+		cout<<"  "<<lineCount<<" ";
+		if(tokenvalue=="{"){
+			cout<<indentationCount<<"-";
+		}
+		else if(tokenvalue=="}"){
+			cout<<"-"<<indentationCount;
+		}
+	}
+	indentation();
 }
 
 //This is made for do statements and prettyterm because you need to look ahead
@@ -83,16 +133,11 @@ void mypretty_pretty::lookAhead(){
 		exit(0);
 	}
 
-	//to save to allow us to print the previous stuff
-	string savedtoken=token;
-	string savedtokenclass=tokenclass;
-	string savedtokenvalue=tokenvalue;
-
 	nextToken();
 
 	//prints based on what it was
 	if(token=="."){
-		cout<<savedtokenvalue
+		cout<<savedtokenvalue;
 		have(".");
 		printSubroutineName();
 		mustbe("(");
@@ -100,19 +145,19 @@ void mypretty_pretty::lookAhead(){
 		mustbe(")");
 	}
 	else if(token=="["){
-		cout<<
+		cout<<savedtokenvalue;
 		mustbe("[");
 		printExpression();
 		mustbe("]");
 	}
 	else if(token=="("){
-		cout<<
+		cout<<savedtokenvalue;
 		mustbe("(");
 		printExpressionList();
 		mustbe(")");
 	}
 	else{
-		cout<<
+		cout<<savedtokenvalue;
 	}
 }
 
@@ -127,10 +172,32 @@ void mypretty_pretty::printClass(){
 
 	mustbe("class");
 	printClassName();
+	finishLine();
 	mustbe("{");
-	while(tokenvalue=="static" || tokenvalue=="field"){
-		printClassVarDec();
+	while(tokenvalue=="static"){
+		nextToken();
+		string save=tokenvalue;
+		nextToken();
+		statics.insert(pair<string,string>(tokenvalue,savedtokenvalue));
+		nextToken();
+		while(tokenvalue==","){
+			statics.insert(pair<string,string>(tokenvalue,save));
+		}
+		nextToken();
 	}
+	printClassVarDec();
+	while(tokenvalue=="field"){
+		nextToken();
+		string save=tokenvalue;
+		nextToken();
+		fields.insert(pair<string,string>(tokenvalue,savedtokenvalue));
+		nextToken();
+		while(tokenvalue==","){
+			fields.insert(pair<string,string>(tokenvalue,save));
+		}
+		nextToken();
+	}
+	printClassVarDec();
 	while(tokenvalue=="constructor" || tokenvalue=="function" || tokenvalue=="method"){
 		printSubroutineDec();
 	}
@@ -140,18 +207,25 @@ void mypretty_pretty::printClass(){
 ////prints a classVarDec based on the BNF
 void mypretty_pretty::printClassVarDec(){
 
-	if(have("static") || have("field")){ /////????????????????
+	if(tokenvalue=="static"){
+		for(map<string,string>::iterator it=statics.begin(); it!=statics.end();++it){
+			cout<<"static ";
+			cout<<it->second<<' '<<it->first<<" ;";
+			finishLine();
+		}
 	}
-	printType();
-	printVarName();
-	while(have(",")){
-		printVarName();
+	else if(tokenvalue=="field"){
+		for(map<string,string>::iterator it=fields.begin(); it!=fields.end();++it){
+			cout<<"field ";
+			cout<<it->second<<' '<<it->first<<" ;";
+			finishLine();
+		}
 	}
-	mustbe(";");
+
 }
 
 //prints a type based on the BNF
-void mypretty_pretty::printType(){
+void mypretty_pretty::printType(){///?????????????/
 
 	if(have("int") || have("char") || have("boolean")){
 	}
@@ -181,12 +255,20 @@ void mypretty_pretty::printSubroutineDec(){
 void mypretty_pretty::printParameterList(){
 
 	if(token!=")"){
-		printType();
-		printVarName();
-		while(have(",")){
-			printType();
-			printVarName();
+		nextToken();
+		string save=tokenvalue;
+		nextToken();
+		vars.insert(pair<string,string>(tokenvalue,savedtokenvalue));
+		nextToken();
+		while(tokenvalue==","){
+			vars.insert(pair<string,string>(tokenvalue,save));
 		}
+		nextToken();
+	}
+	for(map<string,string>::iterator it=statics.begin(); it!=statics.end();++it){
+		cout<<" ";
+		cout<<it->second<<' '<<it->first<<" ;";
+		finishLine();
 	}
 }
 
@@ -204,19 +286,28 @@ void mypretty_pretty::printSubroutineBody(){
 //prints a varDec based on the BNF
 void mypretty_pretty::printVarDec(){ /////?????????????????
 
-	mustbe("var");
-	printType();
-	printVarName();
-	while(have(",")){
-		printVarName();
+	while(tokenvalue=="var"){
+		nextToken();
+		string save=tokenvalue;
+		nextToken();
+		vars.insert(pair<string,string>(tokenvalue,savedtokenvalue));
+		nextToken();
+		while(tokenvalue==","){
+			vars.insert(pair<string,string>(tokenvalue,save));
+		}
+		nextToken();
 	}
-	mustbe(";");
+	for(map<string,string>::iterator it=statics.begin(); it!=statics.end();++it){
+		cout<<"var ";
+		cout<<it->second<<' '<<it->first<<" ;";
+		finishLine();
+	}
 }
 
 //prints a className based on the BNF
 void mypretty_pretty::printClassName(){
 
-	mustbe("identifier");////??????????????????
+	mustbe("identifier");
 }
 
 //prints a subroutineName based on the BNF
@@ -387,19 +478,19 @@ void mypretty_pretty::printUnaryOp(){
 void mypretty_pretty::printKeywordConstant(){
 
 	if(tokenvalue=="true"){
-		cout<<tokenvalue
+		cout<<tokenvalue;
 		nextToken();
 	}
 	else if(tokenvalue=="false"){
-		cout<<
+		cout<<tokenvalue;
 		nextToken();
 	}
 	else if(tokenvalue=="null"){
-		cout<<
+		cout<<tokenvalue;
 		nextToken();
 	}
 	else{
-		cout<<
+		cout<<tokenvalue;
 		nextToken();
 	}
 }

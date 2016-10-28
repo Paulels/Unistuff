@@ -5,12 +5,13 @@
 #include <ctype.h>
 #include <vector>
 #include <utility>
+#include <map>
 #include "jackxml.h"
 #include "jacktokens.h"
 #ifndef MYPRETTY_PRETTY_H
 #define MYPRETTY_PRETTY_H
 
-//Class that will pretty a given jack program using a tokenised version of it
+//Class that will print a given jack program using a tokenised version of it
 
 class mypretty_pretty{
 
@@ -22,45 +23,52 @@ class mypretty_pretty{
 		std::string tokenclass;
 		std::string tokenvalue;
 		int indentationCount;
+		int savedIndentationCount;
 		int lineCount;
+		std::map<std::string,std::string> statics;
+		std::map<std::string,std::string> fields;
+		std::map<std::string,std::string> vars;
+		std::string savedtoken;
+		std::string savedtokenclass;
+		std::string savedtokenvalue;
 
 		bool have(std::string expected);
 		void mustbe(std::string expected);
 		void nextToken();
 		void lookAhead();
 		void finishLine();
-		void indentation()
+		void indentation();
 
-		void prettyClass();
-		void prettyClassVarDec();
-		void prettyType();
-		void prettySubroutineDec();
-		void prettyParameterList();
-		void prettySubroutineBody();
-		void prettyVarDec();
-		void prettyClassName();
-		void prettySubroutineName();
-		void prettyVarName();
-		void prettyStatements();
-		void prettyStatement();
-		void prettyWhileStatement();
-		void prettyIfStatement();
-		void prettyLetStatement();
-		void prettyDoStatement();
-		void prettyReturnStatement();
-		void prettyExpression();
-		void prettyTerm();
-		void prettyExpressionList();
-		void prettyOp();
-		void prettyUnaryOp();
-		void prettyKeywordConstant();
+		void printClass();
+		void printClassVarDec();
+		void printType();
+		void printSubroutineDec();
+		void printParameterList();
+		void printSubroutineBody();
+		void printVarDec();
+		void printClassName();
+		void printSubroutineName();
+		void printVarName();
+		void printStatements();
+		void printStatement();
+		void printWhileStatement();
+		void printIfStatement();
+		void printLetStatement();
+		void printDoStatement();
+		void printReturnStatement();
+		void printExpression();
+		void printTerm();
+		void printExpressionList();
+		void printOp();
+		void printUnaryOp();
+		void printKeywordConstant();
 
 	public:
 
 		mypretty_pretty();
 		~mypretty_pretty();
 
-		void prettyProgram();
+		void printProgram();
 
 };
 #endif //MYPRETTY_PRETTY_H
